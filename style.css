@@ -1,0 +1,177 @@
+html, body {
+  height:100%;
+}
+
+body {
+  margin:0px;
+  font-size:100%;
+	font-family: 'Slabo 27px', serif;
+	background-color: #cccccc00;
+}
+
+.flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.air {clear:both;height:10px;}
+
+h4{
+	font-size:1rem;
+}
+
+#burger{
+	width:40px;
+	height: 35px;
+	position: fixed;
+	border:0;
+	top:20px;
+	right:20px;
+	border-top: 5px solid #fff;
+	background: transparent;
+	transition: .3s transform linear;
+	cursor: pointer;
+	z-index: 1;
+}
+
+#burger::before, #burger::after{
+	position: absolute;
+	top:0;
+	left:0;
+	content: '';
+	width:100%;
+	border-top:5px solid #fff;
+	transform: translateY(10px);
+}
+
+#burger::after{
+	transform: translateY(25px);
+	transition: .3s transform linear;
+}
+
+#burger:focus{
+	transform: rotate(45deg) translateY(5px);
+	border:none;
+	cursor: default;
+}
+
+#burger:focus::after{
+	transform: rotate(-90deg) translateX(-10px);
+
+}
+
+button:active { outline: none } 
+button:focus { outline:none }
+
+#top {
+	height:100%;
+	background-image: url("img/starrynight.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#top-middle{
+	color:#fff;
+	padding:20px;
+}
+
+#top-text h1{
+	font-size: 3.5rem;
+	text-shadow: 2px .7px 3px #c56913;
+}
+
+#top-go-down{
+	margin-top:50px;
+}
+
+#top-go-down h2{
+	font-size: 2rem;
+	text-shadow: .7px .7px 2px #c56913;
+}
+
+#snake{
+	background-color: #fff;
+	height: 100%;
+	position: relative;
+	padding: 0;
+}
+
+#snake-button{
+	color:#373737;
+	font-size: 2em;
+	border: 3px dotted #c56913;
+	min-width: 50px;
+	padding:30px;
+	position: absolute;
+	top:40%;
+	left:40%;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+#about{
+	background-color: #fff;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#about-photo{
+	height: 50%;
+	padding:0 100px ;
+}
+
+#about-photo img{
+	max-height:100%;
+}
+
+#about-text{
+	max-width:40%;
+}
+
+#projects{
+	background-color: #fff;
+	height: 100%;
+}
+
+#form{
+	background-color: #434343;
+	height: 100%;
+}
+
+#footer{
+	background-color: #000;
+	height: 150px;
+}
+
+#ficon-container{
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	padding:20px 0;
+}
+
+.ficon{
+	cursor: pointer;
+	height:60px;
+	margin:0 15px;
+	width:60px;
+	background-image: url("img/git.png");
+	background-position: center;
+	background-size: cover;
+}
+
+#footer-text{
+	color: #2b2b2b;
+	font-size:15px;
+}
+
+#footer-text span{
+	color:#c56913;
+}
