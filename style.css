@@ -100,7 +100,7 @@ button:focus { outline:none }
 }
 
 #snake-button{
-	color:#373737;
+	color:#434343;
 	font-size: 2em;
 	border: 3px dotted #c56913;
 	min-width: 50px;
@@ -143,6 +143,10 @@ button:focus { outline:none }
 #form{
 	background-color: #434343;
 	height: 100%;
+}
+
+#form-container{
+	
 }
 
 #footer{

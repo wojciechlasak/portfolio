@@ -86,7 +86,7 @@ down.src = "audio/down.mp3";
 	}
 					
 	function redraw() {
-		ctx.fillStyle = '#757575';
+		ctx.fillStyle = '#434343';
 		ctx.fillRect(0,0,$(window).width(),$(window).height());
 		ctx.stroke();
 	}
@@ -221,7 +221,7 @@ class Game{
 
 			//draw ground
 			ctx.beginPath();
-			ctx.fillStyle = '#757575';
+			ctx.fillStyle = '#434343';
 			ctx.fillRect(0,0,$(window).width(),$(window).height());
 			ctx.stroke();
 
