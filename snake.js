@@ -96,7 +96,7 @@ down.src = "audio/down.mp3";
 	// then draws the new borders accordingly.
 	function resizeCanvas() {
 		cvs.width = $(window).width();
-		cvs.height = $(window).height();
+		cvs.height = $(window).height()-3;
 		box = Math.floor($(window).height()/10);
 		console.log(box);
 		redraw();
