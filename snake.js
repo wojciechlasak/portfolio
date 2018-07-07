@@ -115,7 +115,7 @@ $("#snake-button").click(function(){
 
 window.addEventListener("keydown", function(e) {
     // space and arrow keys
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    if([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
     }
 }, false);
@@ -146,9 +146,9 @@ class Game{
 	}
 
 	pauseGame(event){
-		if((event.keyCode == 80 || event.keyCode==32)&& this.pause==false){
+		if((event.keyCode == 80)&& this.pause==false){
 			this.pause=!this.pause;
-		}else if((event.keyCode == 80 || event.keyCode==32)&& this.pause==true){
+		}else if((event.keyCode == 80)&& this.pause==true){
 			this.pause=!this.pause;
 		}		
 		
