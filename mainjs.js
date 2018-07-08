@@ -1,5 +1,26 @@
 var $=jQuery;
 
+//nav
+$('#burger').focus(function(){
+  $("#nav").css({"right": "0"});
+  $('#burger').focusout(function(){
+    $("#nav").css({"right": "-200px"});
+  });
+});
+
+$('.nav-link').click(function(e){
+	e.preventDefault();
+	$('html,body').animate({
+		'scrollTop'	:	$($(this).children('a').attr('href')).offset().top
+	});
+});
+
+/*$('#burger').focus(function(){
+  $("#nav").addClass('show');
+  $('#burger').focusout(function(){
+    $("#nav").removeClass("show");
+  });
+});*/
 //form
 
 $('#message').focus(function(){
