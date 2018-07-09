@@ -85,6 +85,10 @@ $('#message').focus(function(){
 //about
 
 $('.about-bold:eq(0)').click(function(){
-    $("#about-photo img").attr('src','img/wojtek2.jpg');
-    $(".about-bold:eq(0)").css({'color': '#875a31', 'font-weight':'500'})
+    $("#about-photo img").attr('src','img/wojtek2.jpg')
+    $(".about-bold:eq(0)").css({'color': '#875a31', 'font-weight':'500', 'cursor':'default'})
+    setTimeout(()=>{ 
+      $("#about-photo img").attr('src','img/wojtek.jpg');
+      $(".about-bold:eq(0)").css({'color': '#c56913', 'font-weight':'700','cursor':'pointer'})
+    }, 5000);
 });

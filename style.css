@@ -307,9 +307,33 @@ button:focus { outline:none }
 	height:60px;
 	margin:0 15px;
 	width:60px;
-	background-image: url("img/git.png");
 	background-position: center;
 	background-size: cover;
+	transition: .3s;
+}
+
+.ficon:nth-child(1){
+	background-image: url("img/animal.png");
+}
+
+.ficon:nth-child(2){
+	background-image: url("img/insta.png");
+}
+
+.ficon:nth-child(3){
+	background-image: url("img/linkedin.png");
+}
+
+.ficon:nth-child(1):hover{
+	background-image: url("img/animal2.png");
+}
+
+.ficon:nth-child(2):hover{
+	background-image: url("img/insta2.png");
+}
+
+.ficon:nth-child(3):hover{
+	background-image: url("img/linkedin2.png");
 }
 
 #footer-text{
