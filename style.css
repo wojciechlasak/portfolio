@@ -177,6 +177,7 @@ button:focus { outline:none }
 	left:40%;
 	background-color: #fff;
 	cursor: pointer;
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 #about{
@@ -196,10 +197,12 @@ button:focus { outline:none }
 #about-photo{
 	height: 90%;
 	padding:0 100px ;
+
 }
 
 #about-photo img{
 	max-height:100%;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #about-text{
@@ -312,27 +315,27 @@ button:focus { outline:none }
 	transition: .3s;
 }
 
-.ficon:nth-child(1){
+a:nth-child(1) .ficon{
 	background-image: url("img/animal.png");
 }
 
-.ficon:nth-child(2){
+a:nth-child(2) .ficon{
 	background-image: url("img/insta.png");
 }
 
-.ficon:nth-child(3){
+a:nth-child(3) .ficon{
 	background-image: url("img/linkedin.png");
 }
 
-.ficon:nth-child(1):hover{
+a:nth-child(1):hover .ficon{
 	background-image: url("img/animal2.png");
 }
 
-.ficon:nth-child(2):hover{
+a:nth-child(2):hover .ficon{
 	background-image: url("img/insta2.png");
 }
 
-.ficon:nth-child(3):hover{
+a:nth-child(3):hover .ficon{
 	background-image: url("img/linkedin2.png");
 }
 

@@ -92,3 +92,6 @@ $('.about-bold:eq(0)').click(function(){
       $(".about-bold:eq(0)").css({'color': '#c56913', 'font-weight':'700','cursor':'pointer'})
     }, 5000);
 });
+
+//scroll
+
