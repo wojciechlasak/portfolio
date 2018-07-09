@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<!--<?php 
+if(isset($_POST['submit'])){
+    $to = "wojtekl62699@gmail.com"; // this is your Email address
+    $from = $_POST['mail']; // this is the sender's Email address
+    $name = $_POST['name'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $name ." wrote the following:" . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    mail($to,$subject,$message,$headers);
+    echo "Mail Sent. Thank you " . $name . ", I will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>-->
 
 <html lang="pl">
 
@@ -52,8 +66,10 @@
                     </div>
                     <div id="top-go-down" class="flex">
                         <h3>Poznajmy się</h3>
-                        <img src="img/mouse2.png">
-                        <h4>scroll</h4>
+                        <div id="scroll" class="flex">
+                            <img src="img/mouse2.png">
+                            <h4>scroll</h4>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,11 +98,11 @@
 
         <div id="form" class="container-fluid flex separator">
             <h2>Kontakt</h2>
-            <form id="form-container" class="flex">
+            <form id="form-container" class="flex" method="post">
                 <input id="name" placeholder="Imię" type="text" name="name">
                 <input id="mail" placeholder="Email" type="text" name="mail">
                 <textarea id="message" placeholder="Wiadomość" type="text" name="message"></textarea>
-                <input id="submit-button" type="submit" value="WYŚLIJ">
+                <input id="submit-button" type="submit" name="submit" value="WYŚLIJ">
             </form>
         </div>
 
