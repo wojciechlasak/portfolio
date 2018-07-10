@@ -97,7 +97,7 @@ down.src = "audio/down.mp3";
 	function resizeCanvas() {
 		cvs.width = $("#snake-game").width();
 		cvs.height = $("#skills-container").height();
-		box = Math.floor($(window).height()/10);
+		box = Math.floor($(window).height()/12);
 		console.log(box);
 		redraw();
 	}
@@ -106,8 +106,8 @@ down.src = "audio/down.mp3";
 
 //startGame
 
-$("#snake-button").click(function(){
-	$("#snake-button").hide();
+$(".snake-button:eq(0)").click(function(){
+	$("#snake-button-container").hide();
 	p=new Game();
 });
 

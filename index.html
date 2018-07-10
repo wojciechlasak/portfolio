@@ -66,13 +66,20 @@ if(isset($_POST['submit'])){
         <!--Skills-->
         <div id="snake" class="container-fluid separator flex">
             <div id="skills-container" class="row justify-content-center align-items-center">
-                <canvas id="snake-game" class="col-sm-7 mr-10"></canvas>
-                <div id="skills-box" class="col-sm-5 flex">
-                    <h2>Skills</h2>
-                    
+                <canvas id="snake-game" class="col-sm-7 mr-3"></canvas>
+                <div id="skills-box" class="col-sm-4 flex">
+                   <div class="skills-partition"></div>
+                   <div class="skills-partition"></div>
+                   <div class="skills-partition"></div>
                 </div>
             </div>
-            <div id="snake-button">Rozpocznij grę</div>
+            <div id="snake-button-container">
+                <div class="snake-button flex">
+                    Start Game
+                    <h6>WSDA or arrow , p-pause</h6>
+                </div>
+                <div class="snake-button">skip</div>
+            </div>
         </div>
 
         <!--About-->

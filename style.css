@@ -57,6 +57,12 @@ h5{
 	font-size:15px;
 }
 
+h6{
+	color:#bfbfbf;
+	font-size:0.8rem;
+	text-transform: lowercase;
+}
+
 p{
 	color:#ccc;
 }
@@ -188,29 +194,60 @@ button:focus { outline:none }
 #snake-game{
 	background-color:#5c5c5c;
 	padding:0;
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 #skills-box{
-	background-color: #fff;
+	background-color: #5c5c5c;
+	height: 80%;
+	display:flex;
+	flex-direction: row;
+	padding:0;
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+
 }
 
-#snake-button{
-	color:#434343;
-	font-size: 2em;
-	text-align: center;
-	border: 3px dotted #c56913;
-	min-width: 50px;
-	max-width:300px;
-	padding:30px;
+.skills-partition{
+	height: 100%;
+	width:33.3333%;
+	border:3px solid #a5682f;
+	border-top: none;
+}
+
+.skills-partition:nth-child(1){
+	border-left:5px solid #a5682f;
+	border-right:none;
+}
+
+.skills-partition:nth-child(3){
+	border-right:5px solid #a5682f;
+	border-left:none;
+}
+
+#snake-button-container{
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
-	left: 0;
-	right: 0;
+}
+
+.snake-button{
+	color:#434343;
+	font-size: 1.5em;
+	text-align: center;
+	border: 3px dotted #c56913;
+	min-width: 50px;
+	max-width:200px;
 	background-color: #fff;
+	padding:30px;
+	text-transform: uppercase;
 	cursor: pointer;
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
+
+.snake-button:nth-child(1){
+	margin-bottom:15px;
+}
+
 
 /*About*/
 
