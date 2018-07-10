@@ -57,6 +57,10 @@ h5{
 	font-size:15px;
 }
 
+p{
+	color:#ccc;
+}
+
 /*Navigation*/
 
 #burger{
@@ -166,15 +170,6 @@ button:focus { outline:none }
 	padding:20px;
 }
 
-#top-go-down{
-	margin-top:50px;
-}
-
-#top-go-down h3{
-	font-size: 2rem;
-	text-shadow: .7px .7px 2px #c56913;
-}
-
 /*Skills*/
 
 #snake{
@@ -211,27 +206,14 @@ button:focus { outline:none }
 
 #about-container{
 	height: 60%;
-	display: flex;
-	flex-wrap: wrap-reverse;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
 }
 
 #about-photo{
-	height: 90%;
-	padding:0 100px ;
-
+	width:40%;
 }
 
-#about-photo img{
-	max-height:100%;
+img{
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-#about-text{
-	color:#ccc;
-	max-width:40%;
 }
 
 .about-bold{

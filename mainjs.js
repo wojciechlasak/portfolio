@@ -85,10 +85,19 @@ $('#message').focus(function(){
 //about
 
 $('.about-bold:eq(0)').click(function(){
-    $("#about-photo img").attr('src','img/wojtek2.jpg')
+    $("#about-container img").attr('src','img/wojtek2.jpg')
     $(".about-bold:eq(0)").css({'color': '#875a31', 'font-weight':'500', 'cursor':'default'})
     setTimeout(()=>{ 
-      $("#about-photo img").attr('src','img/wojtek.jpg');
+      $("#about-container img").attr('src','img/wojtek.jpg');
       $(".about-bold:eq(0)").css({'color': '#c56913', 'font-weight':'700','cursor':'pointer'})
     }, 5000);
 });
+
+window.addEventListener('resize',resizeAbout);
+window.addEventListener('load',resizeAbout);
+
+function resizeAbout(){
+  if($(window).width()<600){
+    $("#about-container").css({"display":"block"});
+  }else $("#about-container").css({"display":"flex"});
+}
