@@ -86,8 +86,8 @@ down.src = "audio/down.mp3";
 	}
 					
 	function redraw() {
-		ctx.fillStyle = '#434343';
-		ctx.fillRect(0,0,$(window).width(),$(window).height());
+		ctx.fillStyle = '#5c5c5c';
+		ctx.fillRect(0,0,$("#snake-game").width(),$("#skills-container").height());
 		ctx.stroke();
 	}
 
@@ -95,8 +95,8 @@ down.src = "audio/down.mp3";
 	// Resets the canvas dimensions to match window,
 	// then draws the new borders accordingly.
 	function resizeCanvas() {
-		cvs.width = $(window).width();
-		cvs.height = $(window).height()-3;
+		cvs.width = $("#snake-game").width();
+		cvs.height = $("#skills-container").height();
 		box = Math.floor($(window).height()/10);
 		console.log(box);
 		redraw();
@@ -126,12 +126,12 @@ class Game{
 		this.pause=false;
 		this.snake=[];
 		this.snake[0]={
-			x: $(window).width()/2,
-			y: $(window).height()/2
+			x: $("#snake-game").width()/2,
+			y: $("#skills-container").height()/2
 		}
 		this.food = {
-			x:Math.floor(Math.random()*$(window).width()),
-			y:Math.floor(Math.random()*$(window).height()),
+			x:Math.floor(Math.random()*$("#snake-game").width()),
+			y:Math.floor(Math.random()*$("#skills-container").height()),
 			src:skills[0],
 		};
 		this.score=0;
@@ -183,8 +183,8 @@ class Game{
 	newFood(){
 		do{
 			this.food = {
-				x:Math.floor(Math.random()*$(window).width()),
-				y:Math.floor(Math.random()*$(window).height()),
+				x:Math.floor(Math.random()*$("#snake-game").width()),
+				y:Math.floor(Math.random()*$("#skills-container").height()),
 				src:skills[Math.floor(Math.random()*10%10)],
 			};
 		}while(this.check(this.food.x,this.food.y));
@@ -207,8 +207,8 @@ class Game{
 		for(let i=0;i<this.snake.length;i++){
 			if(a < this.snake[i].x+box && a+box > this.snake[i].x &&
 				b < this.snake[i].y+box && b+box > this.snake[i].y) flag=true;
-			if(a > $(window).width()-box ||
-				b > $(window).height()-box) flag=true;
+			if(a > $("#snake-game").width()-box ||
+				b > $("#skills-container").height()-box) flag=true;
 		}
 		
 		return flag;
@@ -221,8 +221,8 @@ class Game{
 
 			//draw ground
 			ctx.beginPath();
-			ctx.fillStyle = '#434343';
-			ctx.fillRect(0,0,$(window).width(),$(window).height());
+			ctx.fillStyle = '#5c5c5c';
+			ctx.fillRect(0,0,$("#snake-game").width(),$("#skills-container").height());
 			ctx.stroke();
 
 			//draw snake
@@ -282,10 +282,10 @@ class Game{
 			}
 
 			//edges
-			if(newHead.x<0) newHead.x=$(window).width()-box;
-			if(newHead.x+box > $(window).width()) newHead.x=0;
-			if(newHead.y < 0) newHead.y=$(window).height()-box;
-			if(newHead.y+box>$(window).height())newHead.y=0
+			if(newHead.x<0) newHead.x=$("#snake-game").width()-box;
+			if(newHead.x+box > $("#snake-game").width()) newHead.x=0;
+			if(newHead.y < 0) newHead.y=$("#skills-container").height()-box;
+			if(newHead.y+box>$("#skills-container").height())newHead.y=0
 
 			//game over
 			/*if( this.collision(newHead,this.snake)){

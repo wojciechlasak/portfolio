@@ -97,7 +97,7 @@ window.addEventListener('resize',resizeAbout);
 window.addEventListener('load',resizeAbout);
 
 function resizeAbout(){
-  if($(window).width()<600){
+  if($(document).width()<=768){
     $("#about-container").css({"display":"block"});
   }else $("#about-container").css({"display":"flex"});
 }

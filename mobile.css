@@ -1,4 +1,13 @@
-@media screen and (max-width: 600px){
+@media screen and (max-width: 768px){
+    #about-container{
+        height: 80%;
+    }
+    #about-photo{
+        margin-right:0;
+    }
+}
+
+@media screen and (max-width: 576px){
     h1{
         font-size:1.8rem;
     }
@@ -7,10 +16,6 @@
     }
     h3{
         font-size: 1.5rem;
-    }
-
-    #about-container{
-        height: 80%;
     }
     
 }

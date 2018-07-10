@@ -36,7 +36,7 @@ h1{
 h2{
 	color:#fff;
 	font-size: 3rem;
-	margin-bottom:8%;
+	margin-bottom:5%;
 	border-bottom:3px solid #c56913;
 	text-shadow: .7px .7px 2px #c56913;
 	text-transform: uppercase;
@@ -113,7 +113,6 @@ button:focus { outline:none }
 	right:-200px;
 	border-left: 3px dotted #c56913;
 	z-index: 1;
-	/*display:none;*/
 	transition: 1s;
 }
 
@@ -173,10 +172,26 @@ button:focus { outline:none }
 /*Skills*/
 
 #snake{
-	background-color: #414141;
+	background-color: #434343;
 	height: 100%;
 	position: relative;
 	padding: 0;
+}
+
+#skills-container{
+	height:80%;
+	width:100%;
+	padding:0 40px;
+	margin-bottom:10px;
+}
+
+#snake-game{
+	background-color:#5c5c5c;
+	padding:0;
+}
+
+#skills-box{
+	background-color: #fff;
 }
 
 #snake-button{
@@ -200,7 +215,7 @@ button:focus { outline:none }
 /*About*/
 
 #about{
-	background-color:#414141;
+	background-color:#434343;
 	height: 100%;
 }
 
@@ -210,9 +225,10 @@ button:focus { outline:none }
 
 #about-photo{
 	width:40%;
+	margin-right:70px;
 }
 
-img{
+#about-photo img{
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -230,7 +246,7 @@ img{
 /*Projects*/
 
 #projects{
-	background-color: #414141;
+	background-color: #434343;
 	height: 100%;
 }
 
