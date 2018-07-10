@@ -27,6 +27,12 @@ body {
 
 }
 
+h1{
+	font-size: 3.5rem;
+	text-shadow: 2px .7px 3px #c56913;
+	text-align:center;
+}
+
 h2{
 	color:#fff;
 	font-size: 3rem;
@@ -36,9 +42,22 @@ h2{
 	text-transform: uppercase;
 }
 
+h3{
+	margin-top:50px;
+	font-size: 2rem;
+	text-shadow: .7px .7px 2px #c56913;
+}
+
 h4{
 	font-size:1rem;
 }
+
+h5{
+	color: #2b2b2b;
+	font-size:15px;
+}
+
+/*Navigation*/
 
 #burger{
 	width:40px;
@@ -131,6 +150,8 @@ button:focus { outline:none }
 	width:100%;
 }
 
+/*Home*/
+
 
 #top {
 	height:100%;
@@ -145,11 +166,6 @@ button:focus { outline:none }
 	padding:20px;
 }
 
-#top-text h1{
-	font-size: 3.5rem;
-	text-shadow: 2px .7px 3px #c56913;
-}
-
 #top-go-down{
 	margin-top:50px;
 }
@@ -158,6 +174,8 @@ button:focus { outline:none }
 	font-size: 2rem;
 	text-shadow: .7px .7px 2px #c56913;
 }
+
+/*Skills*/
 
 #snake{
 	background-color: #414141;
@@ -169,16 +187,22 @@ button:focus { outline:none }
 #snake-button{
 	color:#434343;
 	font-size: 2em;
+	text-align: center;
 	border: 3px dotted #c56913;
 	min-width: 50px;
+	max-width:300px;
 	padding:30px;
 	position: absolute;
-	top:40%;
-	left:40%;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
 	background-color: #fff;
 	cursor: pointer;
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
+
+/*About*/
 
 #about{
 	background-color:#414141;
@@ -221,10 +245,25 @@ button:focus { outline:none }
 	font-weight:500;
 }
 
+/*Projects*/
+
 #projects{
 	background-color: #414141;
 	height: 100%;
 }
+
+#projects-container{
+	display:flex;
+	flex-direction: row;
+	width:100%;
+}
+
+#projects-container-small{
+	width:50%;
+	
+}
+
+/*Contact*/
 
 #form{
 	background-color: #434343;
@@ -292,6 +331,7 @@ button:focus { outline:none }
 	justify-content: flex-start;
 }
 
+/*Footer*/
 
 #footer{
 	background-color: #000;
@@ -339,11 +379,6 @@ a:nth-child(3):hover .ficon{
 	background-image: url("img/linkedin2.png");
 }
 
-#footer-text{
-	color: #2b2b2b;
-	font-size:15px;
-}
-
-#footer-text span{
+h5 span{
 	color:#c56913;
 }

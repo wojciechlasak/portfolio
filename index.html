@@ -29,6 +29,7 @@ if(isset($_POST['submit'])){
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Slabo+27px&amp;subset=latin-ext" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="mobile.css">
 		<!--[if lt IE 9]>
 			<script src="/bundles/mzsite/js/html5shiv.min.js"></script>
 			<script src="/bundles/mzsite/js/respond.min.js"></script>
@@ -37,49 +38,38 @@ if(isset($_POST['submit'])){
 	</head>
 	
 	<body>
+        <!--Navigation-->
         <button id="burger"></button>
         <div id="nav">
             <div id="nav-container" class="flex">
-                <div class='nav-link'>
-                    <a href="#top">Home</a>
-                </div>
-                <div class='nav-link'>
-                    <a href="#snake">Skills</a>
-                </div>
-                <div class='nav-link'>
-                    <a href="#about">About</a>
-                </div>
-                <div class='nav-link'>
-                    <a href="#projects">Projects</a>
-                </div>
-                <div class='nav-link'>
-                    <a href="#form">Contact</a>
-                </div>
+                <div class='nav-link'><a href="#top">Home</a></div>
+                <div class='nav-link'><a href="#snake">Skills</a></div>
+                <div class='nav-link'><a href="#about">About</a></div>
+                <div class='nav-link'><a href="#projects">Projects</a></div>
+                <div class='nav-link'><a href="#form">Contact</a></div>
             </div>
         </div>
+
+        <!--Home-->
         <div id="top" class="container-fluid flex">
-            <div class="row">
-                <div id="top-middle" class="flex">
-                    <div id="top-text" class="flex">
-                        <h1>Cześć, jestem Wojciech Lasak</h1>
-                        <h1>Web developer</h1>
-                    </div>
-                    <div id="top-go-down" class="flex">
-                        <h3>Poznajmy się</h3>
-                        <div id="scroll" class="flex">
-                            <img src="img/mouse2.png">
-                            <h4>scroll</h4>
-                        </div>
-                    </div>
+            <div id="top-middle" class="flex">
+                <h1>Cześć, jestem Wojciech Lasak</h1>
+                <h1>Web developer</h1>
+                <h3>Poznajmy się</h3>
+                <div id="scroll" class="flex">
+                    <img src="img/mouse2.png">
+                    <h4>scroll</h4>
                 </div>
             </div>
         </div>
 
-        <div id="snake" class="container-fluid separator">
+        <!--Skills-->
+        <div id="snake" class="container-fluid separator flex">
                 <canvas id="snake-game" width="1024" height="640"></canvas>
                 <div id="snake-button">Rozpocznij grę</div>
         </div>
 
+        <!--About-->
         <div id="about" class="container-fluid flex separator">
             <h2>o mnie</h2>
             <div id="about-container">
@@ -92,10 +82,22 @@ if(isset($_POST['submit'])){
             </div>
         </div>
 
+        <!--Projects-->
         <div id="projects" class="container-fluid flex separator">
             <h2>projekty</h2>
+            <div id="project-container"> 
+                <div id="project-small-container">
+                    <div class="project-small">
+                    </div>
+                    <div class="project-small">
+                    </div>
+                </div>
+                <div id="project-big">
+                </div>
+            </div>
         </div>
 
+        <!--Contact-->
         <div id="form" class="container-fluid flex separator">
             <h2>Kontakt</h2>
             <form id="form-container" class="flex" method="post">
@@ -106,15 +108,14 @@ if(isset($_POST['submit'])){
             </form>
         </div>
 
+        <!--Footer-->
         <div id="footer" class="container-fluid flex">
             <div id="ficon-container">
                 <a target="_blank" href="https://github.com/wojciechlasak/"><div class="ficon"></div></a>
                 <a target="_blank" href="https://www.instagram.com/wojciech_lasak/"><div class="ficon"></div></a>
                 <a  target="_blank"href="https://www.linkedin.com/in/wojciech-lasak-b80a63159/"><div class="ficon"></div></a>
             </div>
-            <div id="footer-text">
-                Wojciech Lasak <span>2018</span>
-            </div>
+            <h5>Wojciech Lasak <span>2018</span></h5>
         </div>
 
 
