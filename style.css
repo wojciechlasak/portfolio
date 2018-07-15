@@ -13,11 +13,16 @@ body {
 	background-color: #cccccc00;
 }
 
-.flex {
+.flexc {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.flexr{
+	display: flex;
+	flex-direction: row;
 }
 
 .air {clear:both;height:10px;}
@@ -25,6 +30,15 @@ body {
 .separator{
 	border-top:3px dotted #c56913;
 
+}
+
+.abs{
+	position: absolute;
+}
+
+.part{
+	background-color: #434343;
+	height: 100%;
 }
 
 h1{
@@ -69,7 +83,7 @@ p{
 
 /*Navigation*/
 
-#burger{
+.burger{
 	width:40px;
 	height: 35px;
 	position: fixed;
@@ -83,7 +97,7 @@ p{
 	z-index: 2;
 }
 
-#burger::before, #burger::after{
+.burger::before, .burger::after{
 	position: absolute;
 	top:0;
 	left:0;
@@ -93,18 +107,18 @@ p{
 	transform: translateY(10px);
 }
 
-#burger::after{
+.burger::after{
 	transform: translateY(25px);
 	transition: .3s transform linear;
 }
 
-#burger:focus{
+.burger:focus{
 	transform: rotate(45deg) translateY(5px);
 	border:none;
 	cursor: default;
 }
 
-#burger:focus::after{
+.burger:focus::after{
 	transform: rotate(-90deg) translateX(-10px);
 }
 
@@ -163,14 +177,13 @@ button:focus { outline:none }
 
 
 #top {
-	height:100%;
 	background-image: url("img/starrynight.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-#top-middle{
+.top-container{
 	color:#fff;
 	padding:20px;
 }
@@ -178,8 +191,6 @@ button:focus { outline:none }
 /*Skills*/
 
 #snake{
-	background-color: #434343;
-	height: 100%;
 	position: relative;
 	padding: 0;
 }
@@ -198,30 +209,55 @@ button:focus { outline:none }
 }
 
 #skills-box{
-	background-color: #5c5c5c;
 	height: 80%;
-	display:flex;
-	flex-direction: row;
 	padding:0;
-	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .skills-partition{
 	height: 100%;
 	width:33.3333%;
-	border:3px solid #a5682f;
-	border-top: none;
+	border:2px solid #212121;
+	padding:3px;
+	position: relative;
+	justify-content: flex-end;
+	margin:0 5px;
 }
 
-.skills-partition:nth-child(1){
-	border-left:5px solid #a5682f;
+/*.skills-partition:nth-child(1){
+	/*border-left:5px solid #a5682f;
 	border-right:none;
 }
 
 .skills-partition:nth-child(3){
-	border-right:5px solid #a5682f;
+	/*border-right:5px solid #a5682f;s
 	border-left:none;
+}*/
+
+.battery-head{
+	top:-25px;
+	height: 25px;
+	width:50%;
+	background-color: #212121;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.battery-part{
+	width:100%;
+	margin:2px 0;
+	height:10%;
+}
+
+.battery-green{
+	background-color: #649655;
+}
+
+.battery-yellow{
+	background-color: #c1b051;
+}
+
+.battery-red{
+	background-color: #af6057;
 }
 
 #snake-button-container{
@@ -251,21 +287,16 @@ button:focus { outline:none }
 
 /*About*/
 
-#about{
-	background-color:#434343;
-	height: 100%;
-}
-
 #about-container{
 	height: 60%;
 }
 
-#about-photo{
+.about-photo{
 	width:40%;
 	margin-right:70px;
 }
 
-#about-photo img{
+.about-photo img{
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -282,14 +313,7 @@ button:focus { outline:none }
 
 /*Projects*/
 
-#projects{
-	background-color: #434343;
-	height: 100%;
-}
-
 #projects-container{
-	display:flex;
-	flex-direction: row;
 	width:100%;
 }
 
@@ -299,12 +323,6 @@ button:focus { outline:none }
 }
 
 /*Contact*/
-
-#form{
-	background-color: #434343;
-	height: 100%;
-	color:#5c5c5c;
-}
 
 #form-container{
 	width:100%;
@@ -359,7 +377,7 @@ button:focus { outline:none }
 	border-radius:5px;
 }
 
-#form #submit-button:hover{
+#form input[type=submit]:hover{
 	background-color: #c56913;
 	color:#fffc;
 	font-weight: 500;
@@ -374,8 +392,6 @@ button:focus { outline:none }
 }
 
 #ficon-container{
-	display:flex;
-	flex-direction: row;
 	justify-content: center;
 	padding:20px 0;
 }

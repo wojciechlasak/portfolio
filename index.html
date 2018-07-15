@@ -39,9 +39,9 @@ if(isset($_POST['submit'])){
 	
 	<body>
         <!--Navigation-->
-        <button id="burger"></button>
+        <button class="burger"></button>
         <div id="nav">
-            <div id="nav-container" class="flex">
+            <div id="nav-container" class="flexc">
                 <div class='nav-link'><a href="#top">Home</a></div>
                 <div class='nav-link'><a href="#snake">Skills</a></div>
                 <div class='nav-link'><a href="#about">About</a></div>
@@ -51,12 +51,12 @@ if(isset($_POST['submit'])){
         </div>
 
         <!--Home-->
-        <div id="top" class="container-fluid flex">
-            <div id="top-middle" class="flex">
+        <div id="top" class="container-fluid flexc part">
+            <div class="top-container flexc">
                 <h1>Cześć, jestem Wojciech Lasak</h1>
                 <h1>Web developer</h1>
                 <h3>Poznajmy się</h3>
-                <div id="scroll" class="flex">
+                <div id="scroll" class="flexc">
                     <img src="img/mouse2.png">
                     <h4>scroll</h4>
                 </div>
@@ -64,17 +64,45 @@ if(isset($_POST['submit'])){
         </div>
 
         <!--Skills-->
-        <div id="snake" class="container-fluid separator flex">
+        <div id="snake" class="container-fluid separator flexc part">
             <div id="skills-container" class="row justify-content-center align-items-center">
                 <canvas id="snake-game" class="col-sm-7 mr-3"></canvas>
-                <div id="skills-box" class="col-sm-4 flex">
-                   <div class="skills-partition"></div>
-                   <div class="skills-partition"></div>
-                   <div class="skills-partition"></div>
+                <div id="skills-box" class="col-sm-4 flexr">
+                   <div class="skills-partition flexc">
+                       <div class="battery-head abs"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <div class="battery-part battery-green"></div>
+                       <img class="abs"src="icon-black/html.png">
+                   </div>
+                   <div class="skills-partition flexc">
+                    <div class="battery-head abs"></div>
+                    <div class="battery-part battery-yellow"></div>
+                    <div class="battery-part battery-yellow"></div>
+                    <div class="battery-part battery-yellow"></div>
+                    <div class="battery-part battery-yellow"></div>
+                    <div class="battery-part battery-yellow"></div>
+                    <div class="battery-part battery-yellow"></div>
+                   </div>
+                   <div class="skills-partition flexc">
+                    <div class="battery-head abs"></div>
+                    <div class="battery-part battery-red"></div>
+                    <div class="battery-part battery-red"></div>
+                    <div class="battery-part battery-red"></div>
+                    <img class="abs"src="icon-black/html.png">
+                   </div>
                 </div>
             </div>
             <div id="snake-button-container">
-                <div class="snake-button flex">
+                <div class="snake-button flexc">
                     Start Game
                     <h6>WSDA or arrow , p-pause</h6>
                 </div>
@@ -83,10 +111,10 @@ if(isset($_POST['submit'])){
         </div>
 
         <!--About-->
-        <div id="about" class="container-fluid flex separator">
+        <div id="about" class="container-fluid flexc separator part">
             <h2>About</h2>
             <div id="about-container" class="row justify-content-center align-items-center">
-                <div id="about-photo" class="col-lg-2 col-md-3 col-sm-3">
+                <div class="about-photo col-lg-2 col-md-3 col-sm-3">
                     <img class="img-fluid float-left mr-3" src="img/wojtek.jpg" alt="">
                 </div>
                 <p class="col-lg-4 col-md-6 col-sm-12">Lorem <span class="about-bold">ipsum</span> dolor sit amet, <span class="about-bold">adipiscing</span> elit. Etiam ut ex mauris. Nulla ipsum lacus, commodo eu lobortis sit amet, facilisis eget massa. Duis consequat, felis sed vestibulum suscipit, est leo tincidunt felis, sed sollicitudin lorem elit et leo. Vestibulum imperdiet sodales nulla, sit amet facilisis tellus porttitor eget. Integer commodo dui leo, et porta lacus mollis nec. Nulla rhoncus rutrum tortor nec molestie. Maecenas maximus felis pellentesque ipsum pellentesque, a hendrerit velit fermentum. Nam fermentum mi facilisis, fermentum eros quis, vulputate libero. Aliquam mollis non orci scelerisque rutrum. Maecenas nec quam luctus, tincidunt lectus euismod, ullamcorper metus.</p>
@@ -94,9 +122,9 @@ if(isset($_POST['submit'])){
         </div>
 
         <!--Projects-->
-        <div id="projects" class="container-fluid flex separator">
+        <div id="projects" class="container-fluid flexc separator part">
             <h2>projects</h2>
-            <div id="project-container"> 
+            <div id="project-container" class="flexr"> 
                 <div id="project-small-container">
                     <div class="project-small">
                     </div>
@@ -109,25 +137,25 @@ if(isset($_POST['submit'])){
         </div>
 
         <!--Contact-->
-        <div id="form" class="container-fluid flex separator">
+        <div id="form" class="container-fluid flexc separator part">
             <h2>contact</h2>
-            <form id="form-container" class="flex" method="post">
+            <form id="form-container" class="flexc" method="post">
                 <input id="name" placeholder="Imię" type="text" name="name">
                 <input id="mail" placeholder="Email" type="text" name="mail">
                 <textarea id="message" placeholder="Wiadomość" type="text" name="message"></textarea>
-                <input id="submit-button" type="submit" name="submit" value="WYŚLIJ">
+                <input type="submit" name="submit" value="WYŚLIJ">
             </form>
         </div>
 
         <!--Footer-->
-        <div id="footer" class="container-fluid flex">
-            <div id="ficon-container">
+        <footer id="footer" class="container-fluid flexc">
+            <div id="ficon-container" class="flexr">
                 <a target="_blank" href="https://github.com/wojciechlasak/"><div class="ficon"></div></a>
                 <a target="_blank" href="https://www.instagram.com/wojciech_lasak/"><div class="ficon"></div></a>
                 <a  target="_blank"href="https://www.linkedin.com/in/wojciech-lasak-b80a63159/"><div class="ficon"></div></a>
             </div>
             <h5>Wojciech Lasak <span>2018</span></h5>
-        </div>
+        </footer>
 
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

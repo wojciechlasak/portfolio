@@ -2,7 +2,7 @@
     #about-container{
         height: 80%;
     }
-    #about-photo{
+    .about-photo{
         margin-right:0;
     }
 }

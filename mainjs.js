@@ -2,9 +2,9 @@ var $=jQuery;
 var scrolledTop = false;
 
 //nav
-$('#burger').focus(function(){
+$('.burger').focus(function(){
   $("#nav").css({"right": "0"});
-  $('#burger').focusout(function(){
+  $('.burger').focusout(function(){
     $("#nav").css({"right": "-200px"});
   });
 });
