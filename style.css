@@ -209,13 +209,26 @@ button:focus { outline:none }
 }
 
 #skills-box{
-	height: 80%;
+	height: 100%;
 	padding:0;
 }
 
-.skills-partition{
-	height: 100%;
-	width:33.3333%;
+.skills-heading{
+	margin-top:-5%;
+}
+
+.skills-box-part{
+	height:18%;
+	margin-bottom:8%;
+	align-items:center;
+}
+
+.icon-black{
+	padding:0;
+}
+
+.battery-container {
+	height: 80%;
 	border:2px solid #212121;
 	padding:3px;
 	position: relative;
@@ -223,19 +236,9 @@ button:focus { outline:none }
 	margin:0 5px;
 }
 
-/*.skills-partition:nth-child(1){
-	/*border-left:5px solid #a5682f;
-	border-right:none;
-}
-
-.skills-partition:nth-child(3){
-	/*border-right:5px solid #a5682f;s
-	border-left:none;
-}*/
-
 .battery-head{
-	top:-25px;
-	height: 25px;
+	top:-15px;
+	height: 15px;
 	width:50%;
 	background-color: #212121;
 	margin-left: auto;
@@ -245,7 +248,7 @@ button:focus { outline:none }
 .battery-part{
 	width:100%;
 	margin:2px 0;
-	height:10%;
+	height:25%;
 }
 
 .battery-green{
