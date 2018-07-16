@@ -123,6 +123,9 @@ $(".snake-button:eq(0)").click(function(){
 
 //skip game
 $(".snake-button:eq(1)").click(function(){
+	$("#snake-game").hide();
+	$("#skills-box").removeClass('col-sm-5');
+	$("#skills-box").addClass('col-sm-6');
 	$("#snake-button-container").hide();
 	skills.forEach((element)=>{
 		let image = $("#"+element.alt);
@@ -131,9 +134,12 @@ $(".snake-button:eq(1)").click(function(){
 			image.fadeIn(2000);
 		});
 		image.siblings().css({"color": "#111"});
-		//$("#"+element.alt+"-battery .battery-green").animate({backgroundColor: "#649655"}, 500);
-		$("#"+element.alt+"-battery .battery-green").css({"background-color": "#649655"});
-		$("#"+element.alt+"-battery .battery-yellow").css({"background-color": "#c1b051"});
+		$("#"+element.alt+"-battery .battery-green:eq(3)").css({"background-color": "#649655"});
+		setTimeout(()=>{$("#"+element.alt+"-battery .battery-green:eq(2)").css({"background-color": "#649655"})},300);
+		setTimeout(()=>{$("#"+element.alt+"-battery .battery-green:eq(1)").css({"background-color": "#649655"})},600);
+		setTimeout(()=>{$("#"+element.alt+"-battery .battery-green:eq(0)").css({"background-color": "#649655"})},900);
+		$("#"+element.alt+"-battery .battery-yellow:eq(1)").css({"background-color": "#c1b051"});
+		setTimeout(()=>{$("#"+element.alt+"-battery .battery-yellow:eq(0)").css({"background-color": "#c1b051"})},500);
 		$("#"+element.alt+"-battery .battery-red").css({"background-color": "#af6057"});
 	
 	});
@@ -232,8 +238,12 @@ class Game{
 				image.fadeIn(2000);
 			});
 			image.siblings().css({"color": "#111"});
-			$("#"+skill.alt+"-battery .battery-green").css({"background-color": "#649655"});
-			$("#"+skill.alt+"-battery .battery-yellow").css({"background-color": "#c1b051"});
+			$("#"+skill.alt+"-battery .battery-green:eq(3)").css({"background-color": "#649655"});
+			setTimeout(()=>{$("#"+skill.alt+"-battery .battery-green:eq(2)").css({"background-color": "#649655"})},300);
+			setTimeout(()=>{$("#"+skill.alt+"-battery .battery-green:eq(1)").css({"background-color": "#649655"})},600);
+			setTimeout(()=>{$("#"+skill.alt+"-battery .battery-green:eq(0)").css({"background-color": "#649655"})},900);
+			$("#"+skill.alt+"-battery .battery-yellow:eq(1)").css({"background-color": "#c1b051"});
+			setTimeout(()=>{$("#"+skill.alt+"-battery .battery-yellow:eq(0)").css({"background-color": "#c1b051"})},500);
 			$("#"+skill.alt+"-battery .battery-red").css({"background-color": "#af6057"});
 		}
 		
