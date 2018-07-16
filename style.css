@@ -211,15 +211,19 @@ button:focus { outline:none }
 #skills-box{
 	height: 100%;
 }
+.skills-box-container{
+	flex-wrap: wrap;
+}
 
 .skills-heading{
 	margin-top:-8%;
-	margin-bottom:2%;
+	margin-bottom:5%;
 }
 
 .skills-box-part{
 	height:18%;
-	margin-bottom:8%;
+	margin-right:8%;
+	margin-bottom:7%;
 }
 
 .skills-icon{
@@ -227,6 +231,8 @@ button:focus { outline:none }
 	text-align: center;
 	color: #2b2b2b;
 	transition: .3s;
+	max-width: 50px;
+	margin-right:10px;
 }
 
 .skills-icon h4{
@@ -241,6 +247,8 @@ button:focus { outline:none }
 
 .battery-container {
 	height: 80%;
+	max-width:100px;
+	min-width:40px;
 	border:2px solid #212121;
 	padding:3px;
 	position: relative;

@@ -5,6 +5,9 @@
     .about-photo{
         margin-right:0;
     }
+    #snake-game{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 576px){

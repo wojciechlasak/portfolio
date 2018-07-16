@@ -125,7 +125,7 @@ $(".snake-button:eq(0)").click(function(){
 $(".snake-button:eq(1)").click(function(){
 	$("#snake-game").hide();
 	$("#skills-box").removeClass('col-sm-5');
-	$("#skills-box").addClass('col-sm-6');
+	$("#skills-box").addClass('col-sm-8');
 	$("#snake-button-container").hide();
 	skills.forEach((element)=>{
 		let image = $("#"+element.alt);
