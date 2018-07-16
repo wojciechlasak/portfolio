@@ -8,49 +8,60 @@ var skills = [];
 
 //image
 
-const cpp = new Image();
-cpp.src = "img-skills/c++.png";
-skills.push(cpp);
-
-const java = new Image();
-java.src = "img-skills/java.png";
-skills.push(java);
-
 const html = new Image();
-html.src = "img-skills/html.png";
+html.src = "icon-black/logo-html2.png";
+html.alt="html";
 skills.push(html);
 
-const es6 = new Image();
-es6.src = "img-skills/es6.png";
-skills.push(es6);
-
 const css = new Image();
-css.src = "img-skills/css.png";
+css.src = "icon-black/logo-css2.png";
+css.alt='css';
 skills.push(css);
 
-const jQuary = new Image();
-jQuary.src = "img-skills/jQuary.png";
-skills.push(jQuary);
+const bootstrap = new Image();
+bootstrap.src = "icon-black/logo-bootstrap2.png";
+bootstrap.alt='bootstrap';
+skills.push(bootstrap);
 
-const js = new Image();
-js.src = "img-skills/js.png";
-skills.push(js);
+const sass = new Image();
+sass.src = "icon-black/logo-sass2.png";
+sass.alt='sass';
+skills.push(sass);
+
+const photoshop = new Image();
+photoshop.src = "icon-black/logo-photoshop2.png";
+photoshop.alt='photoshop';
+skills.push(photoshop);
+
+const jquery = new Image();
+jquery.src = "icon-black/logo-jquery2.png";
+jquery.alt="jquery";
+skills.push(jquery);
+
+const javascript = new Image();
+javascript.src = "icon-black/logo-javascript2.png";
+javascript.alt='javascript';
+skills.push(javascript);
 
 const php = new Image();
-php.src = "img-skills/php.png";
+php.src = "icon-black/logo-php2.png";
+php.alt="php"
 skills.push(php);
 
-const react = new Image();
-react.src = "img-skills/react.png";
-skills.push(react);
+const reactjs = new Image();
+reactjs.src = "icon-black/logo-reactjs2.png";
+reactjs.alt='reactjs';
+skills.push(reactjs);
 
 const wordpress = new Image();
-wordpress.src = "img-skills/wordpress.png";
+wordpress.src = "icon-black/logo-wordpress2.png";
+wordpress.alt='wordpress';
 skills.push(wordpress);
 
-const reactnative = new Image();
-reactnative.src = "img-skills/reactnative.png";
-skills.push(reactnative);
+const git = new Image();
+git.src = "icon-black/logo-git2.png";
+git.alt='git';
+skills.push(git);
 
 //audio
 
@@ -98,7 +109,6 @@ down.src = "audio/down.mp3";
 		cvs.width = $("#snake-game").width();
 		cvs.height = $("#skills-container").height();
 		box = Math.floor($(window).height()/12);
-		console.log(box);
 		redraw();
 	}
 
@@ -110,6 +120,27 @@ $(".snake-button:eq(0)").click(function(){
 	$("#snake-button-container").hide();
 	p=new Game();
 });
+
+//skip game
+$(".snake-button:eq(1)").click(function(){
+	$("#snake-button-container").hide();
+	skills.forEach((element)=>{
+		let image = $("#"+element.alt);
+		image.fadeOut(0, function () {
+			image.attr('src','icon-black/logo-'+element.alt+"2.png");
+			image.fadeIn(2000);
+		});
+		image.siblings().css({"color": "#111"});
+		//$("#"+element.alt+"-battery .battery-green").animate({backgroundColor: "#649655"}, 500);
+		$("#"+element.alt+"-battery .battery-green").css({"background-color": "#649655"});
+		$("#"+element.alt+"-battery .battery-yellow").css({"background-color": "#c1b051"});
+		$("#"+element.alt+"-battery .battery-red").css({"background-color": "#af6057"});
+	
+	});
+	
+});
+
+
 
 //disable defalut key function
 
@@ -185,9 +216,27 @@ class Game{
 			this.food = {
 				x:Math.floor(Math.random()*$("#snake-game").width()),
 				y:Math.floor(Math.random()*$("#skills-container").height()),
-				src:skills[Math.floor(Math.random()*10%10)],
+				src:skills[Math.floor(Math.random()*skills.length%skills.length)],
 			};
 		}while(this.check(this.food.x,this.food.y));
+	}
+
+	//change skills
+
+	async changeSkills(skill){
+		let image = $("#"+skill.alt);
+
+		if($("#"+skill.alt).attr('src')!='icon-black/logo-'+skill.alt+"2.png"){
+			image.fadeOut(0, function () {
+				image.attr('src','icon-black/logo-'+skill.alt+"2.png");
+				image.fadeIn(2000);
+			});
+			image.siblings().css({"color": "#111"});
+			$("#"+skill.alt+"-battery .battery-green").css({"background-color": "#649655"});
+			$("#"+skill.alt+"-battery .battery-yellow").css({"background-color": "#c1b051"});
+			$("#"+skill.alt+"-battery .battery-red").css({"background-color": "#af6057"});
+		}
+		
 	}
 	//collision
 
@@ -246,7 +295,7 @@ class Game{
 			}
 
 			//draw food
-			ctx.drawImage(this.food.src, this.food.x, this.food.y,box,box);
+			if(skills.length>0)ctx.drawImage(this.food.src, this.food.x, this.food.y,box,box);
 			/*ctx.beginPath();
 			ctx.fillStyle = '#000';
 			ctx.fillRect(this.food.x,this.food.y,box,box);
@@ -261,7 +310,11 @@ class Game{
 			if (snakeX < this.food.x+box && snakeX+box > this.food.x &&
 				snakeY < this.food.y+box && snakeY+box > this.food.y){ 
 				this.score++;
-				this.newFood();
+				this.changeSkills(this.food.src)
+				let index = skills.indexOf(this.food.src);
+				skills.splice(index, 1);
+				if(skills.length>0)this.newFood();
+				else {this.pause=true;}
 				eat.play();
 			}else{
 				//remove

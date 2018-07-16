@@ -73,44 +73,51 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="skills-box-part row">
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/javascript.png">
+                            <img id="html" class="img-fluid icon-black" src="icon-black/logo-html.png">
+                            <h4>HTML5</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='html-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
                         </div>
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/java.png">
+                            <img id="css" class="img-fluid icon-black" src="icon-black/logo-css.png">
+                            <h4>CSS3</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='css-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
                         </div>
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/java.png">
+                            <img id="bootstrap" class="img-fluid icon-black" src="icon-black/logo-bootstrap.png">
+                            <h4>Bootstrap</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='bootstrap-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
+                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-yellow"></div>
                         </div>
                     </div>
                     <div class="skills-box-part row">
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/javascript.png">
+                            <img id="sass" class="img-fluid icon-black" src="icon-black/logo-sass.png">
+                            <h4>Sass</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='sass-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-red"></div>
                         </div>
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/java.png">
+                            <img id="javascript" class="img-fluid icon-black" src="icon-black/logo-javascript.png">
+                            <h4>Javascript</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='javascript-battery' class="battery-container  flexc col-md-1 mr-4">
                                 <div class="battery-head abs"></div>
                                 <div class="battery-part battery-green"></div>
                                 <div class="battery-part battery-green"></div>
@@ -118,9 +125,10 @@ if(isset($_POST['submit'])){
                                 <div class="battery-part battery-green"></div>
                         </div>
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/javascript.png">
+                            <img id="jquery" class="img-fluid icon-black" src="icon-black/logo-jquery.png">
+                            <h4>jQuery</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='jquery-battery' class="battery-container  flexc col-md-1 mr-4">
                                 <div class="battery-head abs"></div>
                                 <div class="battery-part battery-green"></div>
                                 <div class="battery-part battery-green"></div>
@@ -130,54 +138,56 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="skills-box-part row">
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/javascript.png">
+                            <img id='php' class="img-fluid icon-black" src="icon-black/logo-php.png">
+                            <h4>PHP</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                        </div>
-                        <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/java.png">
-                        </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-                        <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/html.png">
-                        </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='php-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
+                        </div>
+                        <div class="skills-icon col-md-2">
+                            <img id='reactjs' class="img-fluid icon-black" src="icon-black/logo-reactjs.png">
+                            <h4>React.js</h4>
+                        </div>
+                        <div id='reactjs-battery' class="battery-container  flexc col-md-1 mr-4">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-red"></div>
+                        </div>
+                        <div class="skills-icon col-md-2">
+                            <img id='git' class="img-fluid icon-black" src="icon-black/logo-git.png">
+                            <h4>Git</h4>
+                        </div>
+                        <div id='git-battery'  class="battery-container  flexc col-md-1 mr-4">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-yellow"></div>
                         </div>
                     </div>
                     <div class="skills-box-part row">
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/javascript.png">
+                            <img id='photoshop' class="img-fluid icon-black" src="icon-black/logo-photoshop.png">
+                            <h4>Photoshop</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='photoshop-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
                         </div>
                         <div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/java.png">
+                            <img id='wordpress' class="img-fluid icon-black" src="icon-black/logo-wordpress.png">
+                            <h4>Wordpress</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='wordpress-battery' class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
                         </div>
-                        <div class="skills-icon col-md-2">
+                        <!--<div class="skills-icon col-md-2">
                             <img class="img-fluid icon-black" src="icon-black/html.png">
                         </div>
                         <div class="battery-container  flexc col-md-1 mr-4">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

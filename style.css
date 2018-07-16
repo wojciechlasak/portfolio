@@ -210,21 +210,33 @@ button:focus { outline:none }
 
 #skills-box{
 	height: 100%;
-	padding:0;
 }
 
 .skills-heading{
-	margin-top:-5%;
+	margin-top:-8%;
+	margin-bottom:2%;
 }
 
 .skills-box-part{
 	height:18%;
 	margin-bottom:8%;
+}
+
+.skills-icon{
 	align-items:center;
+	text-align: center;
+	color: #2b2b2b;
+	transition: .3s;
+}
+
+.skills-icon h4{
+	transition: 1s;
 }
 
 .icon-black{
 	padding:0;
+	max-height:80px;
+	margin-bottom:5px;
 }
 
 .battery-container {
@@ -252,15 +264,16 @@ button:focus { outline:none }
 }
 
 .battery-green{
-	background-color: #649655;
+	background-color: #434343
+
 }
 
 .battery-yellow{
-	background-color: #c1b051;
+	background-color:#434343
 }
 
 .battery-red{
-	background-color: #af6057;
+	background-color: #434343
 }
 
 #snake-button-container{
