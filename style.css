@@ -199,7 +199,7 @@ button:focus { outline:none }
 	height:80%;
 	width:100%;
 	padding:0 40px;
-	margin-bottom:10px;
+	margin-bottom:25px;
 }
 
 #snake-game{
@@ -215,15 +215,16 @@ button:focus { outline:none }
 .skills-heading{
 	margin-top:-8%;
 	margin-bottom:5%;
-}
+	display: flex;
+	justify-content: center;
 
+}
 .skills-box-part{
 	height:18%;
 	margin-bottom:8%;
 }
 
 .skills-icon{
-	align-items:center;
 	text-align: center;
 	color: #2b2b2b;
 	transition: .3s;
@@ -236,9 +237,8 @@ button:focus { outline:none }
 	font-size: 0.8rem;
 }
 
-.icon-black{
+.skills-icon img{
 	padding:0;
-	margin-bottom:5px;
 }
 
 .battery-container {
