@@ -118,14 +118,16 @@ down.src = "audio/down.mp3";
 
 $(".snake-button:eq(0)").click(function(){
 	$("#snake-button-container").hide();
+	$(".snake-button:eq(0)").hide();
+	$(".snake-button:eq(1)").hide();
 	p=new Game();
 });
 
 //skip game
 $(".snake-button:eq(1)").click(function(){
 	$("#snake-game").hide();
-	$("#skills-box").removeClass('col-sm-5');
-	$("#skills-box").addClass('col-sm-6');
+	$("#skills-box").removeClass('col-md-5');
+	$("#skills-box").addClass('col-md-6');
 	$("#snake-button-container").hide();
 	skills.forEach((element)=>{
 		let image = $("#"+element.alt);
@@ -146,6 +148,18 @@ $(".snake-button:eq(1)").click(function(){
 	
 });
 
+//end Game 
+function endGame(){ 
+	$("#snake-button-container").show();
+	$(".snake-button:eq(2)").css({'display':'block'}); 
+} 
+
+$(".snake-button:eq(2)").click(function(){ 
+	$(".snake-button:eq(2)").hide();
+	$("#snake-game").hide(); 
+	$("#skills-box").removeClass('col-md-5'); 
+	$("#skills-box").addClass('col-md-6'); 
+});
 
 
 //disable defalut key function
@@ -324,7 +338,10 @@ class Game{
 				let index = skills.indexOf(this.food.src);
 				skills.splice(index, 1);
 				if(skills.length>0)this.newFood();
-				else {this.pause=true;}
+				else {
+					this.pause=true;
+					endGame()
+				}
 				eat.play();
 			}else{
 				//remove

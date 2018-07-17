@@ -58,6 +58,69 @@ window.addEventListener('scroll', function(evt) {
   }
 });
 
+//snake
+
+window.addEventListener('resize',resizeSnake);
+window.addEventListener('load',resizeSnake);
+
+function resizeSnake(){
+  if($(document).width()<=992){
+    $("#snake-game").hide();
+    $("#skills-box").removeClass('col-md-5');
+    $("#skills-box").addClass('col-md-6');
+    $('.battery-container ').removeClass('mr-4');
+    $('.battery-container ').addClass('mr-3');
+    $("#snake-button-container").hide();
+    skills.forEach((element)=>{
+      let image = $("#"+element.alt);
+      image.fadeOut(0, function () {
+        image.attr('src','icon-black/logo-'+element.alt+"2.png");
+        image.fadeIn(2000);
+      });
+      image.siblings().css({"color": "#111"});
+      $("#"+element.alt+"-battery .battery-green:eq(3)").css({"background-color": "#649655"});
+      setTimeout(()=>{$("#"+element.alt+"-battery .battery-green:eq(2)").css({"background-color": "#649655"})},300);
+      setTimeout(()=>{$("#"+element.alt+"-battery .battery-green:eq(1)").css({"background-color": "#649655"})},600);
+      setTimeout(()=>{$("#"+element.alt+"-battery .battery-green:eq(0)").css({"background-color": "#649655"})},900);
+      $("#"+element.alt+"-battery .battery-yellow:eq(1)").css({"background-color": "#c1b051"});
+      setTimeout(()=>{$("#"+element.alt+"-battery .battery-yellow:eq(0)").css({"background-color": "#c1b051"})},500);
+      $("#"+element.alt+"-battery .battery-red").css({"background-color": "#af6057"});
+    
+    });
+  }else{
+    $("#snake-button-container").show();
+    $("#snake-game").show();
+    $("#skills-box").addClass('col-md-5');
+    $("#skills-box").removeClass('col-md-6');
+    $('.battery-container ').addClass('mr-3');
+    $('.battery-container ').removeClass('mr-4');
+    skills.forEach((element)=>{
+      let image = $("#"+element.alt);
+      image.fadeOut(0, function () {
+        image.attr('src','icon-black/logo-'+element.alt+".png");
+        image.fadeIn(2000);
+      });
+      image.siblings().css({"color": "#2b2b2b"});
+      $("#"+element.alt+"-battery .battery-green").css({"background-color": "#434343"});
+      $("#"+element.alt+"-battery .battery-yellow").css({"background-color": "#434343"});
+      $("#"+element.alt+"-battery .battery-red").css({"background-color": "#434343"});
+    
+    });
+  }
+  if($(document).width()<=768){
+    $('.skills-icon').removeClass('col-md-2');
+    $('.battery-container ').removeClass('col-md-1');
+  }
+  else{
+    $('.skills-icon').addClass('col-md-2');
+    $('.battery-container ').addClass('col-md-1');
+  }
+
+ 
+}
+
+
+
 //form
 
 $('#message').focus(function(){

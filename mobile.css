@@ -1,9 +1,31 @@
+@media screen and (max-height: 650px){
+    .battery-container {
+        height: 100%;
+    }
+}
+
+
+@media screen and (max-width: 992px){
+    .skills-box-part{
+        margin-bottom:6%;
+    }
+    .battery-container {
+        max-width:60px;
+    }
+    .skills-icon{
+        width: 60px;
+    }
+}
+
 @media screen and (max-width: 768px){
     #about-container{
         height: 80%;
     }
     .about-photo{
         margin-right:0;
+    }
+    .skills-icon{
+        width: 50px;
     }
 }
 
@@ -17,11 +39,25 @@
     h3{
         font-size: 1.5rem;
     }
+    .battery-container {
+        height: 80%;
+    }
     
 }
 
 @media screen and (max-width: 450px){
     p{
         font-size: 0.85rem;
+    }
+
+    .battery-container {
+        height: 70%;
+    }
+    .skills-icon{
+        width: 20px;
+    }
+    .skills-icon h4{
+        font-size:0.5rem;
+        
     }
 }

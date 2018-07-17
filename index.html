@@ -67,13 +67,13 @@ if(isset($_POST['submit'])){
         <!--Skills-->
         <div id="snake" class="container-fluid separator flexc part">
             <div id="skills-container" class="row justify-content-center align-items-center">
-                <canvas id="snake-game" class="col-sm-6 mr-3"></canvas>
-                <div id="skills-box" class="col-sm-5 container-fluid">
-                    <div class="skills-heading flexc">
+                <canvas id="snake-game" class="col-md-6 mr-3"></canvas>
+                <div id="skills-box" class=" col-md-5 container-fluid flexc">
+                    <div class="skills-heading">
                         <h2>Skills</h2>
                     </div>
                     <div class="skills-box-part row">
-                        <div class="skills-icon col-md-2">
+                        <div class="skills-icon  col-md-2">
                             <img id="html" class="img-fluid icon-black" src="icon-black/logo-html.png">
                             <h4>HTML5</h4>
                         </div>
@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-green"></div>
                             <div class="battery-part battery-green"></div>
                         </div>
-                        <div class="skills-icon col-md-2">
+                        <div class="skills-icon  col-md-2">
                             <img id="css" class="img-fluid icon-black" src="icon-black/logo-css.png">
                             <h4>CSS3</h4>
                         </div>
@@ -95,11 +95,11 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-green"></div>
                             <div class="battery-part battery-green"></div>
                         </div>
-                        <div class="skills-icon col-md-2">
+                        <div class="skills-icon  col-md-2">
                             <img id="bootstrap" class="img-fluid icon-black" src="icon-black/logo-bootstrap.png">
                             <h4>Bootstrap</h4>
                         </div>
-                        <div id='bootstrap-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div id='bootstrap-battery' class="battery-container  flexc  col-md-1 mr-4">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
@@ -182,13 +182,15 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
                         </div>
-                        <!--<div class="skills-icon col-md-2">
-                            <img class="img-fluid icon-black" src="icon-black/html.png">
+                        <div class="skills-icon col-md-2" style="visibility: hidden">
+                            <img id='wordpress' class="img-fluid icon-black" src="icon-black/logo-wordpress.png">
+                            <h4>Wordpress</h4>
                         </div>
-                        <div class="battery-container  flexc col-md-1 mr-4">
+                        <div id='wordpress-battery' class="battery-container  flexc col-md-1 mr-4" style="visibility: hidden">
                             <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>-->
+                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-yellow"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,6 +200,7 @@ if(isset($_POST['submit'])){
                     <h6>WSDA or arrow , p-pause</h6>
                 </div>
                 <div class="snake-button">skip</div>
+                <div class="snake-button">Game Over</div>
             </div>
         </div>
 
