@@ -237,10 +237,6 @@ button:focus { outline:none }
 	font-size: 0.8rem;
 }
 
-.skills-icon img{
-	padding:0;
-}
-
 .battery-container {
 	height: 80%;
 	max-width:80px;
