@@ -14,7 +14,7 @@ $('.nav-link').click(function(e){
   $("#scroll").css({"display": "none"});
 	e.preventDefault();
 	$('html,body').animate({
-		'scrollTop'	:	$($(this).children('a').attr('href')).offset().top
+		'scrollTop'	:	$($(this).parent('a').attr('href')).offset().top
 	});
 });
 
@@ -119,7 +119,17 @@ function resizeSnake(){
  
 }
 
+//projects
 
+$('.project').click(function(){
+  let index=$( ".project" ).index( this );
+  let indexBig=$( ".project" ).index( '.project-big' );
+  let column=$('.project:eq('+index+')').css('grid-column');
+  let row=$('.project:eq('+index+')').css('grid-row')
+  $( '.project:eq('+indexBig+')' ).css({"grid-column": column, 'grid-row': row})
+  $( ".project" ).removeClass('project-big');
+  $('.project:eq('+index+')').addClass("project-big");
+});
 
 //form
 
