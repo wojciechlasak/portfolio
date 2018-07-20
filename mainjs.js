@@ -123,12 +123,34 @@ function resizeSnake(){
 
 $('.project').click(function(){
   let index=$( ".project" ).index( this );
-  let indexBig=$( ".project" ).index( '.project-big' );
-  let column=$('.project:eq('+index+')').css('grid-column');
-  let row=$('.project:eq('+index+')').css('grid-row')
-  $( '.project:eq('+indexBig+')' ).css({"grid-column": column, 'grid-row': row})
-  $( ".project" ).removeClass('project-big');
-  $('.project:eq('+index+')').addClass("project-big");
+  let indexBig=$( ".project-big").index();
+  let actualProject=$('.project:eq('+index+')');
+  let actualWidth=$('.project:eq('+index+')').width();
+  let actualHeight=$('.project:eq('+index+')').height();
+  console.log('index: '+index+", indexBig: "+indexBig);
+
+  do{
+    for(let i=0;i<$(".projects-container").children().length;i++){
+      let actual=$('.project:eq('+i+')');
+
+      if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='2 / auto')
+        //actual.css({"grid-column": '1 / auto', 'grid-row': '2 / auto'})
+        $(".projects-container").css({"grid-template-columns":"1fr 3fr 1fr"})
+      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='2 / auto')
+        actual.css({"grid-column": '1 / auto', 'grid-row': '1 / auto'})
+      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='1 / auto')
+        actual.css({"grid-column": '2 / auto', 'grid-row': '1 / auto'})
+      else if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='1 / auto')
+        actual.css({"grid-column": '2 / auto', 'grid-row': '2 / auto'})
+
+    }
+  }while(actualProject.css('grid-column')!='2 / auto' || actualProject.css('grid-row')!='2 / auto')
+
+  
+  $( '.project:eq('+indexBig+')' ).css({"grid-column": '2 / auto', 'grid-row': '2 / auto'})
+  $( '.project:eq('+indexBig+')' ).removeClass('project-big');
+  actualProject.css({"grid-column": '3 / auto', 'grid-row': '1 / 3'})
+  actualProject.addClass("project-big");
 });
 
 //form
