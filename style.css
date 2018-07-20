@@ -342,8 +342,9 @@ a .nav-link{
 .project{
 	background-position: center;
 	background-size: cover;
-	transition: 1s;
 	cursor: pointer;
+	transition: 1s;
+	transition-delay: .3s;
 }
 
 .project:nth-child(1){

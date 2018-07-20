@@ -130,19 +130,35 @@ function resizeSnake(){
   console.log('index: '+index+", indexBig: "+indexBig);
 
  do{
+    
     for(let i=0;i<$(".projects-container").children().length;i++){
       let actual=$('.project:eq('+i+')');
 
-      if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='2 / auto')
+      if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='2 / auto'){
+        actual.css({"transform": 'translateX('+(actualWidth)+'px)'})
         actual.css({"grid-column": '1 / auto', 'grid-row': '2 / auto'})
-      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='2 / auto')
+      }
+      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='2 / auto'){
+        actual.css({"transform": 'translateY('+(actualHeight)+'px)'})
         actual.css({"grid-column": '1 / auto', 'grid-row': '1 / auto'})
-      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='1 / auto')
+      }
+      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='1 / auto'){
+        actual.css({"transform": 'translateX('+(-actualWidth)+'px)'})
         actual.css({"grid-column": '2 / auto', 'grid-row': '1 / auto'})
-      else if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='1 / auto')
+      }
+      else if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='1 / auto'){
+        actual.css({"transform": 'translateY('+(-actualHeight)+'px)'})
         actual.css({"grid-column": '2 / auto', 'grid-row': '2 / auto'})
-
+      }
     }
+    
+    setTimeout(()=>{
+    for(let i=0;i<$(".projects-container").children().length;i++){
+      let actual=$('.project:eq('+i+')');
+      actual.css({"transform": 'translateX(0px)'})
+      actual.css({"transform": 'translateY(0px)'})
+    }
+     },1000);
   }while(actualProject.css('grid-column')!='2 / auto' || actualProject.css('grid-row')!='2 / auto')
 
   
