@@ -335,7 +335,7 @@ a .nav-link{
 	width:90%;
 	height:75%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 3fr;
 	grid-gap: 5px;
 }
 
@@ -347,43 +347,35 @@ a .nav-link{
 }
 
 .project:nth-child(1){
-	grid-column: 1;
-	grid-row: 1;
+	grid-column: 1 / auto;
+	grid-row: 1 / auto;
 	background-image: url("img/wojtek3.jpg");
 }
 
 .project:nth-child(2){
-	grid-column: 2;
-	grid-row: 1;
+	grid-column: 2 / auto;
+	grid-row: 1 / auto;
 	background-image: url("img/starrynight2.jpg");
 }
 
 .project:nth-child(3){
-	grid-column: 3;
-	grid-row: 1;
+	grid-column: 1 / auto;
+	grid-row: 2 / auto;
 	background-image: url("img/starrynight2.jpg");
 }
 
 .project:nth-child(4){
-	grid-column:1;
-	grid-row: 2 ;
+	grid-column:2 / auto;
+	grid-row: 2 / auto;
 	background-image: url("img/wojtek3.jpg");
 }
 
 .project:nth-child(5){
-	grid-column: 2;
-	grid-row: 2;
-	background-image: url("img/starrynight.jpg");
-}
-.project:nth-child(6){
-	grid-column: 3;
-	grid-row: 2;
+	grid-column: 3 / auto;
+	grid-row: 1 / 3;
 	background-image: url("img/starrynight.jpg");
 }
 
-.project-big{
-
-}
 
 /*Contact*/
 

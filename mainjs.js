@@ -121,7 +121,7 @@ function resizeSnake(){
 
 //projects
 
-$('.project').click(function(){
+ $('.project').click(function(){
   let index=$( ".project" ).index( this );
   let indexBig=$( ".project-big").index();
   let actualProject=$('.project:eq('+index+')');
@@ -129,13 +129,12 @@ $('.project').click(function(){
   let actualHeight=$('.project:eq('+index+')').height();
   console.log('index: '+index+", indexBig: "+indexBig);
 
-  do{
+ do{
     for(let i=0;i<$(".projects-container").children().length;i++){
       let actual=$('.project:eq('+i+')');
 
       if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='2 / auto')
-        //actual.css({"grid-column": '1 / auto', 'grid-row': '2 / auto'})
-        $(".projects-container").css({"grid-template-columns":"1fr 3fr 1fr"})
+        actual.css({"grid-column": '1 / auto', 'grid-row': '2 / auto'})
       else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='2 / auto')
         actual.css({"grid-column": '1 / auto', 'grid-row': '1 / auto'})
       else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='1 / auto')
@@ -151,7 +150,7 @@ $('.project').click(function(){
   $( '.project:eq('+indexBig+')' ).removeClass('project-big');
   actualProject.css({"grid-column": '3 / auto', 'grid-row': '1 / 3'})
   actualProject.addClass("project-big");
-});
+})
 
 //form
 
