@@ -24,6 +24,11 @@
     .skills-icon{
         width: 50px;
     }
+    
+    .project{
+        cursor: default;
+    }
+
 }
 
 @media screen and (max-width: 576px){
