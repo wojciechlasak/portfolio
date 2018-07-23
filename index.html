@@ -16,267 +16,318 @@ if(isset($_POST['submit'])){
 
 <html lang="pl">
 
-	<head>
+<head>
 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="Portfolio Wojciech Lasak">
-        <meta name="author" content="Wojciech Lasak">
-        <title>Wojciech Lasak</title>
-        
-        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Slabo+27px&amp;subset=latin-ext" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="mobile.css">
-		<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Portfolio Wojciech Lasak">
+    <meta name="author" content="Wojciech Lasak">
+    <title>Wojciech Lasak</title>
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <!--[if lt IE 9]>
 			<script src="/bundles/mzsite/js/html5shiv.min.js"></script>
 			<script src="/bundles/mzsite/js/respond.min.js"></script>
 		<![endif]-->
-		
-	</head>
-	
-	<body>
-        <!--Navigation-->
-        <button class="burger"></button>
-        <div id="nav">
-            <div id="nav-container" class="flexc">
-                <a href="#top"><div class='nav-link'>Home</div></a>
-                <a href="#snake"><div class='nav-link'>Skills</div></a>
-                <a href="#about"><div class='nav-link'>About</div></a>
-                <a href="#projects"><div class='nav-link'>Projects</div></a>
-                <a href="#form"><div class='nav-link'>Contact</div></a>
+
+</head>
+
+<body>
+    <!--Navigation-->
+    <button class="burger"></button>
+    <div id="nav">
+        <div id="nav-container" class="flexc">
+            <a href="#top">
+                <div class='nav-link'>Home</div>
+            </a>
+            <a href="#snake">
+                <div class='nav-link'>Skills</div>
+            </a>
+            <a href="#about">
+                <div class='nav-link'>About</div>
+            </a>
+            <a href="#projects">
+                <div class='nav-link'>Projects</div>
+            </a>
+            <a href="#form">
+                <div class='nav-link'>Contact</div>
+            </a>
+        </div>
+    </div>
+
+    <!--Home-->
+    <div id="top" class="container-fluid flexc part">
+        <div class="top-container flexc">
+            <h1>Cześć, jestem Wojciech Lasak</h1>
+            <h1>Web developer</h1>
+            <h3>Poznajmy się</h3>
+            <div id="scroll" class="flexc">
+                <img src="img/mouse2.png">
+                <h4>scroll</h4>
             </div>
         </div>
+    </div>
 
-        <!--Home-->
-        <div id="top" class="container-fluid flexc part">
-            <div class="top-container flexc">
-                <h1>Cześć, jestem Wojciech Lasak</h1>
-                <h1>Web developer</h1>
-                <h3>Poznajmy się</h3>
-                <div id="scroll" class="flexc">
-                    <img src="img/mouse2.png">
-                    <h4>scroll</h4>
+    <!-- add S size and XS size, hide #skills-box and show in js-->
+    <!--Skills-->
+    <div id="snake" class="container-fluid separator flexc part">
+        <div id="skills-container" class="row justify-content-center align-items-center">
+            <canvas id="snake-game" class="col-md-6 mr-3"></canvas>
+            <div id="skills-box" class=" col-md-5 container-fluid ">
+                <div class="skills-heading">
+                    <h2>Skills</h2>
+                </div>
+
+                <div class="skills-box-part row justify-content-center align-items-center">
+                    <!--HTML icon-->
+                    <div class="skills-icon  col-md-2">
+                        <img id="html" class="img-fluid" src="icon-black/logo-html.png">
+                        <h4>HTML5</h4>
+                    </div>
+                    <div id='html-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                    </div>
+
+                    <!--CSS icon-->
+                    <div class="skills-icon  col-md-2">
+                        <img id="css" class="img-fluid" src="icon-black/logo-css.png">
+                        <h4>CSS3</h4>
+                    </div>
+                    <div id='css-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                    </div>
+
+                    <!--Bootstrap icon-->
+                    <div class="skills-icon  col-md-2">
+                        <img id="bootstrap" class="img-fluid" src="icon-black/logo-bootstrap.png">
+                        <h4>Bootstrap</h4>
+                    </div>
+                    <div id='bootstrap-battery' class="battery-container  flexc  col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-yellow"></div>
+                        <div class="battery-part battery-yellow"></div>
+                    </div>
+                </div>
+
+                <div class="skills-box-part row justify-content-center align-items-center">
+                    <!--Sass icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id="sass" class="img-fluid" src="icon-black/logo-sass.png">
+                        <h4>Sass</h4>
+                    </div>
+                    <div id='sass-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-red"></div>
+                    </div>
+
+                    <!--JS icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id="javascript" class="img-fluid" src="icon-black/logo-javascript.png">
+                        <h4>Javascript</h4>
+                    </div>
+                    <div id='javascript-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                    </div>
+
+                    <!--jQuery icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id="jquery" class="img-fluid" src="icon-black/logo-jquery.png">
+                        <h4>jQuery</h4>
+                    </div>
+                    <div id='jquery-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                        <div class="battery-part battery-green"></div>
+                    </div>
+                </div>
+
+                <div class="skills-box-part row justify-content-center align-items-center">
+                    <!--PHP icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id='php' class="img-fluid" src="icon-black/logo-php.png">
+                        <h4>PHP</h4>
+                    </div>
+                    <div id='php-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-red"></div>
+                    </div>
+
+                    <!--reactjs icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id='reactjs' class="img-fluid" src="icon-black/logo-reactjs.png">
+                        <h4>React.js</h4>
+                    </div>
+                    <div id='reactjs-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-red"></div>
+                    </div>
+
+                    <!--git icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id='git' class="img-fluid" src="icon-black/logo-git.png">
+                        <h4>Git</h4>
+                    </div>
+                    <div id='git-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-yellow"></div>
+                        <div class="battery-part battery-yellow"></div>
+                    </div>
+                </div>
+
+                <div class="skills-box-part row justify-content-center align-items-center">
+                    <!--PS icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id='photoshop' class="img-fluid" src="icon-black/logo-photoshop.png">
+                        <h4>Photoshop</h4>
+                    </div>
+                    <div id='photoshop-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-red"></div>
+                    </div>
+
+                    <!--Wordpress icon-->
+                    <div class="skills-icon col-md-2">
+                        <img id='wordpress' class="img-fluid" src="icon-black/logo-wordpress.png">
+                        <h4>Wordpress</h4>
+                    </div>
+                    <div id='wordpress-battery' class="battery-container  flexc col-md-1 mr-4">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-yellow"></div>
+                        <div class="battery-part battery-yellow"></div>
+                    </div>
+
+                    <!--extra icon-->
+                    <div class="skills-icon col-md-2" style="visibility: hidden">
+                        <img id='wordpress' class="img-fluid" src="icon-black/logo-wordpress.png">
+                        <h4>Wordpress</h4>
+                    </div>
+                    <div id='wordpress-battery' class="battery-container  flexc col-md-1 mr-4" style="visibility: hidden">
+                        <div class="battery-head abs"></div>
+                        <div class="battery-part battery-yellow"></div>
+                        <div class="battery-part battery-yellow"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="snake-button-container">
+            <div class="snake-button flexc">
+                Start Game
+                <h6>WSDA or arrow , p-pause</h6>
+            </div>
+            <div class="snake-button">skip</div>
+            <div class="snake-button">Game Over</div>
+        </div>
+    </div>
 
-        <!-- add S size and XS size, hide #skills-box and show in js-->
-        <!--Skills-->
-        <div id="snake" class="container-fluid separator flexc part">
-            <div id="skills-container" class="row justify-content-center align-items-center">
-                <canvas id="snake-game" class="col-md-6 mr-3"></canvas>
-                <div id="skills-box" class=" col-md-5 container-fluid ">
-                    <div class="skills-heading">
-                        <h2>Skills</h2>
-                    </div>
+    <!--About-->
+    <div id="about" class="container-fluid flexc separator part">
+        <h2>About</h2>
+        <div id="about-container" class="row justify-content-center align-items-center">
+            <div class="about-photo col-lg-2 col-md-3 col-sm-3">
+                <img class="img-fluid float-left mr-3" src="img/wojtek.jpg" alt="">
+            </div>
+            <p class="col-lg-4 col-md-6 col-sm-12">Lorem
+                <span class="about-bold">ipsum</span> dolor sit amet,
+                <span class="about-bold">adipiscing</span> elit. Etiam ut ex mauris. Nulla ipsum lacus, commodo eu lobortis sit amet, facilisis eget
+                massa. Duis consequat, felis sed vestibulum suscipit, est leo tincidunt felis, sed sollicitudin lorem elit
+                et leo. Vestibulum imperdiet sodales nulla, sit amet facilisis tellus porttitor eget. Integer commodo dui
+                leo, et porta lacus mollis nec. Nulla rhoncus rutrum tortor nec molestie. Maecenas maximus felis pellentesque
+                ipsum pellentesque, a hendrerit velit fermentum. Nam fermentum mi facilisis, fermentum eros quis, vulputate
+                libero. Aliquam mollis non orci scelerisque rutrum. Maecenas nec quam luctus, tincidunt lectus euismod, ullamcorper
+                metus.</p>
+        </div>
+    </div>
 
-                    <div class="skills-box-part row justify-content-center align-items-center">
-                        <!--HTML icon-->
-                        <div class="skills-icon  col-md-2">
-                            <img id="html" class="img-fluid" src="icon-black/logo-html.png">
-                            <h4>HTML5</h4>
-                        </div>
-                        <div id='html-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                        </div>
-
-                        <!--CSS icon-->
-                        <div class="skills-icon  col-md-2">
-                            <img id="css" class="img-fluid" src="icon-black/logo-css.png">
-                            <h4>CSS3</h4>
-                        </div>
-                        <div id='css-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                            <div class="battery-part battery-green"></div>
-                        </div>
-
-                        <!--Bootstrap icon-->
-                        <div class="skills-icon  col-md-2">
-                            <img id="bootstrap" class="img-fluid" src="icon-black/logo-bootstrap.png">
-                            <h4>Bootstrap</h4>
-                        </div>
-                        <div id='bootstrap-battery' class="battery-container  flexc  col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-                    </div>
-
-                    <div class="skills-box-part row justify-content-center align-items-center">
-                        <!--Sass icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id="sass" class="img-fluid" src="icon-black/logo-sass.png">
-                            <h4>Sass</h4>
-                        </div>
-                        <div id='sass-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-
-                        <!--JS icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id="javascript" class="img-fluid" src="icon-black/logo-javascript.png">
-                            <h4>Javascript</h4>
-                        </div>
-                        <div id='javascript-battery' class="battery-container  flexc col-md-1 mr-4">
-                                <div class="battery-head abs"></div>
-                                <div class="battery-part battery-green"></div>
-                                <div class="battery-part battery-green"></div>
-                                <div class="battery-part battery-green"></div>
-                                <div class="battery-part battery-green"></div>
-                        </div>
-
-                        <!--jQuery icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id="jquery" class="img-fluid" src="icon-black/logo-jquery.png">
-                            <h4>jQuery</h4>
-                        </div>
-                        <div id='jquery-battery' class="battery-container  flexc col-md-1 mr-4">
-                                <div class="battery-head abs"></div>
-                                <div class="battery-part battery-green"></div>
-                                <div class="battery-part battery-green"></div>
-                                <div class="battery-part battery-green"></div>
-                                <div class="battery-part battery-green"></div>
-                        </div>
-                    </div>
-
-                    <div class="skills-box-part row justify-content-center align-items-center">
-                        <!--PHP icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id='php' class="img-fluid" src="icon-black/logo-php.png">
-                            <h4>PHP</h4>
-                        </div>
-                        <div id='php-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-
-                        <!--reactjs icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id='reactjs' class="img-fluid" src="icon-black/logo-reactjs.png">
-                            <h4>React.js</h4>
-                        </div>
-                        <div id='reactjs-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-
-                        <!--git icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id='git' class="img-fluid" src="icon-black/logo-git.png">
-                            <h4>Git</h4>
-                        </div>
-                        <div id='git-battery'  class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-                    </div>
-
-                    <div class="skills-box-part row justify-content-center align-items-center">
-                        <!--PS icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id='photoshop' class="img-fluid" src="icon-black/logo-photoshop.png">
-                            <h4>Photoshop</h4>
-                        </div>
-                        <div id='photoshop-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-
-                        <!--Wordpress icon-->
-                        <div class="skills-icon col-md-2">
-                            <img id='wordpress' class="img-fluid" src="icon-black/logo-wordpress.png">
-                            <h4>Wordpress</h4>
-                        </div>
-                        <div id='wordpress-battery' class="battery-container  flexc col-md-1 mr-4">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-
-                        <!--extra icon-->
-                        <div class="skills-icon col-md-2" style="visibility: hidden">
-                            <img id='wordpress' class="img-fluid" src="icon-black/logo-wordpress.png">
-                            <h4>Wordpress</h4>
-                        </div>
-                        <div id='wordpress-battery' class="battery-container  flexc col-md-1 mr-4" style="visibility: hidden">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-                    </div>
+    <!--Projects-->
+    <div id="projects" class="container-fluid flexc separator part">
+        <h2>projects</h2>
+        <div class="projects-container">
+            <div class="project">
+                <div class="project-overlay flexc">
+                    <h2>Tytuł 1</h2>
                 </div>
             </div>
-            <div id="snake-button-container">
-                <div class="snake-button flexc">
-                    Start Game
-                    <h6>WSDA or arrow , p-pause</h6>
+            <div class="project">
+                <div class="project-overlay flexc">
+                    <h2>Tytuł 2</h2>
                 </div>
-                <div class="snake-button">skip</div>
-                <div class="snake-button">Game Over</div>
             </div>
-        </div>
-
-        <!--About-->
-        <div id="about" class="container-fluid flexc separator part">
-            <h2>About</h2>
-            <div id="about-container" class="row justify-content-center align-items-center">
-                <div class="about-photo col-lg-2 col-md-3 col-sm-3">
-                    <img class="img-fluid float-left mr-3" src="img/wojtek.jpg" alt="">
+            <div class="project">
+                <div class="project-overlay flexc">
+                    <h2>Tytuł 3</h2>
                 </div>
-                <p class="col-lg-4 col-md-6 col-sm-12">Lorem <span class="about-bold">ipsum</span> dolor sit amet, <span class="about-bold">adipiscing</span> elit. Etiam ut ex mauris. Nulla ipsum lacus, commodo eu lobortis sit amet, facilisis eget massa. Duis consequat, felis sed vestibulum suscipit, est leo tincidunt felis, sed sollicitudin lorem elit et leo. Vestibulum imperdiet sodales nulla, sit amet facilisis tellus porttitor eget. Integer commodo dui leo, et porta lacus mollis nec. Nulla rhoncus rutrum tortor nec molestie. Maecenas maximus felis pellentesque ipsum pellentesque, a hendrerit velit fermentum. Nam fermentum mi facilisis, fermentum eros quis, vulputate libero. Aliquam mollis non orci scelerisque rutrum. Maecenas nec quam luctus, tincidunt lectus euismod, ullamcorper metus.</p>
+            </div>
+            <div class="project">
+                <div class="project-overlay flexc">
+                    <h2>Tytuł 4</h2>
+                </div>
+            </div>
+            <div class="project project-big">
+                <div class="project-overlay flexc">
+                    <h2>Tytuł 5</h2>
+                </div>
             </div>
         </div>
+    </div>
+    <!--Contact-->
+    <div id="form" class="container-fluid flexc separator part">
+        <h2>contact</h2>
+        <form id="form-container" class="flexc" method="post">
+            <input id="name" placeholder="Imię" type="text" name="name">
+            <input id="mail" placeholder="Email" type="text" name="mail">
+            <textarea id="message" placeholder="Wiadomość" type="text" name="message"></textarea>
+            <input type="submit" name="submit" value="WYŚLIJ">
+        </form>
+    </div>
 
-        <!--Projects-->
-        <div id="projects" class="container-fluid flexc separator part">
-            <h2>projects</h2>
-            <div class="projects-container"> 
-                <div class="project"><div class="project-overlay flexc"><h2>Tytuł 1</h2></div></div>
-                <div class="project"><div class="project-overlay flexc"><h2>Tytuł 2</h2></div></div>
-                <div class="project"><div class="project-overlay flexc"><h2>Tytuł 3</h2></div></div>
-                <div class="project"><div class="project-overlay flexc"><h2>Tytuł 4</h2></div></div>
-                <div class="project project-big"><div class="project-overlay flexc"><h2>Tytuł 5</h2></div></div>
-            </div>
+    <!--Footer-->
+    <footer id="footer" class="container-fluid flexc">
+        <div id="ficon-container" class="flexr">
+            <a target="_blank" href="https://github.com/wojciechlasak/">
+                <div class="ficon"></div>
+            </a>
+            <a target="_blank" href="https://www.instagram.com/wojciech_lasak/">
+                <div class="ficon"></div>
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/wojciech-lasak-b80a63159/">
+                <div class="ficon"></div>
+            </a>
         </div>
-        <!--Contact-->
-        <div id="form" class="container-fluid flexc separator part">
-            <h2>contact</h2>
-            <form id="form-container" class="flexc" method="post">
-                <input id="name" placeholder="Imię" type="text" name="name">
-                <input id="mail" placeholder="Email" type="text" name="mail">
-                <textarea id="message" placeholder="Wiadomość" type="text" name="message"></textarea>
-                <input type="submit" name="submit" value="WYŚLIJ">
-            </form>
-        </div>
-
-        <!--Footer-->
-        <footer id="footer" class="container-fluid flexc">
-            <div id="ficon-container" class="flexr">
-                <a target="_blank" href="https://github.com/wojciechlasak/"><div class="ficon"></div></a>
-                <a target="_blank" href="https://www.instagram.com/wojciech_lasak/"><div class="ficon"></div></a>
-                <a  target="_blank"href="https://www.linkedin.com/in/wojciech-lasak-b80a63159/"><div class="ficon"></div></a>
-            </div>
-            <h5>Wojciech Lasak <span>2018</span></h5>
-        </footer>
+        <h5>Wojciech Lasak
+            <span>2018</span>
+        </h5>
+    </footer>
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script src="snake.js"></script>
-        <script src="mainjs.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="snake.js"></script>
+    <script src="mainjs.js"></script>
+</body>
+
 </html>
