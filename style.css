@@ -335,7 +335,7 @@ a .nav-link{
 	width:90%;
 	height:75%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 3fr;
+	grid-template-columns: 1fr 1fr 2fr;
 	grid-gap: 5px;
 }
 
@@ -343,8 +343,21 @@ a .nav-link{
 	background-position: center;
 	background-size: cover;
 	cursor: pointer;
-	transition: 1s;
-	transition-delay: .3s;
+	position: relative;
+}
+
+.project-overlay{
+	position: absolute;
+    z-index: 1;
+    background-color: #c56913;
+    height: 100%;
+    width: 100%;
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.project-overlay:hover{
+	opacity: 0.8
 }
 
 .project:nth-child(1){
@@ -375,6 +388,10 @@ a .nav-link{
 	grid-column: 3 / auto;
 	grid-row: 1 / 3;
 	background-image: url("img/starrynight.jpg");
+}
+
+.project-big{
+	cursor: default;
 }
 
 

@@ -121,51 +121,21 @@ function resizeSnake(){
 
 //projects
 
- $('.project').click(function(){
+$(".project-big .project-overlay").css({'display': 'none'})
+
+$('.project').click(function(){
   let index=$( ".project" ).index( this );
   let indexBig=$( ".project-big").index();
   let actualProject=$('.project:eq('+index+')');
-  let actualWidth=$('.project:eq('+index+')').width();
-  let actualHeight=$('.project:eq('+index+')').height();
-  console.log('index: '+index+", indexBig: "+indexBig);
-
- do{
-    
-    for(let i=0;i<$(".projects-container").children().length;i++){
-      let actual=$('.project:eq('+i+')');
-
-      if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='2 / auto'){
-        actual.css({"transform": 'translateX('+(actualWidth)+'px)'})
-        actual.css({"grid-column": '1 / auto', 'grid-row': '2 / auto'})
-      }
-      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='2 / auto'){
-        actual.css({"transform": 'translateY('+(actualHeight)+'px)'})
-        actual.css({"grid-column": '1 / auto', 'grid-row': '1 / auto'})
-      }
-      else if(actual.css('grid-column')=='1 / auto' && actual.css('grid-row')=='1 / auto'){
-        actual.css({"transform": 'translateX('+(-actualWidth)+'px)'})
-        actual.css({"grid-column": '2 / auto', 'grid-row': '1 / auto'})
-      }
-      else if(actual.css('grid-column')=='2 / auto' && actual.css('grid-row')=='1 / auto'){
-        actual.css({"transform": 'translateY('+(-actualHeight)+'px)'})
-        actual.css({"grid-column": '2 / auto', 'grid-row': '2 / auto'})
-      }
-    }
-    
-    setTimeout(()=>{
-    for(let i=0;i<$(".projects-container").children().length;i++){
-      let actual=$('.project:eq('+i+')');
-      actual.css({"transform": 'translateX(0px)'})
-      actual.css({"transform": 'translateY(0px)'})
-    }
-     },1000);
-  }while(actualProject.css('grid-column')!='2 / auto' || actualProject.css('grid-row')!='2 / auto')
-
   
-  $( '.project:eq('+indexBig+')' ).css({"grid-column": '2 / auto', 'grid-row': '2 / auto'})
+
+  $( '.project:eq('+indexBig+')' ).css({"grid-column": actualProject.css("grid-column"), 'grid-row': actualProject.css("grid-row")})
+  $(".project-big .project-overlay").css({'display': 'flex'})
   $( '.project:eq('+indexBig+')' ).removeClass('project-big');
   actualProject.css({"grid-column": '3 / auto', 'grid-row': '1 / 3'})
   actualProject.addClass("project-big");
+  $(".project-big .project-overlay").css({'display': 'none'})
+
 })
 
 //form
