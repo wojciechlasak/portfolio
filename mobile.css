@@ -11,14 +11,19 @@
   .skills-icon {
     width: 60px;
   }
+
+  .column {
+    padding: 0 1.25em;
+  }
+
+  .more-992 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #about-container {
     height: 80%;
-  }
-  .about-photo {
-    margin-right: 0;
   }
   .skills-icon {
     width: 50px;

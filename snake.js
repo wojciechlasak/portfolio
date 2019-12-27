@@ -129,8 +129,6 @@ $(".snake-button:eq(0)").click(function() {
 //skip game
 $(".snake-button:eq(1)").click(function() {
   $("#snake-game").hide();
-  $("#skills-box").removeClass("col-md-5");
-  $("#skills-box").addClass("col-md-6");
   $("#snake-button-container").hide();
   skills.forEach(element => {
     let image = $("#" + element.alt);
@@ -180,8 +178,6 @@ function endGame() {
 $(".snake-button:eq(2)").click(function() {
   $(".snake-button:eq(2)").hide();
   $("#snake-game").hide();
-  $("#skills-box").removeClass("col-md-5");
-  $("#skills-box").addClass("col-md-6");
 });
 
 //disable defalut key function

@@ -8,7 +8,7 @@ a:hover {
 }
 
 body {
-  margin: 0px;
+  margin: 0;
   font-size: 100%;
   font-family: "Slabo 27px", serif;
   background-color: #cccccc;
@@ -26,10 +26,9 @@ body {
   flex-direction: row;
 }
 
-.air {
-  clear: both;
-  height: 10px;
-}
+.air {clear:both;height:3em;}
+.airmin {clear:both;height:1.5em;}
+.airmik {clear:both;height:.75em;}
 
 .separator {
   border-top: 3px dotted #c56913;
@@ -39,9 +38,23 @@ body {
   position: absolute;
 }
 
+.rel {
+  position: relative;
+}
+
+.column{
+  padding: 0 2.5em;
+}
+
+.column-double{
+  padding: 0 5em;
+}
+
 .part {
   background-color: #434343;
-  height: 100%;
+  min-height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -82,6 +95,7 @@ h6 {
 
 p {
   color: #ccc;
+  margin: 0;
 }
 
 /*Navigation*/
@@ -190,26 +204,21 @@ a .nav-link {
 
 .top-container {
   color: #fff;
-  padding: 20px;
 }
 
 /*Skills*/
 
 #snake {
   position: relative;
-  padding: 0;
 }
 
 #skills-container {
-  height: 80%;
   width: 100%;
-  padding: 0 40px;
-  margin-bottom: 25px;
+  padding: 0 2.5em;
 }
 
 #snake-game {
   background-color: #5c5c5c;
-  padding: 0;
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -218,14 +227,11 @@ a .nav-link {
 }
 
 .skills-heading {
-  margin-top: -6%;
-  margin-bottom: 4%;
   display: flex;
   justify-content: center;
 }
 .skills-box-part {
-  height: 18%;
-  margin-bottom: 8%;
+  margin-bottom: 2.5em;
 }
 
 .skills-icon {
@@ -238,17 +244,17 @@ a .nav-link {
 
 .skills-icon h4 {
   transition: 1s;
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 .battery-container {
-  height: 80%;
+  height: 100%;
   min-width: 25px;
   border: 2px solid #212121;
   padding: 3px;
   position: relative;
   justify-content: flex-end;
-  margin: 0 5px;
+  margin: 0 1.5em;
 }
 
 .battery-head {
@@ -310,11 +316,6 @@ a .nav-link {
 
 #about-container {
   height: 60%;
-}
-
-.about-photo {
-  width: 40%;
-  margin-right: 70px;
 }
 
 .about-photo img {
