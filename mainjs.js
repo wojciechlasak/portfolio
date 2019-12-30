@@ -119,7 +119,7 @@ function resizeSnake() {
   } else {
     skills.forEach(element => {
       let image = $("#" + element.alt);
-      image.fadeOut(0, function() {
+      jQuery("#" + element.alt).fadeOut(0, function() {
         image.attr("src", "icon-black/logo-" + element.alt + ".png");
         image.fadeIn(2000);
       });
@@ -228,5 +228,5 @@ $(".about-bold:eq(0)").click(function() {
   }, 5000);
 });
 
-window.addEventListener("resize", resizeAbout);
-window.addEventListener("load", resizeAbout);
+// window.addEventListener("resize", resizeAbout);
+// window.addEventListener("load", resizeAbout);

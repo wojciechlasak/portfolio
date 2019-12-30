@@ -25,16 +25,10 @@ if(isset($_POST['submit'])){
     <title>Wojciech Lasak</title>
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
-    <!--[if lt IE 9]>
-			<script src="/bundles/mzsite/js/html5shiv.min.js"></script>
-			<script src="/bundles/mzsite/js/respond.min.js"></script>
-		<![endif]-->
 </head>
 
 <body>
@@ -51,9 +45,9 @@ if(isset($_POST['submit'])){
             <a href="#about">
                 <div class='nav-link'>About</div>
             </a>
-            <a href="#projects">
+            <!-- <a href="#projects">
                 <div class='nav-link'>Projects</div>
-            </a>
+            </a> -->
             <a href="#form">
                 <div class='nav-link'>Contact</div>
             </a>
@@ -73,13 +67,12 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 
-    <!-- add S size and XS size, hide #skills-box and show in js-->
     <!--Skills-->
     <div id="snake" class="separator flexc part">
         <div class="air"></div>
-        <div id="skills-container" class="flex flex-justify-center flex-align-center rel">
+        <div id="skills-container" class="flex flex-justify-center flex-align-center rel column-double">
             <canvas id="snake-game" class="col2 more-992"></canvas>
-            <div id="skills-box" class="col2 column-double">
+            <div id="skills-box" class="col2">
                 <div class="skills-heading">
                     <h2>Skills</h2>
                 </div>
@@ -88,10 +81,10 @@ if(isset($_POST['submit'])){
                     <!--HTML icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id="html" class="img-fluid" src="icon-black/logo-html.png">
+                            <img id="html" src="icon-black/logo-html.png" alt="html">
                             <h4>HTML5</h4>
                         </div>
-                        <div id='html-battery' class="battery-container flexc col2">
+                        <div id='html-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-green"></div>
                             <div class="battery-part battery-green"></div>
@@ -102,11 +95,11 @@ if(isset($_POST['submit'])){
 
                     <!--CSS icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
-                        <div class="skills-icon">
-                            <img id="css" class="img-fluid" src="icon-black/logo-css.png">
+                        <div class="skills-icon col2">
+                            <img id="css" src="icon-black/logo-css.png" alt="css">
                             <h4>CSS3</h4>
                         </div>
-                        <div id='css-battery' class="battery-container flexc col2">
+                        <div id='css-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-green"></div>
                             <div class="battery-part battery-green"></div>
@@ -117,11 +110,11 @@ if(isset($_POST['submit'])){
 
                     <!--Bootstrap icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
-                        <div class="skills-icon">
-                            <img id="bootstrap" class="img-fluid" src="icon-black/logo-bootstrap.png">
+                        <div class="skills-icon col2">
+                            <img id="bootstrap" src="icon-black/logo-bootstrap.png" alt="bootstrap">
                             <h4>Bootstrap</h4>
                         </div>
-                        <div id='bootstrap-battery' class="battery-container flexc col2">
+                        <div id='bootstrap-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
@@ -133,10 +126,10 @@ if(isset($_POST['submit'])){
                     <!--Sass icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id="sass" class="img-fluid" src="icon-black/logo-sass.png">
+                            <img id="sass" src="icon-black/logo-sass.png" alt="sass">
                             <h4>Sass</h4>
                         </div>
-                        <div id='sass-battery' class="battery-container flexc col2">
+                        <div id='sass-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
                         </div>
@@ -145,10 +138,10 @@ if(isset($_POST['submit'])){
                     <!--JS icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id="javascript" class="img-fluid" src="icon-black/logo-javascript.png">
+                            <img id="javascript" src="icon-black/logo-javascript.png" alt="javascript">
                             <h4>Javascript</h4>
                         </div>
-                        <div id='javascript-battery' class="battery-container flexc col2">
+                        <div id='javascript-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-green"></div>
                             <div class="battery-part battery-green"></div>
@@ -160,10 +153,10 @@ if(isset($_POST['submit'])){
                     <!--jQuery icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id="jquery" class="img-fluid" src="icon-black/logo-jquery.png">
+                            <img id="jquery" src="icon-black/logo-jquery.png" alt="jquery">
                             <h4>jQuery</h4>
                         </div>
-                        <div id='jquery-battery' class="battery-container flexc col2">
+                        <div id='jquery-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-green"></div>
                             <div class="battery-part battery-green"></div>
@@ -177,10 +170,10 @@ if(isset($_POST['submit'])){
                     <!--PHP icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id='php' class="img-fluid" src="icon-black/logo-php.png">
+                            <img id="php" src="icon-black/logo-php.png" alt="php">
                             <h4>PHP</h4>
                         </div>
-                        <div id='php-battery' class="battery-container flexc col2">
+                        <div id="php-battery" class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
                         </div>
@@ -189,10 +182,10 @@ if(isset($_POST['submit'])){
                     <!--reactjs icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id='reactjs' class="img-fluid" src="icon-black/logo-reactjs.png">
+                            <img id="reactjs" src="icon-black/logo-reactjs.png" alt="reactjs">
                             <h4>React.js</h4>
                         </div>
-                        <div id='reactjs-battery' class="battery-container flexc col2">
+                        <div id="reactjs-battery" class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
                         </div>
@@ -201,10 +194,10 @@ if(isset($_POST['submit'])){
                     <!--git icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id='git' class="img-fluid" src="icon-black/logo-git.png">
+                            <img id="git" src="icon-black/logo-git.png" alt="git">
                             <h4>Git</h4>
                         </div>
-                        <div id='git-battery' class="battery-container flexc col2">
+                        <div id="git-battery" class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
@@ -216,10 +209,10 @@ if(isset($_POST['submit'])){
                     <!--PS icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id='photoshop' class="img-fluid" src="icon-black/logo-photoshop.png">
+                            <img id="photoshop" src="icon-black/logo-photoshop.png" alt="photoshop">
                             <h4>Photoshop</h4>
                         </div>
-                        <div id='photoshop-battery' class="battery-container flexc col2">
+                        <div id="photoshop-battery" class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
                         </div>
@@ -228,10 +221,10 @@ if(isset($_POST['submit'])){
                     <!--Wordpress icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2">
-                            <img id='wordpress' class="img-fluid" src="icon-black/logo-wordpress.png">
+                            <img id="wordpress" src="icon-black/logo-wordpress.png" alt="wordpress">
                             <h4>Wordpress</h4>
                         </div>
-                        <div id='wordpress-battery' class="battery-container flexc col2">
+                        <div id="wordpress-battery" class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
@@ -241,10 +234,10 @@ if(isset($_POST['submit'])){
                     <!--extra icon-->
                     <div class="flex flex-justify-center flex-align-center col3">
                         <div class="skills-icon col2" style="visibility: hidden">
-                            <img id='wordpress' class="img-fluid" src="icon-black/logo-wordpress.png">
+                            <img id='wordpress' src="icon-black/logo-wordpress.png">
                             <h4>Wordpress</h4>
                         </div>
-                        <div id='wordpress-battery' class="battery-container flexc col2" style="visibility: hidden">
+                        <div id='wordpress-battery' class="battery-container flexc col3" style="visibility: hidden">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
@@ -268,17 +261,17 @@ if(isset($_POST['submit'])){
     <div id="about" class="flexc separator part">
         <h2>About</h2>
         <div id="about-container" class="flex flex-justify-center flex-align-center column">
-            <div class="col3 column">
-                <img class="img-fluid" src="img/wojtek.jpg" alt="">
+            <div class="about-photo col3 column">
+                <img src="img/wojtek.jpg" alt="">
             </div>
-            <p class="col3-2 column">I am third year IT student at Jagiellonian University. I have been creating websites for six years.<br> Recently, I have learned backend technologies - Node.js - and frameworks for frontend - React.js. <br>Now i am writting Bachelor's thesis, the title is <b>Interactive application for booking accommodation rooms</b>. I am using React.js, Node.js/Express.js<br><br>
+            <p class="col3-2 column">I am fourth year IT student at Jagiellonian University. I have been creating websites for six years.<br> Recently, I have learned backend technologies - Node.js - and frameworks for frontend - React.js. <br>Now i am writting Bachelor's thesis, the title is <b>Interactive application for booking accommodation rooms</b>. I am using React.js, Node.js/Express.js<br><br>
             In my spare time i play volleyball and i like spening time in the Tatras mountains</p>
         </div>
     </div>
 
     <!--Projects-->
     <!--
-    <div id="projects" class="flexc separator part">
+    <div id="projects" class="flexc separator part column-double">
         <h2>projects</h2>
         <div class="projects-container">
             <div class="project">
@@ -312,7 +305,7 @@ if(isset($_POST['submit'])){
     <!--Contact-->
     <div id="form" class="flexc separator part">
         <h2>contact</h2>
-        <form id="form-container" class="flexc" method="post">
+        <form id="form-container" class="flexc column-double" method="post">
             <input id="name" placeholder="Name" type="text" name="name">
             <input id="mail" placeholder="Email" type="text" name="mail">
             <textarea id="message" placeholder="Message" type="text" name="message"></textarea>
@@ -339,7 +332,9 @@ if(isset($_POST['submit'])){
     </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script src="snake.js"></script>
     <script src="mainjs.js"></script>

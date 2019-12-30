@@ -3,7 +3,11 @@ body {
   height: 100%;
 }
 
-a:hover {
+* {
+  box-sizing: border-box;
+}
+
+a, a:hover {
   text-decoration: none;
 }
 
@@ -55,6 +59,15 @@ body {
   min-height: 100%;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
 }
 
 h1 {
@@ -208,13 +221,8 @@ a .nav-link {
 
 /*Skills*/
 
-#snake {
-  position: relative;
-}
-
 #skills-container {
   width: 100%;
-  padding: 0 2.5em;
 }
 
 #snake-game {
@@ -224,6 +232,7 @@ a .nav-link {
 
 #skills-box {
   height: 100%;
+  padding-left: 5em;
 }
 
 .skills-heading {
@@ -238,8 +247,13 @@ a .nav-link {
   text-align: center;
   color: #2b2b2b;
   transition: 0.3s;
-  max-width: 80px;
-  min-width: 30px;
+  /* max-width: 80px; check */
+  /* min-width: 30px; check */
+}
+
+.skills-icon img {
+  max-width: 100%;
+  height: auto;
 }
 
 .skills-icon h4 {
@@ -247,7 +261,7 @@ a .nav-link {
   font-size: 0.8em;
 }
 
-.battery-container {
+.battery-container { /* check */
   height: 100%;
   min-width: 25px;
   border: 2px solid #212121;
@@ -285,7 +299,6 @@ a .nav-link {
 }
 
 #snake-button-container {
-  position: absolute;
   margin-left: auto;
   margin-right: auto;
 }
@@ -314,12 +327,10 @@ a .nav-link {
 
 /*About*/
 
-#about-container {
-  height: 60%;
-}
-
 .about-photo img {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 100%;
+  height: auto;
 }
 
 .about-bold {
@@ -404,6 +415,12 @@ a .nav-link {
   width: 100%;
 }
 
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 #form input {
   color: #5c5c5c;
   height: 50px;
@@ -464,7 +481,6 @@ a .nav-link {
 
 #footer {
   background-color: #000;
-  height: 150px;
 }
 
 #ficon-container {

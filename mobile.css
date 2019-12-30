@@ -5,26 +5,28 @@
 }
 
 @media screen and (max-width: 992px) {
-  .skills-box-part {
-    margin-bottom: 6%;
-  }
-  .skills-icon {
-    width: 60px;
-  }
-
   .column {
     padding: 0 1.25em;
+  }
+
+  .column-double {
+    padding: 0 2.5em;
   }
 
   .more-992 {
     display: none;
   }
+
+  .skills-box-part {
+    margin-bottom: 6%;
+  }
+
+  .skills-icon { /* check */
+    width: 60px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  #about-container {
-    height: 80%;
-  }
   .skills-icon {
     width: 50px;
   }
