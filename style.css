@@ -15,7 +15,7 @@ body {
   margin: 0;
   font-size: 100%;
   font-family: "Slabo 27px", serif;
-  background-color: #cccccc;
+  background-color: #434343;
 }
 
 .flexc {
@@ -36,6 +36,10 @@ body {
 
 .separator {
   border-top: 3px dotted #c56913;
+}
+
+.less-1024 {
+  display: none;
 }
 
 .abs {
@@ -125,6 +129,7 @@ p {
   transition: 0.3s transform linear;
   cursor: pointer;
   z-index: 2;
+  outline: none;
 }
 
 .burger::before,
@@ -143,18 +148,14 @@ p {
   transition: 0.3s transform linear;
 }
 
-.burger:focus {
+
+.burger.burger-show {
   transform: rotate(45deg) translateY(5px);
   border: none;
-  cursor: default;
 }
 
-.burger:focus::after {
+.burger.burger-show::after {
   transform: rotate(-90deg) translateX(-10px);
-}
-
-button:focus {
-  outline: none;
 }
 
 #nav {
@@ -169,7 +170,7 @@ button:focus {
   transition: 1s;
 }
 
-.show {
+#nav.show {
   right: 0;
 }
 
@@ -213,6 +214,7 @@ a .nav-link {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100%;
 }
 
 .top-container {
@@ -236,8 +238,7 @@ a .nav-link {
 }
 
 .skills-heading {
-  display: flex;
-  justify-content: center;
+  margin-bottom: 1.5em;
 }
 .skills-box-part {
   margin-bottom: 2.5em;
@@ -247,12 +248,11 @@ a .nav-link {
   text-align: center;
   color: #2b2b2b;
   transition: 0.3s;
-  /* max-width: 80px; check */
-  /* min-width: 30px; check */
 }
 
 .skills-icon img {
-  max-width: 100%;
+  max-width: 60px;
+  width: 100%;
   height: auto;
 }
 
@@ -264,11 +264,12 @@ a .nav-link {
 .battery-container { /* check */
   height: 100%;
   min-width: 25px;
+  max-width: 60px;
   border: 2px solid #212121;
   padding: 3px;
   position: relative;
   justify-content: flex-end;
-  margin: 0 1.5em;
+  margin-right: 1em;
 }
 
 .battery-head {
@@ -322,6 +323,11 @@ a .nav-link {
 }
 
 .snake-button:nth-child(3) {
+  display: none;
+}
+
+.snake-button:nth-child(4) {
+  margin-top: 15px;
   display: none;
 }
 

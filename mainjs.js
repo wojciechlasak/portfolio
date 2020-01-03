@@ -2,16 +2,16 @@ var $ = jQuery;
 var scrolledTop = false;
 
 //nav
-$(".burger").focus(function() {
-  $("#nav").css({ right: "0" });
-  $(".burger").focusout(function() {
-    $("#nav").css({ right: "-200px" });
-  });
+$(".burger").on("click",function() {
+  $("#nav").toggleClass('show');
+  $(".burger").toggleClass('burger-show');
 });
 
 $(".nav-link").click(function(e) {
   scrolledTop = true;
   $("#scroll").css({ display: "none" });
+  $(".burger").toggleClass('burger-show');
+  $("#nav").toggleClass('show');
   e.preventDefault();
   $("html,body").animate({
     scrollTop: $(
@@ -22,7 +22,9 @@ $(".nav-link").click(function(e) {
   });
 });
 
-$(window).on("scroll", function() {
+$(window).on("scroll", checkHighlightLink);
+
+function checkHighlightLink() {
   var pos = $(window).scrollTop();
   if (pos >= $("#top").offset().top) {
     highlightLink("0");
@@ -47,7 +49,7 @@ $(window).on("scroll", function() {
     $(".nav-link").removeClass("active");
     $(".nav-link:eq(" + number + ")").addClass("active");
   }
-});
+}
 
 //top
 
@@ -78,7 +80,7 @@ window.addEventListener("resize", resizeSnake);
 window.addEventListener("load", resizeSnake);
 
 function resizeSnake() {
-  if ($(document).width() <= 992) {
+  if ($(document).width() <= 1024) {
     skills.forEach(element => {
       let image = $("#" + element.alt);
       image.fadeOut(0, function() {
@@ -228,5 +230,4 @@ $(".about-bold:eq(0)").click(function() {
   }, 5000);
 });
 
-// window.addEventListener("resize", resizeAbout);
-// window.addEventListener("load", resizeAbout);
+window.addEventListener("load", checkHighlightLink);
