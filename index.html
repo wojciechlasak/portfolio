@@ -1,21 +1,4 @@
-<!--<?php 
-if(isset($_POST['submit'])){
-    $to = "wojtekl62699@gmail.com"; // this is your Email address
-    $from = $_POST['mail']; // this is the sender's Email address
-    $name = $_POST['name'];
-    $subject = "Form submission";
-    $subject2 = "Copy of your form submission";
-    $message = $name ." wrote the following:" . "\n\n" . $_POST['message'];
-
-    $headers = "From:" . $from;
-    mail($to,$subject,$message,$headers);
-    echo "Mail Sent. Thank you " . $name . ", I will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
-    }
-?>-->
-
 <html lang="pl">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +13,6 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
 </head>
-
 <body>
     <!--Navigation-->
     <button class="burger"></button>
@@ -53,20 +35,19 @@ if(isset($_POST['submit'])){
             </a>
         </div>
     </div>
-
     <!--Home-->
     <div id="top" class="column flexc">
         <div class="top-container flexc column">
             <h1>Hi, I'm Wojciech Lasak</h1>
             <h1>Web developer</h1>
+            <div class="air"></div>
             <h3>Let me intruduce myself</h3>
             <div id="scroll" class="flexc">
                 <img src="img/mouse2.png">
-                <h4>scroll</h4>
+                <span>scroll</span>
             </div>
         </div>
     </div>
-
     <!--Skills-->
     <div id="snake" class="separator flexc part">
         <div class="air"></div>
@@ -76,7 +57,6 @@ if(isset($_POST['submit'])){
                 <div class="skills-heading flex flex-justify-center">
                     <h2>Skills</h2>
                 </div>
-
                 <div class="skills-box-part flex flex-justify-center">
                     <!--HTML icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
@@ -92,7 +72,6 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-green"></div>
                         </div>
                     </div>
-
                     <!--CSS icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
                         <div class="skills-icon col2">
@@ -107,7 +86,6 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-green"></div>
                         </div>
                     </div>
-
                     <!--Bootstrap icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
                         <div class="skills-icon col2">
@@ -116,25 +94,25 @@ if(isset($_POST['submit'])){
                         </div>
                         <div id='bootstrap-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-box-part flex flex-justify-center">
-                    <!--Sass icon-->
-                    <div class="flex flex-justify-space-between flex-align-center col3">
-                        <div class="skills-icon col2">
-                            <img id="sass" src="icon-black/logo-sass.png" alt="sass">
-                            <h4>Sass</h4>
-                        </div>
-                        <div id='sass-battery' class="battery-container flexc col3">
-                            <div class="battery-head abs"></div>
                             <div class="battery-part battery-red"></div>
                         </div>
                     </div>
-
+                </div>
+                <div class="skills-box-part flex flex-justify-center">
+                    <!--reactjs icon-->
+                    <div class="flex flex-justify-space-between flex-align-center col3">
+                        <div class="skills-icon col2">
+                            <img id="reactjs" src="icon-black/logo-reactjs.png" alt="reactjs">
+                            <h4>React.js</h4>
+                        </div>
+                        <div id="reactjs-battery" class="battery-container flexc col3">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                            <div class="battery-part battery-green"></div>
+                        </div>
+                    </div>
                     <!--JS icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
                         <div class="skills-icon col2">
@@ -149,7 +127,57 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-green"></div>
                         </div>
                     </div>
-
+                    <!--Typescript icon-->
+                    <div class="flex flex-justify-space-between flex-align-center col3">
+                        <div class="skills-icon col2">
+                            <img id="typescript" src="icon-black/logo-typescript.png" alt="typescript">
+                            <h4>TypeScript</h4>
+                        </div>
+                        <div id="typescript-battery" class="battery-container flexc col3">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-yellow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-box-part flex flex-justify-center">
+                    <!--PHP icon-->
+                    <div class="flex flex-justify-space-between flex-align-center col3">
+                        <div class="skills-icon col2">
+                            <img id="php" src="icon-black/logo-php.png" alt="php">
+                            <h4>PHP</h4>
+                        </div>
+                        <div id="php-battery" class="battery-container flexc col3">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-red"></div>
+                        </div>
+                    </div>
+                    <!--Sass icon-->
+                    <div class="flex flex-justify-space-between flex-align-center col3">
+                        <div class="skills-icon col2">
+                            <img id="sass" src="icon-black/logo-sass.png" alt="sass">
+                            <h4>Sass</h4>
+                        </div>
+                        <div id='sass-battery' class="battery-container flexc col3">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-yellow"></div>
+                        </div>
+                    </div>
+                    <!--git icon-->
+                    <div class="flex flex-justify-space-between flex-align-center col3">
+                        <div class="skills-icon col2">
+                            <img id="git" src="icon-black/logo-git.png" alt="git">
+                            <h4>Git</h4>
+                        </div>
+                        <div id="git-battery" class="battery-container flexc col3">
+                            <div class="battery-head abs"></div>
+                            <div class="battery-part battery-yellow"></div>
+                            <div class="battery-part battery-yellow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-box-part flex flex-justify-center">
                     <!--jQuery icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
                         <div class="skills-icon col2">
@@ -164,60 +192,6 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-green"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skills-box-part flex flex-justify-center">
-                    <!--PHP icon-->
-                    <div class="flex flex-justify-space-between flex-align-center col3">
-                        <div class="skills-icon col2">
-                            <img id="php" src="icon-black/logo-php.png" alt="php">
-                            <h4>PHP</h4>
-                        </div>
-                        <div id="php-battery" class="battery-container flexc col3">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-                    </div>
-
-                    <!--reactjs icon-->
-                    <div class="flex flex-justify-space-between flex-align-center col3">
-                        <div class="skills-icon col2">
-                            <img id="reactjs" src="icon-black/logo-reactjs.png" alt="reactjs">
-                            <h4>React.js</h4>
-                        </div>
-                        <div id="reactjs-battery" class="battery-container flexc col3">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-                    </div>
-
-                    <!--git icon-->
-                    <div class="flex flex-justify-space-between flex-align-center col3">
-                        <div class="skills-icon col2">
-                            <img id="git" src="icon-black/logo-git.png" alt="git">
-                            <h4>Git</h4>
-                        </div>
-                        <div id="git-battery" class="battery-container flexc col3">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-yellow"></div>
-                            <div class="battery-part battery-yellow"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-box-part flex flex-justify-center">
-                    <!--PS icon-->
-                    <div class="flex flex-justify-space-between flex-align-center col3">
-                        <div class="skills-icon col2">
-                            <img id="photoshop" src="icon-black/logo-photoshop.png" alt="photoshop">
-                            <h4>Photoshop</h4>
-                        </div>
-                        <div id="photoshop-battery" class="battery-container flexc col3">
-                            <div class="battery-head abs"></div>
-                            <div class="battery-part battery-red"></div>
-                        </div>
-                    </div>
-
                     <!--Wordpress icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
                         <div class="skills-icon col2">
@@ -230,14 +204,13 @@ if(isset($_POST['submit'])){
                             <div class="battery-part battery-yellow"></div>
                         </div>
                     </div>
-
-                    <!--extra icon-->
+                    <!--SQL icon-->
                     <div class="flex flex-justify-space-between flex-align-center col3">
-                        <div class="skills-icon col2" style="visibility: hidden">
-                            <img id='wordpress' src="icon-black/logo-wordpress.png">
-                            <h4>Wordpress</h4>
+                        <div class="skills-icon col2">
+                            <img id='sql' src="icon-black/logo-sql.png">
+                            <h4>SQL</h4>
                         </div>
-                        <div id='wordpress-battery' class="battery-container flexc col3" style="visibility: hidden">
+                        <div id='sql-battery' class="battery-container flexc col3">
                             <div class="battery-head abs"></div>
                             <div class="battery-part battery-yellow"></div>
                             <div class="battery-part battery-yellow"></div>
@@ -257,7 +230,6 @@ if(isset($_POST['submit'])){
         </div>
         <div class="air"></div>
     </div>
-
     <!--About-->
     <div id="about" class="flexc separator part">
         <div class="air"></div>
@@ -266,12 +238,13 @@ if(isset($_POST['submit'])){
             <div class="about-photo col3 column">
                 <img src="img/wojtek.jpg" alt="">
             </div>
-            <p class="col3-2 column">I am fourth year IT student at Jagiellonian University. I have been creating websites for six years.<br> Recently, I have learned backend technologies - Node.js - and frameworks for frontend - React.js. <br>Now i am writting Bachelor's thesis, the title is <b>Interactive application for booking accommodation rooms</b>. I am using React.js, Node.js/Express.js<br><br>
-            In my spare time i play volleyball and i like spening time in the Tatras mountains</p>
+            <p class="col3-2 column">I am fourth year IT student at Jagiellonian University. The title of my Bachelor's thesis was <b>Interactive application for booking accommodation rooms</b>. I was using React.js in front and Node.js/Express.js in back, also I used MySQL database. <br>
+            I have been creating websites for six years, trying to learn newer and newer technologies but always I remember the fact that every based on JavaScript. <br>
+            Last summer I did intership in x-kom. I was working in eight-man team in SCRUM methodology. We were rewritting website to React.js. I learned about TypeScript, Redux, Jest. <br><br> 
+            In my spare time I play volleyball and I like spending time in the <span class="about-bold">Tatra Mountains</span>, doing all available activities such as climbing, hiking, skiing.</p>
         </div>
         <div class="air"></div>
     </div>
-
     <!--Projects-->
     <!--
     <div id="projects" class="flexc separator part column-double">
@@ -315,7 +288,6 @@ if(isset($_POST['submit'])){
             <input type="submit" name="submit" value="Send">
         </form>
     </div>
-
     <!--Footer-->
     <footer id="footer" class="flexc">
         <div id="ficon-container" class="flexr">
@@ -333,8 +305,6 @@ if(isset($_POST['submit'])){
             <span>2018</span>
         </h5>
     </footer>
-
-
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

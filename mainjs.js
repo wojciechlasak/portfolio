@@ -80,7 +80,7 @@ window.addEventListener("resize", resizeSnake);
 window.addEventListener("load", resizeSnake);
 
 function resizeSnake() {
-  if ($(document).width() <= 1024) {
+  if ($(document).width() <= 1024 || $("#snake-game").css('display') == 'none') {
     skills.forEach(element => {
       let image = $("#" + element.alt);
       image.fadeOut(0, function() {
@@ -211,10 +211,15 @@ $("#mail").focusout(function() {
   $(this).attr("placeholder", "Email");
 });
 
+document.getElementById('form').addEventListener('submit', function(e) {
+  e.preventDefault(); 
+  alert('Niestety ta opcja jest niedostępna, skontaktuj sie za pomocą LinkedIn lub napisz na maila wojciech.lasak@outlook.com');
+});
+
 //about
 
 $(".about-bold:eq(0)").click(function() {
-  $("#about-container img").attr("src", "img/wojtek2.jpg");
+  $("#about-container img").attr("src", "img/rysy.jpeg");
   $(".about-bold:eq(0)").css({
     color: "#875a31",
     "font-weight": "500",

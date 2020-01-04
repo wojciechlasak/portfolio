@@ -28,11 +28,6 @@ sass.src = "icon-black/logo-sass2.png";
 sass.alt = "sass";
 skills.push(sass);
 
-const photoshop = new Image();
-photoshop.src = "icon-black/logo-photoshop2.png";
-photoshop.alt = "photoshop";
-skills.push(photoshop);
-
 const jquery = new Image();
 jquery.src = "icon-black/logo-jquery2.png";
 jquery.alt = "jquery";
@@ -62,6 +57,16 @@ const git = new Image();
 git.src = "icon-black/logo-git2.png";
 git.alt = "git";
 skills.push(git);
+
+const sql = new Image();
+sql.src = "icon-black/logo-sql2.png";
+sql.alt = "sql";
+skills.push(sql);
+
+const typescript = new Image();
+typescript.src = "icon-black/logo-typescript2.png";
+typescript.alt = "typescript";
+skills.push(typescript);
 
 //audio
 
@@ -119,15 +124,18 @@ down.src = "audio/down.mp3";
 
 //startGame
 
-$(".snake-button:eq(0)").click(function() {
+function startGame() {
   $("#snake-button-container").hide();
   $(".snake-button:eq(0)").hide();
   $(".snake-button:eq(1)").hide();
+  $(".snake-button:eq(3)").hide();
   p = new Game();
   $("html,body").animate({
     scrollTop: $("#snake").offset().top
   });
-});
+}
+
+$(".snake-button:eq(0)").click(startGame);
 
 //skip game
 $(".snake-button:eq(1)").click(function() {
@@ -191,12 +199,7 @@ function repeatGame() {
   $(".snake-button:eq(3)").css({ display: "block" });
 }
 
-$(".snake-button:eq(3)").click(function() {
-  $("#snake-button-container").hide();
-  $(".snake-button:eq(1)").hide();
-  $(".snake-button:eq(3)").hide();
-  p = new Game();
-});
+$(".snake-button:eq(3)").click(startGame);
 
 //disable defalut key function
 
@@ -225,7 +228,6 @@ class Game {
     this.generateObstacles();
     this.newFood();
     this.newFood = this.newFood.bind(this);
-    this.check = this.check.bind(this);
     this.draw = this.draw.bind(this);
     this.isCollision=this.isCollision.bind(this);
     window.addEventListener("keydown", event => this.direction(event));
@@ -270,8 +272,6 @@ class Game {
     }
   }
 
-  //obstacles
-
   generateObstacles() {
     for(let i=0;i<5;++i){
       do{
@@ -279,24 +279,28 @@ class Game {
           x:Math.floor(Math.random() * $("#snake-game").width()),
           y:Math.floor(Math.random() * $("#skills-container").height()),
         }
-      }while(this.check(this.obstacles[i].x,this.obstacles[i].y));
+      }while(this.isCollision({x: this.obstacles[i].x, y: this.obstacles[i].y},this.snake));
     }
   }
 
-  isCollision(head,array) {
+  isCollision(object,array) {
     for (let i = 0; i < array.length; i++) {
       if (
-        head.x < array[i].x + box &&
-        head.x + box > array[i].x &&
-        head.y < array[i].y + box &&
-        head.y + box > array[i].y
+        object.x < array[i].x + box &&
+        object.x + box > array[i].x &&
+        object.y < array[i].y + box &&
+        object.y + box > array[i].y
       )
+        return true;
+      if (
+        object.x > $("#snake-game").width() - box ||
+        object.y > $("#skills-container").height() - box
+      )  
         return true;
     }
     return false;
   }
 
-  //food
   newFood() {
     do {
       this.food = {
@@ -304,12 +308,10 @@ class Game {
         y: Math.floor(Math.random() * $("#skills-container").height()),
         src: skills[Math.floor((Math.random() * skills.length) % skills.length)]
       };
-    } while (this.check(this.food.x, this.food.y) || this.isCollision(this.food,this.obstacles));
+    } while (this.isCollision(this.food,this.snake) || this.isCollision(this.food,this.obstacles));
   }
 
-  //change skills
-
-  async changeSkills(skill) {
+  changeSkills(skill) {
     let image = $("#" + skill.alt);
 
     if (
@@ -352,28 +354,6 @@ class Game {
       });
     }
   }
-  //check
-
-  check(a, b) {
-    let flag = false;
-    for (let i = 0; i < this.snake.length; i++) {
-      if (
-        a < this.snake[i].x + box &&
-        a + box > this.snake[i].x &&
-        b < this.snake[i].y + box &&
-        b + box > this.snake[i].y
-      )
-        flag = true;
-      if (
-        a > $("#snake-game").width() - box ||
-        b > $("#skills-container").height() - box
-      )
-        flag = true;
-    }
-
-    return flag;
-  }
-  //draw
 
   draw() {
     if (!this.pause) {
