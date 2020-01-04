@@ -158,7 +158,7 @@ p {
   transform: rotate(-90deg) translateX(-10px);
 }
 
-#nav {
+nav {
   width: 200px;
   position: fixed;
   background-color: #212121;
@@ -170,7 +170,7 @@ p {
   transition: 1s;
 }
 
-#nav.show {
+nav.show {
   right: 0;
 }
 

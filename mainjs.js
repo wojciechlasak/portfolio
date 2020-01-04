@@ -3,7 +3,7 @@ var scrolledTop = false;
 
 //nav
 $(".burger").on("click",function() {
-  $("#nav").toggleClass('show');
+  $("nav").toggleClass('show');
   $(".burger").toggleClass('burger-show');
 });
 
@@ -11,7 +11,7 @@ $(".nav-link").click(function(e) {
   scrolledTop = true;
   $("#scroll").css({ display: "none" });
   $(".burger").toggleClass('burger-show');
-  $("#nav").toggleClass('show');
+  $("nav").toggleClass('show');
   e.preventDefault();
   $("html,body").animate({
     scrollTop: $(

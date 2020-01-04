@@ -16,7 +16,7 @@
 <body>
     <!--Navigation-->
     <button class="burger"></button>
-    <div id="nav">
+    <nav>
         <div id="nav-container" class="flexc">
             <a href="#top">
                 <div class='nav-link'>Home</div>
@@ -34,9 +34,9 @@
                 <div class='nav-link'>Contact</div>
             </a>
         </div>
-    </div>
+    </nav>
     <!--Home-->
-    <div id="top" class="column flexc">
+    <header id="top" class="column flexc">
         <div class="top-container flexc column">
             <h1>Hi, I'm Wojciech Lasak</h1>
             <h1>Web developer</h1>
@@ -47,9 +47,9 @@
                 <span>scroll</span>
             </div>
         </div>
-    </div>
+    </header>
     <!--Skills-->
-    <div id="snake" class="separator flexc part">
+    <section id="snake" class="separator flexc part">
         <div class="air"></div>
         <div id="skills-container" class="flex flex-justify-center flex-align-center rel column-double">
             <canvas id="snake-game" class="col2 more-1024"></canvas>
@@ -229,12 +229,12 @@
             <div class="snake-button">Play Again</div>
         </div>
         <div class="air"></div>
-    </div>
+    </section>
     <!--About-->
-    <div id="about" class="flexc separator part">
+    <section id="about" class="flexc separator part">
         <div class="air"></div>
         <h2>About</h2>
-        <div id="about-container" class="flex flex-justify-center flex-align-center column">
+        <article id="about-container" class="flex flex-justify-center flex-align-center column">
             <div class="about-photo col3 column">
                 <img src="img/wojtek.jpg" alt="">
             </div>
@@ -242,12 +242,12 @@
             I have been creating websites for six years, trying to learn newer and newer technologies but always I remember the fact that every based on JavaScript. <br>
             Last summer I did intership in x-kom. I was working in eight-man team in SCRUM methodology. We were rewritting website to React.js. I learned about TypeScript, Redux, Jest. <br><br> 
             In my spare time I play volleyball and I like spending time in the <span class="about-bold">Tatra Mountains</span>, doing all available activities such as climbing, hiking, skiing.</p>
-        </div>
+            </article>
         <div class="air"></div>
-    </div>
+    </section>
     <!--Projects-->
     <!--
-    <div id="projects" class="flexc separator part column-double">
+    <section id="projects" class="flexc separator part column-double">
         <h2>projects</h2>
         <div class="projects-container">
             <div class="project">
@@ -276,10 +276,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     -->
     <!--Contact-->
-    <div id="form" class="flexc separator part">
+    <section id="form" class="flexc separator part">
         <h2>contact</h2>
         <form id="form-container" class="flexc column-double" method="post">
             <input id="name" placeholder="Name" type="text" name="name">
@@ -287,7 +287,7 @@
             <textarea id="message" placeholder="Message" type="text" name="message"></textarea>
             <input type="submit" name="submit" value="Send">
         </form>
-    </div>
+    </section>
     <!--Footer-->
     <footer id="footer" class="flexc">
         <div id="ficon-container" class="flexr">
