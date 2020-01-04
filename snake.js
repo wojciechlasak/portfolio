@@ -141,6 +141,9 @@ $(".snake-button:eq(0)").click(startGame);
 $(".snake-button:eq(1)").click(function() {
   $("#snake-game").hide();
   $("#snake-button-container").hide();
+  $("#skills-box").css({
+    "padding-left": "0"
+  });
   skills.forEach(element => {
     let image = $("#" + element.alt);
     image.fadeOut(0, function() {

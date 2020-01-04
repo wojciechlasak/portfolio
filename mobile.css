@@ -15,6 +15,10 @@
     display: block;
   }
 
+  h4 {
+    font-size: 0.79em;
+  }
+
   #skills-container {
     flex-wrap: wrap;
   }
@@ -46,13 +50,13 @@
 
 @media screen and (max-width: 576px) {
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.8em;
   }
   h2 {
-    font-size: 2rem;
+    font-size: 2em;
   }
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.5em;
   }
   .battery-container {
     height: 70%;
@@ -61,7 +65,7 @@
 
 @media screen and (max-width: 480px) {
   p {
-    font-size: 0.85rem;
+    font-size: 0.79em;
   }
 
 

@@ -81,6 +81,9 @@ window.addEventListener("load", resizeSnake);
 
 function resizeSnake() {
   if ($(document).width() <= 1024 || $("#snake-game").css('display') == 'none') {
+    $("#skills-box").css({
+      "padding-left": "0"
+    });
     skills.forEach(element => {
       let image = $("#" + element.alt);
       image.fadeOut(0, function() {
@@ -119,6 +122,9 @@ function resizeSnake() {
       });
     });
   } else {
+    $("#skills-box").css({
+      "padding-left": "5em"
+    });
     skills.forEach(element => {
       let image = $("#" + element.alt);
       jQuery("#" + element.alt).fadeOut(0, function() {
