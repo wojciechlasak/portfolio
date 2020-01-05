@@ -152,13 +152,10 @@ window.addEventListener("load", resizeProject);
 
 function resizeProject() {
   if ($(document).width() <= 768) {
-    $(".project-overlay").css({ display: "none" });
     $(".projects-container").css({ "grid-template-columns": "1fr 1fr" });
     $(".project").unbind("click");
   } else {
-    $(".project-overlay").css({ display: "flex" });
     $(".projects-container").css({ "grid-template-columns": "1fr 1fr 2fr" });
-    $(".project-big .project-overlay").css({ display: "none" });
 
     $(".project").bind("click", function() {
       let index = $(".project").index(this);
@@ -169,11 +166,9 @@ function resizeProject() {
         "grid-column": actualProject.css("grid-column"),
         "grid-row": actualProject.css("grid-row")
       });
-      $(".project-big .project-overlay").css({ display: "flex" });
       $(".project:eq(" + indexBig + ")").removeClass("project-big");
       actualProject.css({ "grid-column": "3 / auto", "grid-row": "1 / 3" });
       actualProject.addClass("project-big");
-      $(".project-big .project-overlay").css({ display: "none" });
     });
   }
 }
@@ -187,11 +182,9 @@ $(".project").click(function() {
     "grid-column": actualProject.css("grid-column"),
     "grid-row": actualProject.css("grid-row")
   });
-  $(".project-big .project-overlay").css({ display: "flex" });
   $(".project:eq(" + indexBig + ")").removeClass("project-big");
   actualProject.css({ "grid-column": "3 / auto", "grid-row": "1 / 3" });
   actualProject.addClass("project-big");
-  $(".project-big .project-overlay").css({ display: "none" });
 });
 
 //form

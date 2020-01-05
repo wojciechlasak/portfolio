@@ -46,6 +46,10 @@
   .project {
     cursor: default;
   }
+
+  .project-overlay {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 576px) {
