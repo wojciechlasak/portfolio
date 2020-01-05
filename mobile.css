@@ -31,7 +31,7 @@
   #about-container {
     flex-wrap: wrap;
   }
-  
+
   #about-container > p {
     width: 100%;
   }
@@ -71,7 +71,6 @@
   p {
     font-size: 0.79em;
   }
-
 
   #skills-container .skills-box-part {
     flex-wrap: wrap;

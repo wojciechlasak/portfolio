@@ -232,7 +232,7 @@ class Game {
     this.newFood();
     this.newFood = this.newFood.bind(this);
     this.draw = this.draw.bind(this);
-    this.isCollision=this.isCollision.bind(this);
+    this.isCollision = this.isCollision.bind(this);
     window.addEventListener("keydown", event => this.direction(event));
     window.addEventListener("keydown", event => this.pauseGame(event));
     window.addEventListener("resize", () => this.newFood(), false);
@@ -276,17 +276,22 @@ class Game {
   }
 
   generateObstacles() {
-    for(let i=0;i<5;++i){
-      do{
-        this.obstacles[i]={
-          x:Math.floor(Math.random() * $("#snake-game").width()),
-          y:Math.floor(Math.random() * $("#skills-container").height()),
-        }
-      }while(this.isCollision({x: this.obstacles[i].x, y: this.obstacles[i].y},this.snake));
+    for (let i = 0; i < 5; ++i) {
+      do {
+        this.obstacles[i] = {
+          x: Math.floor(Math.random() * $("#snake-game").width()),
+          y: Math.floor(Math.random() * $("#skills-container").height())
+        };
+      } while (
+        this.isCollision(
+          { x: this.obstacles[i].x, y: this.obstacles[i].y },
+          this.snake
+        )
+      );
     }
   }
 
-  isCollision(object,array) {
+  isCollision(object, array) {
     for (let i = 0; i < array.length; i++) {
       if (
         object.x < array[i].x + box &&
@@ -298,7 +303,7 @@ class Game {
       if (
         object.x > $("#snake-game").width() - box ||
         object.y > $("#skills-container").height() - box
-      )  
+      )
         return true;
     }
     return false;
@@ -311,7 +316,10 @@ class Game {
         y: Math.floor(Math.random() * $("#skills-container").height()),
         src: skills[Math.floor((Math.random() * skills.length) % skills.length)]
       };
-    } while (this.isCollision(this.food,this.snake) || this.isCollision(this.food,this.obstacles));
+    } while (
+      this.isCollision(this.food, this.snake) ||
+      this.isCollision(this.food, this.obstacles)
+    );
   }
 
   changeSkills(skill) {
@@ -406,15 +414,14 @@ class Game {
       }
 
       //draw obstacels
-      for(let i=0;i<this.obstacles.length;++i){
+      for (let i = 0; i < this.obstacles.length; ++i) {
         ctx.fillStyle = "#282828";
-        ctx.fillRect(this.obstacles[i].x,this.obstacles[i].y,box,box);
-        
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#c56913';
-        ctx.strokeRect(this.obstacles[i].x,this.obstacles[i].y,box,box);
-      }
+        ctx.fillRect(this.obstacles[i].x, this.obstacles[i].y, box, box);
 
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#c56913";
+        ctx.strokeRect(this.obstacles[i].x, this.obstacles[i].y, box, box);
+      }
 
       //draw food
       if (skills.length > 0)
@@ -423,7 +430,7 @@ class Game {
       // head position
       let head = {
         x: this.snake[0].x,
-        y: this.snake[0].y,
+        y: this.snake[0].y
       };
 
       //eat the food
@@ -469,11 +476,11 @@ class Game {
       if (head.y + box > $("#skills-container").height()) head.y = 0;
 
       //game over
-      if(this.isCollision(head,this.obstacles)){
-				clearInterval(game);
-				dead.play();
-				repeatGame();
-			}
+      if (this.isCollision(head, this.obstacles)) {
+        clearInterval(game);
+        dead.play();
+        repeatGame();
+      }
 
       this.snake.unshift(head);
 

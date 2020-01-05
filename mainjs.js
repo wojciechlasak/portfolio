@@ -2,16 +2,16 @@ var $ = jQuery;
 var scrolledTop = false;
 
 //nav
-$(".burger").on("click",function() {
-  $("nav").toggleClass('show');
-  $(".burger").toggleClass('burger-show');
+$(".burger").on("click", function() {
+  $("nav").toggleClass("show");
+  $(".burger").toggleClass("burger-show");
 });
 
 $(".nav-link").click(function(e) {
   scrolledTop = true;
   $("#scroll").css({ display: "none" });
-  $(".burger").toggleClass('burger-show');
-  $("nav").toggleClass('show');
+  $(".burger").toggleClass("burger-show");
+  $("nav").toggleClass("show");
   e.preventDefault();
   $("html,body").animate({
     scrollTop: $(
@@ -80,7 +80,10 @@ window.addEventListener("resize", resizeSnake);
 window.addEventListener("load", resizeSnake);
 
 function resizeSnake() {
-  if ($(document).width() <= 1024 || $("#snake-game").css('display') == 'none') {
+  if (
+    $(document).width() <= 1024 ||
+    $("#snake-game").css("display") == "none"
+  ) {
     $("#skills-box").css({
       "padding-left": "0"
     });
@@ -210,9 +213,11 @@ $("#mail").focusout(function() {
   $(this).attr("placeholder", "Email");
 });
 
-document.getElementById('form').addEventListener('submit', function(e) {
-  e.preventDefault(); 
-  alert('Niestety ta opcja jest niedostępna, skontaktuj sie za pomocą LinkedIn lub napisz na maila wojciech.lasak@outlook.com');
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert(
+    "Niestety ta opcja jest niedostępna, skontaktuj sie za pomocą LinkedIn lub napisz na maila wojciech.lasak@outlook.com"
+  );
 });
 
 //about
