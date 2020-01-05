@@ -28,11 +28,6 @@ sass.src = "icon-black/logo-sass2.png";
 sass.alt = "sass";
 skills.push(sass);
 
-const photoshop = new Image();
-photoshop.src = "icon-black/logo-photoshop2.png";
-photoshop.alt = "photoshop";
-skills.push(photoshop);
-
 const jquery = new Image();
 jquery.src = "icon-black/logo-jquery2.png";
 jquery.alt = "jquery";
@@ -62,6 +57,16 @@ const git = new Image();
 git.src = "icon-black/logo-git2.png";
 git.alt = "git";
 skills.push(git);
+
+const sql = new Image();
+sql.src = "icon-black/logo-sql2.png";
+sql.alt = "sql";
+skills.push(sql);
+
+const typescript = new Image();
+typescript.src = "icon-black/logo-typescript2.png";
+typescript.alt = "typescript";
+skills.push(typescript);
 
 //audio
 
@@ -112,26 +117,33 @@ down.src = "audio/down.mp3";
   function resizeCanvas() {
     cvs.width = $("#snake-game").width();
     cvs.height = $("#skills-container").height();
-    box = Math.floor($(window).height() / 12);
+    box = Math.floor($(window).height() / 15);
     redraw();
   }
 })();
 
 //startGame
 
-$(".snake-button:eq(0)").click(function() {
+function startGame() {
   $("#snake-button-container").hide();
   $(".snake-button:eq(0)").hide();
   $(".snake-button:eq(1)").hide();
+  $(".snake-button:eq(3)").hide();
   p = new Game();
-});
+  $("html,body").animate({
+    scrollTop: $("#snake").offset().top
+  });
+}
+
+$(".snake-button:eq(0)").click(startGame);
 
 //skip game
 $(".snake-button:eq(1)").click(function() {
   $("#snake-game").hide();
-  $("#skills-box").removeClass("col-md-5");
-  $("#skills-box").addClass("col-md-6");
   $("#snake-button-container").hide();
+  $("#skills-box").css({
+    "padding-left": "0"
+  });
   skills.forEach(element => {
     let image = $("#" + element.alt);
     image.fadeOut(0, function() {
@@ -180,9 +192,17 @@ function endGame() {
 $(".snake-button:eq(2)").click(function() {
   $(".snake-button:eq(2)").hide();
   $("#snake-game").hide();
-  $("#skills-box").removeClass("col-md-5");
-  $("#skills-box").addClass("col-md-6");
 });
+
+//repeat game
+
+function repeatGame() {
+  $("#snake-button-container").show();
+  $(".snake-button:eq(1)").css({ display: "block" });
+  $(".snake-button:eq(3)").css({ display: "block" });
+}
+
+$(".snake-button:eq(3)").click(startGame);
 
 //disable defalut key function
 
@@ -202,20 +222,17 @@ class Game {
     this.key;
     this.pause = false;
     this.snake = [];
+    this.obstacles = [];
     this.snake[0] = {
       x: $("#snake-game").width() / 2,
       y: $("#skills-container").height() / 2
     };
-    this.food = {
-      x: Math.floor(Math.random() * $("#snake-game").width()),
-      y: Math.floor(Math.random() * $("#skills-container").height()),
-      src: skills[0]
-    };
     this.score = 0;
+    this.generateObstacles();
+    this.newFood();
     this.newFood = this.newFood.bind(this);
-    this.check = this.check.bind(this);
     this.draw = this.draw.bind(this);
-    //this.collision=this.collision.bind(this);
+    this.isCollision = this.isCollision.bind(this);
     window.addEventListener("keydown", event => this.direction(event));
     window.addEventListener("keydown", event => this.pauseGame(event));
     window.addEventListener("resize", () => this.newFood(), false);
@@ -254,23 +271,44 @@ class Game {
       ) {
         this.key = "DOWN";
         down.play();
-      } else if (
-        (event.keyCode == 68 || event.keyCode == 39) &&
-        this.key != "LEFT"
-      ) {
-        this.key = "RIGHT";
-        right.play();
-      } else if (
-        (event.keyCode == 65 || event.keyCode == 37) &&
-        this.key != "RIGHT"
-      ) {
-        this.key = "LEFT";
-        left.play();
       }
     }
   }
 
-  //food
+  generateObstacles() {
+    for (let i = 0; i < 5; ++i) {
+      do {
+        this.obstacles[i] = {
+          x: Math.floor(Math.random() * $("#snake-game").width()),
+          y: Math.floor(Math.random() * $("#skills-container").height())
+        };
+      } while (
+        this.isCollision(
+          { x: this.obstacles[i].x, y: this.obstacles[i].y },
+          this.snake
+        )
+      );
+    }
+  }
+
+  isCollision(object, array) {
+    for (let i = 0; i < array.length; i++) {
+      if (
+        object.x < array[i].x + box &&
+        object.x + box > array[i].x &&
+        object.y < array[i].y + box &&
+        object.y + box > array[i].y
+      )
+        return true;
+      if (
+        object.x > $("#snake-game").width() - box ||
+        object.y > $("#skills-container").height() - box
+      )
+        return true;
+    }
+    return false;
+  }
+
   newFood() {
     do {
       this.food = {
@@ -278,12 +316,13 @@ class Game {
         y: Math.floor(Math.random() * $("#skills-container").height()),
         src: skills[Math.floor((Math.random() * skills.length) % skills.length)]
       };
-    } while (this.check(this.food.x, this.food.y));
+    } while (
+      this.isCollision(this.food, this.snake) ||
+      this.isCollision(this.food, this.obstacles)
+    );
   }
 
-  //change skills
-
-  async changeSkills(skill) {
+  changeSkills(skill) {
     let image = $("#" + skill.alt);
 
     if (
@@ -326,39 +365,6 @@ class Game {
       });
     }
   }
-  //collision
-
-  /*collision(head,array){
-		for(let i=0;i<array.length;i++){
-			if(head.x == array[i].x && head.y == array[i].y){
-				return true;
-			}
-		}
-		return false;
-	}*/
-
-  //check
-
-  check(a, b) {
-    let flag = false;
-    for (let i = 0; i < this.snake.length; i++) {
-      if (
-        a < this.snake[i].x + box &&
-        a + box > this.snake[i].x &&
-        b < this.snake[i].y + box &&
-        b + box > this.snake[i].y
-      )
-        flag = true;
-      if (
-        a > $("#snake-game").width() - box ||
-        b > $("#skills-container").height() - box
-      )
-        flag = true;
-    }
-
-    return flag;
-  }
-  //draw
 
   draw() {
     if (!this.pause) {
@@ -407,24 +413,32 @@ class Game {
         }
       }
 
+      //draw obstacels
+      for (let i = 0; i < this.obstacles.length; ++i) {
+        ctx.fillStyle = "#282828";
+        ctx.fillRect(this.obstacles[i].x, this.obstacles[i].y, box, box);
+
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#c56913";
+        ctx.strokeRect(this.obstacles[i].x, this.obstacles[i].y, box, box);
+      }
+
       //draw food
       if (skills.length > 0)
         ctx.drawImage(this.food.src, this.food.x, this.food.y, box, box);
-      /*ctx.beginPath();
-			ctx.fillStyle = '#000';
-			ctx.fillRect(this.food.x,this.food.y,box,box);
-			ctx.stroke();*/
 
-      //old head position
-      let snakeX = this.snake[0].x;
-      let snakeY = this.snake[0].y;
+      // head position
+      let head = {
+        x: this.snake[0].x,
+        y: this.snake[0].y
+      };
 
       //eat the food
       if (
-        snakeX < this.food.x + box &&
-        snakeX + box > this.food.x &&
-        snakeY < this.food.y + box &&
-        snakeY + box > this.food.y
+        head.x < this.food.x + box &&
+        head.x + box > this.food.x &&
+        head.y < this.food.y + box &&
+        head.y + box > this.food.y
       ) {
         this.score++;
         this.changeSkills(this.food.src);
@@ -443,41 +457,32 @@ class Game {
 
       //direction
       if (this.key == "LEFT") {
-        snakeX -= box / 4;
+        head.x -= box / 4;
       }
       if (this.key == "RIGHT") {
-        snakeX += box / 4;
+        head.x += box / 4;
       }
       if (this.key == "UP") {
-        snakeY -= box / 4;
+        head.y -= box / 4;
       }
       if (this.key == "DOWN") {
-        snakeY += box / 4;
+        head.y += box / 4;
       }
 
-      //add new Head
-
-      let newHead = {
-        x: snakeX,
-        y: snakeY
-      };
-
       //edges
-      if (newHead.x < 0) newHead.x = $("#snake-game").width() - box;
-      if (newHead.x + box > $("#snake-game").width()) newHead.x = 0;
-      if (newHead.y < 0) newHead.y = $("#skills-container").height() - box;
-      if (newHead.y + box > $("#skills-container").height()) newHead.y = 0;
+      if (head.x < 0) head.x = $("#snake-game").width() - box;
+      if (head.x + box > $("#snake-game").width()) head.x = 0;
+      if (head.y < 0) head.y = $("#skills-container").height() - box;
+      if (head.y + box > $("#skills-container").height()) head.y = 0;
 
       //game over
-      /*if( this.collision(newHead,this.snake)){
-				clearInterval(game);
-				dead.play();
-				ctx.fillStyle = "orange";
-				ctx.font="45px Changa one";
-				ctx.fillText("Spróbuj jeszcze raz - F5",4.2*box,5*box);
-			}*/
+      if (this.isCollision(head, this.obstacles)) {
+        clearInterval(game);
+        dead.play();
+        repeatGame();
+      }
 
-      this.snake.unshift(newHead);
+      this.snake.unshift(head);
 
       //score
       ctx.fillStyle = "orange";
@@ -487,6 +492,6 @@ class Game {
   }
 
   start() {
-    game = setInterval(this.draw, 40);
+    game = setInterval(this.draw, 50);
   }
 }

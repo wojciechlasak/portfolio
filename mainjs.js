@@ -2,16 +2,16 @@ var $ = jQuery;
 var scrolledTop = false;
 
 //nav
-$(".burger").focus(function() {
-  $("#nav").css({ right: "0" });
-  $(".burger").focusout(function() {
-    $("#nav").css({ right: "-200px" });
-  });
+$(".burger").on("click", function() {
+  $("nav").toggleClass("show");
+  $(".burger").toggleClass("burger-show");
 });
 
 $(".nav-link").click(function(e) {
   scrolledTop = true;
   $("#scroll").css({ display: "none" });
+  $(".burger").toggleClass("burger-show");
+  $("nav").toggleClass("show");
   e.preventDefault();
   $("html,body").animate({
     scrollTop: $(
@@ -22,7 +22,9 @@ $(".nav-link").click(function(e) {
   });
 });
 
-$(window).on("scroll", function() {
+$(window).on("scroll", checkHighlightLink);
+
+function checkHighlightLink() {
   var pos = $(window).scrollTop();
   if (pos >= $("#top").offset().top) {
     highlightLink("0");
@@ -33,9 +35,9 @@ $(window).on("scroll", function() {
   if (pos >= $("#about").offset().top) {
     highlightLink("2");
   }
-  if (pos >= $("#projects").offset().top) {
-    highlightLink("3");
-  }
+  // if (pos >= $("#projects").offset().top) {
+  //   highlightLink("3");
+  // }
   if (
     pos >= $("#form").offset().top ||
     pos + $(window).height() === $(document).height()
@@ -47,7 +49,7 @@ $(window).on("scroll", function() {
     $(".nav-link").removeClass("active");
     $(".nav-link:eq(" + number + ")").addClass("active");
   }
-});
+}
 
 //top
 
@@ -78,13 +80,13 @@ window.addEventListener("resize", resizeSnake);
 window.addEventListener("load", resizeSnake);
 
 function resizeSnake() {
-  if ($(document).width() <= 992) {
-    $("#snake-game").hide();
-    $("#skills-box").removeClass("col-md-5");
-    $("#skills-box").addClass("col-md-6");
-    $(".battery-container ").removeClass("mr-4");
-    $(".battery-container ").addClass("mr-3");
-    $("#snake-button-container").hide();
+  if (
+    $(document).width() <= 1024 ||
+    $("#snake-game").css("display") == "none"
+  ) {
+    $("#skills-box").css({
+      "padding-left": "0"
+    });
     skills.forEach(element => {
       let image = $("#" + element.alt);
       image.fadeOut(0, function() {
@@ -123,15 +125,12 @@ function resizeSnake() {
       });
     });
   } else {
-    $("#snake-button-container").show();
-    $("#snake-game").show();
-    $("#skills-box").addClass("col-md-5");
-    $("#skills-box").removeClass("col-md-6");
-    $(".battery-container ").addClass("mr-3");
-    $(".battery-container ").removeClass("mr-4");
+    $("#skills-box").css({
+      "padding-left": "5em"
+    });
     skills.forEach(element => {
       let image = $("#" + element.alt);
-      image.fadeOut(0, function() {
+      jQuery("#" + element.alt).fadeOut(0, function() {
         image.attr("src", "icon-black/logo-" + element.alt + ".png");
         image.fadeIn(2000);
       });
@@ -147,13 +146,6 @@ function resizeSnake() {
       });
     });
   }
-  if ($(document).width() <= 768) {
-    $(".skills-icon").removeClass("col-md-2");
-    $(".battery-container ").removeClass("col-md-1");
-  } else {
-    $(".skills-icon").addClass("col-md-2");
-    $(".battery-container ").addClass("col-md-1");
-  }
 }
 
 //projects
@@ -163,13 +155,10 @@ window.addEventListener("load", resizeProject);
 
 function resizeProject() {
   if ($(document).width() <= 768) {
-    $(".project-overlay").css({ display: "none" });
     $(".projects-container").css({ "grid-template-columns": "1fr 1fr" });
     $(".project").unbind("click");
   } else {
-    $(".project-overlay").css({ display: "flex" });
     $(".projects-container").css({ "grid-template-columns": "1fr 1fr 2fr" });
-    $(".project-big .project-overlay").css({ display: "none" });
 
     $(".project").bind("click", function() {
       let index = $(".project").index(this);
@@ -180,11 +169,9 @@ function resizeProject() {
         "grid-column": actualProject.css("grid-column"),
         "grid-row": actualProject.css("grid-row")
       });
-      $(".project-big .project-overlay").css({ display: "flex" });
       $(".project:eq(" + indexBig + ")").removeClass("project-big");
       actualProject.css({ "grid-column": "3 / auto", "grid-row": "1 / 3" });
       actualProject.addClass("project-big");
-      $(".project-big .project-overlay").css({ display: "none" });
     });
   }
 }
@@ -198,11 +185,9 @@ $(".project").click(function() {
     "grid-column": actualProject.css("grid-column"),
     "grid-row": actualProject.css("grid-row")
   });
-  $(".project-big .project-overlay").css({ display: "flex" });
   $(".project:eq(" + indexBig + ")").removeClass("project-big");
   actualProject.css({ "grid-column": "3 / auto", "grid-row": "1 / 3" });
   actualProject.addClass("project-big");
-  $(".project-big .project-overlay").css({ display: "none" });
 });
 
 //form
@@ -228,10 +213,17 @@ $("#mail").focusout(function() {
   $(this).attr("placeholder", "Email");
 });
 
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert(
+    "Niestety ta opcja jest niedostępna, skontaktuj sie za pomocą LinkedIn lub napisz na maila wojciech.lasak@outlook.com"
+  );
+});
+
 //about
 
 $(".about-bold:eq(0)").click(function() {
-  $("#about-container img").attr("src", "img/wojtek2.jpg");
+  $("#about-container img").attr("src", "img/rysy.jpeg");
   $(".about-bold:eq(0)").css({
     color: "#875a31",
     "font-weight": "500",
@@ -247,11 +239,4 @@ $(".about-bold:eq(0)").click(function() {
   }, 5000);
 });
 
-window.addEventListener("resize", resizeAbout);
-window.addEventListener("load", resizeAbout);
-
-function resizeAbout() {
-  if ($(document).width() <= 768) {
-    $("#about-container").css({ display: "block" });
-  } else $("#about-container").css({ display: "flex" });
-}
+window.addEventListener("load", checkHighlightLink);
