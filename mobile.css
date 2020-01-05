@@ -43,12 +43,18 @@
 }
 
 @media screen and (max-width: 768px) {
-  .project {
-    cursor: default;
+  .project:nth-child(5) {
+    grid-column: 1 / auto;
+    grid-row: 3 / auto;
   }
-
+  
   .project-overlay {
     display: none;
+  }
+
+  .project-big-overlay {
+    display: flex;
+    opacity: 0.8;
   }
 }
 
