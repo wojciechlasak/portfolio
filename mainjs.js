@@ -157,8 +157,10 @@ function resizeProject() {
   if ($(document).width() <= 768) {
     $(".projects-container").css({ "grid-template-columns": "1fr 1fr" });
     $(".project").unbind("click");
+    $(".project-big").css({ "grid-column": "1 / auto", "grid-row": "3 / auto" });
   } else {
     $(".projects-container").css({ "grid-template-columns": "1fr 1fr 2fr" });
+    $(".project-big").css({ "grid-column": "3 / auto", "grid-row": "1 / 3" })
 
     $(".project").bind("click", function() {
       let index = $(".project").index(this);

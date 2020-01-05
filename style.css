@@ -442,16 +442,16 @@ a .nav-link {
 
 .project-big-overlay {
   display: none;
-}
-
-.project-big .project-big-overlay {
-  display: flex;
   position: absolute;
   z-index: 1;
   background-color: #c56913;
   height: 100%;
   width: 100%;
   opacity: 0.95;
+}
+
+.project-big .project-big-overlay {
+  display: flex;
 }
 
 .project-big .project-overlay {
