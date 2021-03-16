@@ -1,0 +1,109 @@
+@import 'base.scss';
+@import 'variable.scss';
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-size: 100%;
+  font-family: "Slabo 27px", serif;
+  background-color: $grey;
+}
+
+.flexc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexr {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  padding: 0 $column
+}
+
+.column-double {
+  padding: 0 $column * 2;
+}
+
+.part {
+  background-color: $grey;
+  min-height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.25em;
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1 {
+  font-size: 3.5em;
+  text-shadow: 2px 0.7px 3px $orange;
+  text-align: center;
+}
+
+h2 {
+  color: #fff;
+  font-size: 3em;
+  margin-bottom: 0.79em;
+  border-bottom: 3px solid $orange;
+  text-shadow: 0.7px 0.7px 2px $orange;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 2em;
+  text-shadow: 0.7px 0.7px 2px $orange;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  color: #2b2b2b;
+  font-size: 0.79em;
+}
+
+h6 {
+  color: #bfbfbf;
+  font-size: 0.5em;
+  text-transform: lowercase;
+  font-weight: 600;
+}
+
+p {
+  color: #ccc;
+  margin: 0;
+}

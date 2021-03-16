@@ -1,0 +1,25 @@
+header {
+  background-image: url("../media/starrynight.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+
+  .top-container {
+    color: #fff;
+  }
+
+  .scroll-img {
+    transform: rotate(90deg);
+    width: 2.5em;
+    margin-top: 1em;
+    cursor: pointer;
+
+    path {
+      stroke: #fff;
+      fill: #fff;
+      stroke-width: 2px;
+    }
+  }
+  
+}
