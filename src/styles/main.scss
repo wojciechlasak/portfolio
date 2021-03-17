@@ -8,7 +8,6 @@ body,
   height: 100%;
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -21,7 +20,7 @@ a:hover {
 body {
   margin: 0;
   font-size: 100%;
-  font-family: "Slabo 27px", serif;
+  font-family: 'Slabo 27px', serif;
   background-color: $grey;
 }
 
@@ -38,18 +37,22 @@ body {
 }
 
 .column {
-  padding: 0 $column
+  padding: 0 $column;
 }
 
 .column-double {
   padding: 0 $column * 2;
 }
 
-.part {
+.content {
   background-color: $grey;
   min-height: 100%;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.separator {
+  border-top: 3px dotted $orange;
 }
 
 h1,
@@ -106,4 +109,15 @@ h6 {
 p {
   color: #ccc;
   margin: 0;
+  font-size: 1.1em;
+
+  span {
+    color: $orange;
+    cursor: pointer;
+  }
+}
+
+img {
+  max-width: 100%;
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
