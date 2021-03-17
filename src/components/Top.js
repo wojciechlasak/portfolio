@@ -3,15 +3,14 @@ import smoothscroll from 'smoothscroll-polyfill';
 import Air from './Air';
 import '../styles/top.scss';
 
-smoothscroll.polyfill();
-
 const Top = () => {
   const [height, setHeight] = useState(0);
   const refHeader = useRef(null);
 
   useEffect(() => {
     setHeight(refHeader.current.clientHeight);
-  });
+    smoothscroll.polyfill();
+  }, []);
 
   const handleScrollClick = () => {
     window.scrollTo({ top: height, behavior: 'smooth' });
@@ -25,8 +24,8 @@ const Top = () => {
         <Air />
         <h3>Let me intruduce myself</h3>
         <Air height={'1.5em'} />
-        <div class="flexc" onClick={handleScrollClick}>
-          <svg class="scroll-img" viewBox="0 0 100 50">
+        <div className="flexc" onClick={handleScrollClick}>
+          <svg className="scroll-img" viewBox="0 0 100 50">
             <path d="M0 25L70 25"></path>
             <path d="M70 10L70 40L90 25z"></path>
           </svg>
