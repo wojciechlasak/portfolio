@@ -36,6 +36,10 @@ body {
   flex-direction: row;
 }
 
+.column-half {
+  padding: 0 $column / 2;
+}
+
 .column {
   padding: 0 $column;
 }
