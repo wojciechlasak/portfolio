@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/snake.scss';
-import { SKILLS_ICONS } from '../constants/skillIcons';
 
 import dead from '../audio/dead.mp3';
 import eat from '../audio/eat.mp3';
@@ -40,13 +39,12 @@ class Snake extends React.Component {
           context: this.state.canvas.current.getContext('2d'),
           width: this.state.canvas.current.offsetWidth,
           height: this.state.canvas.current.offsetHeight,
-          box: Math.floor(window.innerHeight / 25),
+          box: Math.floor(window.innerHeight / 30),
         },
         () => {
           this.resizeCanvas();
           this.preapareIcons();
           this.preapareAudio();
-          this.generateObstacles();
           this.start();
         }
       );
@@ -62,12 +60,9 @@ class Snake extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props.isPause)
-    if (this.props.isPause !== prevProps.isPause)
-      this.draw();
+    if (this.props.isPause !== prevProps.isPause) this.draw();
 
     if (this.props.isRepeat !== prevProps.isRepeat) {
-    console.log("tutaj")
       this.setState({
         snake: [
           {
@@ -75,25 +70,23 @@ class Snake extends React.Component {
             y: 100 / 2,
           },
         ],
-      })
+      });
     }
   }
 
   preapareIcons() {
-    this.setState(
-      {
-        skills: [
-          ...SKILLS_ICONS.map(skill => {
-            let newImage = new Image();
-            newImage.src = skill.src;
-            return newImage;
-          }),
-        ],
-      },
-      () => {
-        this.newFood();
-      }
-    );
+    this.setState({
+      skills: [
+        ...this.props.skillsIcons.map(skill => {
+          let newImage = new Image();
+          newImage.src = skill.src;
+          return {
+            image: newImage,
+            index: skill.index,
+          };
+        }),
+      ],
+    });
   }
 
   preapareAudio() {
@@ -113,12 +106,13 @@ class Snake extends React.Component {
     if (this.state.canvas.current) {
       this.setState(
         {
-          box: Math.floor(window.innerHeight / 25),
+          box: Math.floor(window.innerHeight / 30),
           width: this.state.canvas.current.offsetWidth,
           height: this.state.canvas.current.offsetHeight,
         },
         () => {
           this.generateObstacles();
+          this.newFood();
         }
       );
     }
@@ -134,7 +128,7 @@ class Snake extends React.Component {
 
   pauseGame = event => {
     if (event.keyCode === 80) {
-      this.props.handlePause(true)
+      this.props.handlePause(true);
     }
   };
 
@@ -214,11 +208,14 @@ class Snake extends React.Component {
     let newFood;
 
     do {
+      const randomNumber = Math.floor(
+        (Math.random() * skills.length) % skills.length
+      );
       newFood = {
         x: Math.floor(Math.random() * (width - box - box) + box),
         y: Math.floor(Math.random() * (height - box - box) + box),
-        image:
-          skills[Math.floor((Math.random() * skills.length) % skills.length)],
+        image: skills[randomNumber].image,
+        index: skills[randomNumber].index,
       };
     } while (
       this.isCollision(newFood, snake) ||
@@ -241,7 +238,6 @@ class Snake extends React.Component {
       height,
       key,
       score,
-      skills,
       audio,
     } = this.state;
     if (!this.props.isPause) {
@@ -297,7 +293,7 @@ class Snake extends React.Component {
       }
 
       // draw food
-      if (skills.length > 0) {
+      if (this.state.skills.length > 0) {
         context.drawImage(food.image, food.x, food.y, box, box);
       }
 
@@ -317,14 +313,22 @@ class Snake extends React.Component {
         this.setState(prevState => ({
           score: prevState.score + 1,
         }));
-        // this.changeSkills(this.food.src);
-        let index = skills.indexOf(food.image);
-        skills.splice(index, 1);
-        if (skills.length > 0) this.newFood();
-        else {
-          this.props.handlePause(true);
-          this.props.handleEnd(true);
-        }
+        this.props.handleChangeSkill(food.index);
+        this.setState(
+          prevState => ({
+            skills: prevState.skills.filter(value => {
+              console.log(value, food, value.index !== food.index);
+              return value.index !== food.index;
+            }),
+          }),
+          () => {
+            if (this.state.skills.length > 0) this.newFood();
+            else {
+              this.props.handlePause(true);
+              this.props.handleEnd(true);
+            }
+          }
+        );
         audio['eat'].play();
       } else {
         snake.pop();
@@ -353,6 +357,7 @@ class Snake extends React.Component {
       //game over
       if (this.isCollision(head, obstacles)) {
         audio['dead'].play();
+        this.setState({ key: null, score: 0 });
         this.props.handlePause(true);
         this.props.handleRepeat(true);
       }

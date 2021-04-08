@@ -1,0 +1,87 @@
+@import 'variable.scss';
+
+.burger {
+  width: 40px;
+  height: 35px;
+  position: fixed;
+  border: 0;
+  top: 20px;
+  right: 20px;
+  border-top: 5px solid #fff;
+  background: transparent;
+  transition: 0.3s transform linear;
+  cursor: pointer;
+  z-index: 2;
+  outline: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    border-top: 5px solid #fff;
+    transform: translateY(10px);
+  }
+
+  &::after {
+    transform: translateY(25px);
+    transition: 0.3s transform linear;
+  }
+
+  &.burger-show {
+    transform: rotate(45deg) translateY(5px);
+    border: none;
+
+    &::after {
+      transform: rotate(-90deg) translateX(-10px);
+    }
+  }
+}
+
+nav {
+  width: 200px;
+  position: fixed;
+  background-color: #212121;
+  height: 100%;
+  top: 0;
+  border-left: 3px dotted $orange;
+  z-index: 1;
+  transition: 1s;
+
+  .nav-container {
+    margin-top: 50%;
+
+    .nav-link {
+      margin: 15px 0;
+      height: 50px;
+      color: #fff;
+      font-size: 1.5em;
+      margin-bottom: 0;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        border-bottom: 3px solid $orange;
+        width: 0;
+        transition: 0.3s;
+        display: inline-block;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &.active {
+        &::after {
+          content: '';
+          border-bottom: 3px solid $orange;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
