@@ -1,9 +1,6 @@
 import React from 'react';
 import '../styles/snake.scss';
-import htmlIcon from '../media/logo-html2.png';
-import cssIcon from '../media/logo-css2.png';
-import jsIcon from '../media/logo-javascript2.png';
-import tsIcon from '../media/logo-typescript2.png';
+import { SKILLS_ICONS } from '../constants/skillIcons';
 
 import dead from '../audio/dead.mp3';
 import eat from '../audio/eat.mp3';
@@ -11,9 +8,6 @@ import up from '../audio/up.mp3';
 import right from '../audio/right.mp3';
 import down from '../audio/down.mp3';
 import left from '../audio/left.mp3';
-
-const ICONS = [htmlIcon, cssIcon, jsIcon, tsIcon];
-
 class Snake extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +18,6 @@ class Snake extends React.Component {
       context: null,
       box: 5,
       key: null,
-      pause: false,
       snake: [
         {
           x: 100 / 2,
@@ -68,13 +61,31 @@ class Snake extends React.Component {
     window.removeEventListener('keydown', this.preventDefaultKeys);
   }
 
+  componentDidUpdate(prevProps) {
+    console.log(this.props.isPause)
+    if (this.props.isPause !== prevProps.isPause)
+      this.draw();
+
+    if (this.props.isRepeat !== prevProps.isRepeat) {
+    console.log("tutaj")
+      this.setState({
+        snake: [
+          {
+            x: 100 / 2,
+            y: 100 / 2,
+          },
+        ],
+      })
+    }
+  }
+
   preapareIcons() {
     this.setState(
       {
         skills: [
-          ...ICONS.map(icon => {
+          ...SKILLS_ICONS.map(skill => {
             let newImage = new Image();
-            newImage.src = icon;
+            newImage.src = skill.src;
             return newImage;
           }),
         ],
@@ -123,16 +134,13 @@ class Snake extends React.Component {
 
   pauseGame = event => {
     if (event.keyCode === 80) {
-      this.setState(prevState => ({
-        pause: !prevState.pause,
-      }));
+      this.props.handlePause(true)
     }
   };
 
   direction = event => {
-    const { pause, key, audio } = this.state;
-    console.log(audio);
-    if (!pause) {
+    const { key, audio } = this.state;
+    if (!this.props.isPause) {
       if ((event.keyCode === 65 || event.keyCode === 37) && key !== 'RIGHT') {
         this.setState({
           key: 'LEFT',
@@ -205,7 +213,6 @@ class Snake extends React.Component {
     const { skills, snake, obstacles, width, height, box } = this.state;
     let newFood;
 
-    console.log(skills);
     do {
       newFood = {
         x: Math.floor(Math.random() * (width - box - box) + box),
@@ -225,7 +232,6 @@ class Snake extends React.Component {
 
   draw = () => {
     const {
-      pause,
       context,
       snake,
       box,
@@ -238,7 +244,7 @@ class Snake extends React.Component {
       skills,
       audio,
     } = this.state;
-    if (!pause) {
+    if (!this.props.isPause) {
       context.clearRect(0, 0, width, height);
       //draw ground
       context.beginPath();
@@ -316,14 +322,11 @@ class Snake extends React.Component {
         skills.splice(index, 1);
         if (skills.length > 0) this.newFood();
         else {
-          this.setState({
-            pause: true,
-          });
-          // endGame();
+          this.props.handlePause(true);
+          this.props.handleEnd(true);
         }
         audio['eat'].play();
       } else {
-        //remove
         snake.pop();
       }
 
@@ -349,11 +352,9 @@ class Snake extends React.Component {
 
       //game over
       if (this.isCollision(head, obstacles)) {
-        this.setState({
-          pause: true,
-        });
         audio['dead'].play();
-        // repeatGame();
+        this.props.handlePause(true);
+        this.props.handleRepeat(true);
       }
 
       snake.unshift(head);

@@ -5,3 +5,30 @@
   height: 60vh;
   width: 80vw;
 }
+
+.snake-button-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+
+  .snake-button {
+    color: #434343;
+    font-size: 1.5em;
+    text-align: center;
+    border: 3px dotted #c56913;
+    min-width: 50px;
+    max-width: 250px;
+    background-color: #fff;
+    padding: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+  
+    &:nth-child(1) {margin-bottom: 0.8em;}
+    &:nth-child(3) {display: none;}
+    &:nth-child(4) {
+      margin-top: 0.8em;
+      display: none;
+    }
+  }
+}
