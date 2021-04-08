@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import Container from './Container';
 import ProfileImg from '../media/wojtek.jpg';
 import MountainImg from '../media/rysy.jpeg';
 
-const About = () => {
+const About = (props, ref) => {
   const [isMountains, setIsMountains] = useState(false);
 
   const handleSpanClick = () => {
@@ -13,7 +13,7 @@ const About = () => {
     }, 3000);
   };
   return (
-    <Container title="About">
+    <Container title="About" ref={ref}>
       <div className="flex">
         <div className="col2 column">
           <img src={isMountains ? MountainImg : ProfileImg} alt="wojtek" />
@@ -47,4 +47,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default forwardRef(About);

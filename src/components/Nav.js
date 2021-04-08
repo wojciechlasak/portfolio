@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import NavLink from '../components/NavLink';
 import '../styles/nav.scss';
 
-const Nav = () => {
+const Nav = ({ goTo, currentSection }) => {
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -12,21 +13,26 @@ const Nav = () => {
       />
       <nav style={{ right: isShow ? 0 : '-200px' }}>
         <div className="nav-container flexc">
-          <a href="#top">
-            <div class="nav-link">Home</div>
-          </a>
-          <a href="#snake">
-            <div class="nav-link">Skills</div>
-          </a>
-          <a href="#about">
-            <div class="nav-link">About</div>
-          </a>
-          <a href="#projects">
-            <div class="nav-link">Projects</div>
-          </a>
-          <a href="#form">
-            <div class="nav-link">Contact</div>
-          </a>
+          <NavLink
+            title={'Home'}
+            onClick={() => goTo('Top')}
+            isCurrent={currentSection === 'top'}
+          />
+          <NavLink
+            title={'Skills'}
+            onClick={() => goTo('Skills')}
+            isCurrent={currentSection === 'skills'}
+          />
+          <NavLink
+            title={'About'}
+            onClick={() => goTo('About')}
+            isCurrent={currentSection === 'about'}
+          />
+          <NavLink
+            title={'Contact'}
+            onClick={() => goTo('Contact')}
+            isCurrent={currentSection === 'contact'}
+          />
         </div>
       </nav>
     </>

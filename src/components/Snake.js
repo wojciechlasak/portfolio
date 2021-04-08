@@ -316,10 +316,9 @@ class Snake extends React.Component {
         this.props.handleChangeSkill(food.index);
         this.setState(
           prevState => ({
-            skills: prevState.skills.filter(value => {
-              console.log(value, food, value.index !== food.index);
-              return value.index !== food.index;
-            }),
+            skills: prevState.skills.filter(
+              value => value.index !== food.index
+            ),
           }),
           () => {
             if (this.state.skills.length > 0) this.newFood();

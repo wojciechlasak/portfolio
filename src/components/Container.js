@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Air from './Air';
 
-const Container = ({ children, title }) => {
+const Container = ({ children, title }, ref) => {
   return (
-    <div className="content column flexc separator">
+    <div ref={ref} className="content column flexc separator">
       <Air />
       <h2>{title}</h2>
       {children}
@@ -12,4 +12,4 @@ const Container = ({ children, title }) => {
   );
 };
 
-export default Container;
+export default forwardRef(Container);

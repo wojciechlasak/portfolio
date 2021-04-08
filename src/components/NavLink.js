@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/nav.scss';
 
-const NavLink = ({ ref, title }) => (
-  <a href={ref}>
-    <div className="nav-link">{title}</div>
-  </a>
+const NavLink = ({ title, onClick, isCurrent }) => (
+  <div className={isCurrent ? 'nav-link active' : 'nav-link'} onClick={onClick}>
+    {title}
+  </div>
 );
 
 export default NavLink;

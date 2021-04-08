@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, forwardRef } from 'react';
 import Container from './Container';
 import Snake from './Snake';
 import Battery from './Battery';
 import { SKILLS_ICONS } from '../constants/skillIcons';
 
-const Skills = () => {
+const Skills = (props, ref) => {
   const [isPause, setIsPause] = useState(true);
   const [isShowEnd, setIsShowEnd] = useState(false);
   const [isStart, setIsStart] = useState(false);
@@ -20,7 +20,7 @@ const Skills = () => {
   );
 
   return (
-    <Container title="Skills">
+    <Container title="Skills" ref={ref}>
       <div className="flex">
         {shouldShowSnake && (
           <div className="col2">
@@ -126,4 +126,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default forwardRef(Skills);

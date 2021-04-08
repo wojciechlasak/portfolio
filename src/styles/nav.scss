@@ -77,8 +77,6 @@ nav {
 
       &.active {
         &::after {
-          content: '';
-          border-bottom: 3px solid $orange;
           width: 100%;
         }
       }

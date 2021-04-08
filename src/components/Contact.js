@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Container from './Container';
 import '../styles/contact.scss';
 
-const Contact = () => {
+const Contact = (props, ref) => {
   return (
-    <Container title="Contact">
+    <Container title="Contact" ref={ref}>
       <form className="form-container flexc column-double" method="post">
         <input id="name" placeholder="Name" type="text" name="name" />
         <input id="mail" placeholder="Email" type="text" name="mail" />
@@ -20,4 +20,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default forwardRef(Contact);
