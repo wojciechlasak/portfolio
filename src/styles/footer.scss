@@ -1,0 +1,25 @@
+@import 'variable.scss';
+
+footer {
+  background-color: #000;
+
+  .ficon-container {
+    justify-content: center;
+    padding: 1em 0;
+  }
+
+  .ficon {
+    height: 4em;
+    margin: 0 1em;
+    cursor: pointer;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  h5 span {
+    color: $orange;
+  }
+}
