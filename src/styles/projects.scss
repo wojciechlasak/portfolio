@@ -1,0 +1,75 @@
+@import 'variable.scss';
+
+.projects-container {
+  width: 100%;
+  min-height: 75vh;
+  display: grid;
+  grid-gap: 5px;
+
+  .project {
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      .project-overlay {
+        opacity: 0.8;
+      }
+
+      .project-title {
+        top: 0;
+      }
+
+      .project-button {
+        bottom: 0;
+      }
+    }
+
+    .project-overlay {
+      display: flex;
+      position: absolute;
+      z-index: 1;
+      background-color: $orange;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .project-title {
+      color: #fff;
+      font-size: 2em;
+      margin-bottom: 0.79em;
+      z-index: 2;
+      position: relative;
+      top: -100%;
+      transition: top 1s;
+    }
+
+    .project-button {
+      z-index: 2;
+      position: relative;
+      bottom: -100%;
+      transition: bottom 1s;
+
+      button {
+        color: #fff;
+        border: 1px solid #fff;
+        background-color: $orange;
+        border-radius: 5px;
+        padding: 0.5em;
+        transition: 0.3s;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #fff;
+          color: $orange;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
