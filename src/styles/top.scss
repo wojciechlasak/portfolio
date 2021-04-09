@@ -1,5 +1,5 @@
 header {
-  background-image: url("../media/starrynight.jpg");
+  background-image: url('../media/starrynight.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,6 +14,11 @@ header {
     width: 2.5em;
     margin-top: 1em;
     cursor: pointer;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: rotate(90deg) translateX(10px);
+    }
 
     path {
       stroke: #fff;
@@ -21,5 +26,4 @@ header {
       stroke-width: 2px;
     }
   }
-  
 }
