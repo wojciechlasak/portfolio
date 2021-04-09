@@ -1,9 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import smoothscroll from 'smoothscroll-polyfill';
+import Container from '../components/Container';
 import Nav from '../components/Nav';
 import Top from '../components/Top';
 import Skills from '../components/Skills';
 import About from '../components/About';
+import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import '../styles/main.scss';
@@ -12,40 +14,56 @@ const IndexPage = () => {
   const topRef = useRef();
   const skillsRef = useRef();
   const aboutRef = useRef();
+  const projectsRef = useRef();
   const contactRef = useRef();
   const [currentSection, setCurrentSection] = useState(null);
+  const [sections, setSections] = useState([]);
 
-  const checkCurrentSection = () => {
-    const sections = [
-      {
-        offset: topRef.current.offsetTop,
-        name: 'top',
-      },
-      {
-        offset: skillsRef.current.offsetTop,
-        name: 'skills',
-      },
-      {
-        offset: aboutRef.current.offsetTop,
-        name: 'about',
-      },
-      {
-        offset: contactRef.current.offsetTop,
-        name: 'contact',
-      },
-    ];
-
+  const checkCurrentSection = useCallback(() => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
 
     const scrolled = winScroll;
 
     sections.forEach(section => {
-      if (section.offset <= scrolled && currentSection !== section.name) {
-        setCurrentSection(section.name);
+      if (
+        currentSection !== section.slug &&
+        section.ref.current.offsetTop <= scrolled
+      ) {
+        setCurrentSection(section.slug);
       }
     });
-  };
+  }, [sections]);
+
+  useEffect(() => {
+    setSections([
+      {
+        ref: topRef,
+        name: 'Home',
+        slug: 'top',
+      },
+      {
+        ref: skillsRef,
+        name: 'Skills',
+        slug: 'skills',
+      },
+      {
+        ref: aboutRef,
+        name: 'About',
+        slug: 'about',
+      },
+      {
+        ref: projectsRef,
+        name: 'Projects',
+        slug: 'projects',
+      },
+      {
+        ref: contactRef,
+        name: 'Contact',
+        slug: 'contact',
+      },
+    ]);
+  }, []);
 
   useEffect(() => {
     smoothscroll.polyfill();
@@ -55,34 +73,35 @@ const IndexPage = () => {
     return () => {
       window.removeEventListener('scroll', checkCurrentSection);
     };
-  }, []);
+  }, [sections]);
 
-  const handleScroll = section => {
-    switch (section) {
-      case 'Top':
-        topRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 'Skills':
-        skillsRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 'About':
-        aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      case 'Contact':
-        contactRef.current.scrollIntoView({ behavior: 'smooth' });
-        break;
-      default:
-        break;
-    }
+  const handleScroll = sectionSlug => {
+    sections.forEach(section => {
+      if (section.slug === sectionSlug)
+        section.ref.current.scrollIntoView({ behavior: 'smooth' });
+    });
   };
 
   return (
     <>
-      <Nav goTo={handleScroll} currentSection={currentSection} />
+      <Nav
+        goTo={handleScroll}
+        sections={sections}
+        currentSection={currentSection}
+      />
       <Top ref={topRef} goTo={handleScroll} />
-      <Skills ref={skillsRef} />
-      <About ref={aboutRef} />
-      <Contact ref={contactRef} />
+      <Container title="Skills" ref={skillsRef}>
+        <Skills />
+      </Container>
+      <Container title="About" ref={aboutRef}>
+        <About />
+      </Container>
+      <Container title="Projects" ref={projectsRef}>
+        <Projects />
+      </Container>
+      <Container title="Contact" ref={contactRef}>
+        <Contact />
+      </Container>
       <Footer />
     </>
   );

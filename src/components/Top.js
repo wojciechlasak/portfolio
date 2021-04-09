@@ -16,7 +16,7 @@ const Top = ({ goTo }, ref) => {
             className="scroll-img"
             viewBox="0 0 100 50"
             onClick={() => {
-              goTo('Skills');
+              goTo('skills');
             }}
           >
             <path d="M0 25L70 25"></path>
