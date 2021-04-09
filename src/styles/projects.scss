@@ -4,26 +4,29 @@
   width: 100%;
   min-height: 75vh;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 0.75em;
 
   .project {
     background-position: center;
     background-size: cover;
-    cursor: pointer;
     position: relative;
-    overflow: hidden;
 
     &:hover {
+      .project-desc {
+        opacity: 1;
+      }
+
       .project-overlay {
-        opacity: 0.8;
+        opacity: 0.9;
       }
+      .project-in {
+        .project-title {
+          top: 0;
+        }
 
-      .project-title {
-        top: 0;
-      }
-
-      .project-button {
-        bottom: 0;
+        .project-button {
+          bottom: 0;
+        }
       }
     }
 
@@ -35,39 +38,72 @@
       height: 100%;
       width: 100%;
       opacity: 0;
-      transition: 0.5s;
+      transition: opacity 0.5s;
     }
 
-    .project-title {
-      color: #fff;
-      font-size: 2em;
-      margin-bottom: 0.79em;
+    .project-desc {
+      position: absolute;
       z-index: 2;
-      position: relative;
-      top: -100%;
-      transition: top 1s;
-    }
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transition: opacity 0.5s;
 
-    .project-button {
-      z-index: 2;
-      position: relative;
-      bottom: -100%;
-      transition: bottom 1s;
-
-      button {
-        color: #fff;
-        border: 1px solid #fff;
-        background-color: $orange;
-        border-radius: 5px;
+      p {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 0;
+        color: $orange;
+        font-weight: 600;
+        border-left: 2px dashed $orange;
+        border-bottom: 2px dashed $orange;
         padding: 0.5em;
-        transition: 0.3s;
-        text-transform: uppercase;
-        cursor: pointer;
+        background-color: #fff;
+      }
+    }
 
-        &:hover {
-          background-color: #fff;
-          color: $orange;
-          font-weight: 500;
+    .project-in {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      .project-desc {
+        position: absolute;
+      }
+
+      .project-title {
+        color: #fff;
+        font-size: 2em;
+        margin-bottom: 0.79em;
+        z-index: 2;
+        position: relative;
+        top: -100%;
+        transition: top 1s;
+      }
+
+      .project-button {
+        z-index: 2;
+        position: relative;
+        bottom: -100%;
+        transition: bottom 1s;
+
+        button {
+          color: #fff;
+          border: 1px solid #fff;
+          background-color: $orange;
+          border-radius: 5px;
+          padding: 0.5em;
+          transition: 0.3s;
+          text-transform: uppercase;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #fff;
+            color: $orange;
+            font-weight: 500;
+          }
         }
       }
     }
