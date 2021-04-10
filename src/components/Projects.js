@@ -5,15 +5,9 @@ import '../styles/projects.scss';
 
 const Projects = () => {
   return (
-    <div
-      className="projects-container"
-      style={{
-        gridTemplateColumns: `repeat(${PROJECTS.length / 3}, 1fr)`,
-        gridTemplateRows: `repeat(${PROJECTS.length / 3}, 1fr)`,
-      }}
-    >
+    <div className="projects-container column">
       {PROJECTS.map(project => (
-        <Project project={project} />
+        <Project key={project.name} project={project} />
       ))}
     </div>
   );

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/projects.scss';
 
 const Project = ({ project }) => {
+  const [isShowMore, setIsShowMore] = useState(false);
+
   return (
     <div
-      key={project.name}
-      className="project"
+      className={isShowMore ? 'project active' : 'project'}
       style={{ backgroundImage: `url(${project.bg})` }}
+      onClick={() => setIsShowMore(prevIsShowMore => !prevIsShowMore)}
     >
       <div className="project-desc">
         <p>{project.desc}</p>

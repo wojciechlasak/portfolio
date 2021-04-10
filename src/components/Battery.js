@@ -27,22 +27,20 @@ const Battery = ({ skillIcon, skillName, batteryLevel, active }) => {
     }
   };
   return (
-    <div className="col4 column flex">
-      <div className="battery-container">
-        <div className="battery-head"></div>
-        <div className="battery-body">
-          <div className="skill-icon">
-            <img src={skillIcon} alt={skillName} />
-            <h4>{skillName}</h4>
-          </div>
-          <div
-            className="battery-body-in"
-            style={{
-              backgroundColor: getColor(batteryLevel),
-              height: active ? getHeight(batteryLevel) : 0,
-            }}
-          />
+    <div className="battery-container column-half flex">
+      <div className="battery-head"></div>
+      <div className="battery-body">
+        <div className="skill-icon">
+          <img src={skillIcon} alt={skillName} />
+          <h4>{skillName}</h4>
         </div>
+        <div
+          className="battery-body-in"
+          style={{
+            backgroundColor: getColor(batteryLevel),
+            height: active ? getHeight(batteryLevel) : 0,
+          }}
+        />
       </div>
     </div>
   );

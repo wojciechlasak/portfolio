@@ -1,3 +1,5 @@
+@import 'variable.scss';
+
 .snake-game {
   background-color: #5c5c5c;
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
@@ -22,10 +24,15 @@
     padding: 1.2em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-  
-    &:nth-child(1) {margin-bottom: 0.8em;}
-    &:nth-child(3) {display: none;}
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2),
+      0 12px 40px 0 rgba(0, 0, 0, 0.19);
+
+    &:nth-child(1) {
+      margin-bottom: 0.8em;
+    }
+    &:nth-child(3) {
+      display: none;
+    }
     &:nth-child(4) {
       margin-top: 0.8em;
       display: none;

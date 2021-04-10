@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Air from './Air';
 import ProfileImg from '../media/wojtek.jpg';
 import MountainImg from '../media/rysy.jpeg';
 
@@ -12,9 +13,10 @@ const About = () => {
     }, 3000);
   };
   return (
-    <div className="flex">
+    <div className="flex flex-mobile">
       <div className="col2 column">
         <img src={isMountains ? MountainImg : ProfileImg} alt="wojtek" />
+        <Air className={'less-768'} />
       </div>
       <div className="col2 column flex flex-align-end">
         <p>

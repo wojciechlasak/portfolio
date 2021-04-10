@@ -39,7 +39,7 @@ export const PROJECTS = [
     desc: `TypeScript\nReact\nRedux\nSass`,
   },
   {
-    name: 'Esto Nieruchomości',
+    name: 'Esto',
     codeLink: '',
     previewLink: 'https://esto-nieruchomosci.pl/',
     bg: EstoBg,
@@ -53,7 +53,7 @@ export const PROJECTS = [
     desc: `HTML\nSass\nWordpress`,
   },
   {
-    name: 'New Education Order',
+    name: 'NEO',
     codeLink: '',
     previewLink: 'https://neweducationorder.org/',
     bg: NeoBg,

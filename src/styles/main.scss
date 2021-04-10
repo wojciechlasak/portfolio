@@ -22,6 +22,10 @@ body {
   font-size: 100%;
   font-family: 'Slabo 27px', serif;
   background-color: $grey;
+
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 0.8em;
+  }
 }
 
 .flexc {
@@ -36,16 +40,50 @@ body {
   flex-direction: row;
 }
 
+.flex-mobile {
+  @media (max-width: $mobileBreakpoint) {
+    flex-wrap: wrap;
+
+    .col2 {
+      width: 100%;
+    }
+  }
+}
+
+.more-768 {
+  @media (max-width: $mobileBreakpoint) {
+    display: none;
+  }
+}
+
+.less-768 {
+  @media (min-width: $mobileBreakpoint) {
+    display: none;
+  }
+}
+
 .column-half {
   padding: 0 $column / 2;
+
+  @media (max-width: $mobileBreakpoint) {
+    padding: 0 $column / 4;
+  }
 }
 
 .column {
   padding: 0 $column;
+
+  @media (max-width: $mobileBreakpoint) {
+    padding: 0 $column / 2;
+  }
 }
 
 .column-double {
   padding: 0 $column * 2;
+
+  @media (max-width: $mobileBreakpoint) {
+    padding: 0 $column;
+  }
 }
 
 .content {
@@ -77,6 +115,10 @@ h1 {
   font-size: 3.5em;
   text-shadow: 2px 0.7px 3px $orange;
   text-align: center;
+
+  @media (max-width: $mobileBreakpoint) {
+    font-size: 2.5em;
+  }
 }
 
 h2 {

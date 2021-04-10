@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Snake from './Snake';
 import Battery from './Battery';
 import { SKILLS_ICONS } from '../constants/skillIcons';
@@ -18,9 +18,43 @@ const Skills = () => {
     }))
   );
 
+  const checkWidth = () => {
+    const match = window.matchMedia(`(max-width: 1050px)`);
+    console.log(match);
+    if (match.matches) {
+      setShouldShowSnake(false);
+      setShouldSnakeButtons(false);
+      setSkillsIcons(
+        SKILLS_ICONS.map((icon, index) => ({
+          ...icon,
+          isShow: true,
+          index: index,
+        }))
+      );
+    } else {
+      setShouldShowSnake(true);
+      setShouldSnakeButtons(true);
+      setSkillsIcons(
+        SKILLS_ICONS.map((icon, index) => ({
+          ...icon,
+          isShow: false,
+          index: index,
+        }))
+      );
+    }
+  };
+
+  useEffect(() => {
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+    return () => {
+      window.removeEventListener('resize', checkWidth);
+    };
+  }, []);
+
   return (
     <>
-      <div className="flex">
+      <div className="flex flex-mobile">
         {shouldShowSnake && (
           <div className="col2">
             <Snake
@@ -43,7 +77,7 @@ const Skills = () => {
         )}
         <div
           className="col2 column flex flex-wrap"
-          style={{ width: shouldShowSnake ? '50%' : '50em' }}
+          style={{ width: shouldShowSnake ? '50%' : '100%' }}
         >
           {skillsIcons.map(skill => (
             <Battery
