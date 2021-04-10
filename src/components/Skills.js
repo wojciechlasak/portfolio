@@ -20,7 +20,6 @@ const Skills = () => {
 
   const checkWidth = () => {
     const match = window.matchMedia(`(max-width: 1050px)`);
-    console.log(match);
     if (match.matches) {
       setShouldShowSnake(false);
       setShouldSnakeButtons(false);

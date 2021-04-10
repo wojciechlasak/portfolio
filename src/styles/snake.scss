@@ -4,8 +4,9 @@
   background-color: #5c5c5c;
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
   max-width: 100%;
-  height: 60vh;
-  width: 80vw;
+  max-height: 80%;
+  height: 100vh;
+  width: 100vw;
 }
 
 .snake-button-container {
@@ -14,10 +15,10 @@
   position: absolute;
 
   .snake-button {
-    color: #434343;
+    color: $grey;
     font-size: 1.5em;
     text-align: center;
-    border: 3px dotted #c56913;
+    border: 3px dotted $orange;
     min-width: 50px;
     max-width: 250px;
     background-color: #fff;

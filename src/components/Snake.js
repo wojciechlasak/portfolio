@@ -366,7 +366,7 @@ class Snake extends React.Component {
       //score
       context.fillStyle = 'orange';
       context.font = '45px Changa one';
-      context.fillText(score, 1 * box, 1.2 * box);
+      context.fillText(score, 20, 40);
 
       setTimeout(() => {
         window.requestAnimationFrame(this.draw);
