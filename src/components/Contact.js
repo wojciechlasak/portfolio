@@ -72,6 +72,8 @@ const Contact = () => {
         setIsLoding(false);
       });
 
+    setIsEmailTouched(false);
+    setIsNameTouched(false);
     setName('');
     setEmail('');
     setMessage('');
@@ -123,7 +125,7 @@ const Contact = () => {
         name="submit"
         value={isLoading ? 'Sending...' : 'Send'}
         onClick={sendMessage}
-        disabled={isNameError || isEmailError || isLoading}
+        disabled={isNameError || isEmailError || !isLoading}
       />
       <div
         className={
