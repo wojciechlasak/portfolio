@@ -1,20 +1,22 @@
 module.exports = {
   siteMetadata: {
-    title: "wojciechlasak",
+    title: 'wojciechlasak',
+    siteUrl: 'https://wojciechlasak.github.io/',
+    description: `Wojciech Lasak web developer`,
   },
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-sass',
+    'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
-        path: "./src/media/",
+        name: 'images',
+        path: './src/media/',
       },
-      __key: "images",
+      __key: 'images',
     },
   ],
 };
