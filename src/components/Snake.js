@@ -29,6 +29,8 @@ class Snake extends React.Component {
       animation: null,
       skills: [],
       audio: {},
+      offsetTop: 0,
+      isOnScreen: true,
     };
   }
 
@@ -40,6 +42,7 @@ class Snake extends React.Component {
           width: this.state.canvas.current.offsetWidth,
           height: this.state.canvas.current.offsetHeight,
           box: Math.floor(window.innerHeight / 30),
+          offsetTop: this.state.canvas.current.offsetTop,
         },
         () => {
           this.resizeCanvas();
@@ -52,11 +55,13 @@ class Snake extends React.Component {
 
     window.addEventListener('resize', this.resizeCanvas);
     window.addEventListener('keydown', this.preventDefaultKeys);
+    window.addEventListener('scroll', this.checkIsOnScreen);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.resizeCanvas);
     window.removeEventListener('keydown', this.preventDefaultKeys);
+    window.removeEventListener('scroll', this.checkIsOnScreen);
   }
 
   componentDidUpdate(prevProps) {
@@ -73,6 +78,22 @@ class Snake extends React.Component {
       });
     }
   }
+
+  checkIsOnScreen = () => {
+    const scroll = window.pageYOffset;
+    if (
+      this.state.offsetTop + this.state.height > scroll &&
+      this.state.offsetTop < scroll + this.state.height
+    ) {
+      this.setState({ isOnScreen: true }, () =>
+        window.addEventListener('keydown', this.preventDefaultKeys)
+      );
+    } else {
+      this.setState({ isOnScreen: false }, () =>
+        window.removeEventListener('keydown', this.preventDefaultKeys)
+      );
+    }
+  };
 
   preapareIcons() {
     this.setState({
@@ -109,6 +130,7 @@ class Snake extends React.Component {
           box: Math.floor(window.innerHeight / 30),
           width: this.state.canvas.current.offsetWidth,
           height: this.state.canvas.current.offsetHeight,
+          offsetTop: this.state.canvas.current.offsetTop,
         },
         () => {
           this.generateObstacles();
