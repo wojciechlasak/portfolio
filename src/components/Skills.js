@@ -94,6 +94,8 @@ const Skills = () => {
           {!isStart && (
             <div
               className="snake-button flexc"
+              role="button"
+              tabIndex="0"
               onClick={() => {
                 setIsPause(false);
                 setIsStart(true);
@@ -106,6 +108,8 @@ const Skills = () => {
           {isPause && isStart && !isShowEnd && (
             <div
               className="snake-button"
+              role="button"
+              tabIndex="0"
               onClick={() => {
                 setIsPause(false);
                 setIsShowRepeat(false);
@@ -117,6 +121,8 @@ const Skills = () => {
           {(!isStart || isShowRepeat) && (
             <div
               className="snake-button"
+              role="button"
+              tabIndex="0"
               onClick={() => {
                 setShouldShowSnake(false);
                 setShouldSnakeButtons(false);
@@ -134,6 +140,8 @@ const Skills = () => {
           {isShowEnd && (
             <div
               className="snake-button"
+              role="button"
+              tabIndex="0"
               onClick={() => {
                 setShouldShowSnake(false);
                 setShouldSnakeButtons(false);
@@ -145,6 +153,8 @@ const Skills = () => {
           {isShowRepeat && (
             <div
               className="snake-button"
+              role="button"
+              tabIndex="0"
               onClick={() => {
                 setIsPause(false);
               }}

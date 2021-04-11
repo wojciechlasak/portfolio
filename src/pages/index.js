@@ -33,7 +33,7 @@ const IndexPage = () => {
         setCurrentSection(section.slug);
       }
     });
-  }, [sections]);
+  }, [sections, currentSection]);
 
   useEffect(() => {
     setSections([
@@ -73,7 +73,7 @@ const IndexPage = () => {
     return () => {
       window.removeEventListener('scroll', checkCurrentSection);
     };
-  }, [sections]);
+  }, []);
 
   const handleScroll = sectionSlug => {
     sections.forEach(section => {

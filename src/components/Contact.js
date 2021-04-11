@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
-import Air from '../components/Air';
 import '../styles/contact.scss';
 
 const EMAILJS = {
@@ -23,18 +22,6 @@ const Contact = () => {
   const [isShowSuccess, setIsShowSuccess] = useState(false);
   const [isSendError, setIsSendError] = useState(false);
 
-  useEffect(() => {
-    if (isNameTouched) {
-      validateName();
-    }
-  }, [name]);
-
-  useEffect(() => {
-    if (isEmailTouched) {
-      validateEmail();
-    }
-  }, [email]);
-
   const validateName = () => {
     name.trim() === '' ? setIsNameError(true) : setIsNameError(false);
   };
@@ -44,6 +31,18 @@ const Contact = () => {
       ? setIsEmailError(false)
       : setIsEmailError(true);
   };
+
+  useEffect(() => {
+    if (isNameTouched) {
+      validateName();
+    }
+  }, [name, isNameTouched]);
+
+  useEffect(() => {
+    if (isEmailTouched) {
+      validateEmail();
+    }
+  }, [email, isEmailTouched]);
 
   const sendMessage = event => {
     event.preventDefault();
@@ -93,9 +92,9 @@ const Contact = () => {
           borderBottom: isNameError ? '3px solid #c72510' : 'none',
         }}
       />
-      <div className="send-notification error">
-        {isNameError && 'This field is required.'}
-      </div>
+      {isNameError && (
+        <div className="send-notification error">This field is required</div>
+      )}
       <input
         placeholder="Email"
         type="email"
@@ -109,9 +108,9 @@ const Contact = () => {
           borderBottom: isEmailError ? '3px solid #c72510' : 'none',
         }}
       />
-      <div className="send-notification error">
-        {isEmailError && 'Type valid email.'}
-      </div>
+      {isEmailError && (
+        <div className="send-notification error">Type valid email</div>
+      )}
       <textarea
         placeholder="Message"
         type="text"

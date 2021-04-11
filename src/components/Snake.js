@@ -45,6 +45,7 @@ class Snake extends React.Component {
           offsetTop: this.state.canvas.current.offsetTop,
         },
         () => {
+          this.checkIsOnScreen();
           this.resizeCanvas();
           this.preapareIcons();
           this.preapareAudio();

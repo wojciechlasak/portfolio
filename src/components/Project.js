@@ -9,6 +9,8 @@ const Project = ({ project }) => {
       className={isShowMore ? 'project active' : 'project'}
       style={{ backgroundImage: `url(${project.bg})` }}
       onClick={() => setIsShowMore(prevIsShowMore => !prevIsShowMore)}
+      role="button"
+      tabIndex="0"
     >
       <div className="project-desc">
         <p>{project.desc}</p>
@@ -17,7 +19,12 @@ const Project = ({ project }) => {
       <div className="project-in flexc">
         <div className="project-title">{project.name}</div>
         {project.codeLink && (
-          <a href={project.codeLink} target="_blank" className="project-button">
+          <a
+            href={project.codeLink}
+            target="_blank"
+            className="project-button"
+            rel="noopener noreferrer"
+          >
             <button>See code</button>
           </a>
         )}
@@ -26,6 +33,7 @@ const Project = ({ project }) => {
             href={project.previewLink}
             target="_blank"
             className="project-button"
+            rel="noopener noreferrer"
           >
             <button>See project</button>
           </a>

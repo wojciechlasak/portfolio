@@ -7,7 +7,7 @@ const Nav = ({ goTo, currentSection, sections }) => {
 
   return (
     <>
-      <button
+      <div
         className={isShow ? 'burger burger-show' : 'burger'}
         onClick={() => setIsShow(prevIsShow => !prevIsShow)}
       />

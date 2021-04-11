@@ -11,7 +11,7 @@
   background: transparent;
   transition: 0.3s transform linear;
   cursor: pointer;
-  z-index: 3;
+  z-index: 11;
   outline: none;
 
   &::before,
@@ -47,7 +47,7 @@ nav {
   height: 100%;
   top: 0;
   border-left: 3px dotted $orange;
-  z-index: 2;
+  z-index: 10;
   transition: 1s;
 
   .nav-container {
