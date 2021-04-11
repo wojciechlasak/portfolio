@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
+import Air from '../components/Air';
 import '../styles/contact.scss';
 
 const EMAILJS = {
@@ -14,8 +15,25 @@ const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isEmailError, setIsEmailError] = useState(false);
+  const [isEmailTouched, setIsEmailTouched] = useState(false);
   const [isNameError, setIsNameError] = useState(false);
+  const [isNameTouched, setIsNameTouched] = useState(false);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoding] = useState(false);
+  const [isShowSuccess, setIsShowSuccess] = useState(false);
+  const [isSendError, setIsSendError] = useState(false);
+
+  useEffect(() => {
+    if (isNameTouched) {
+      validateName();
+    }
+  }, [name]);
+
+  useEffect(() => {
+    if (isEmailTouched) {
+      validateEmail();
+    }
+  }, [email]);
 
   const validateName = () => {
     name.trim() === '' ? setIsNameError(true) : setIsNameError(false);
@@ -30,13 +48,15 @@ const Contact = () => {
   const sendMessage = event => {
     event.preventDefault();
     if (isEmailError || isNameError) return;
-    let success;
 
     const templateParams = {
       from_name: name,
       from_email: email,
       message: message,
     };
+    setIsLoding(true);
+    setIsSendError(false);
+    setIsShowSuccess(false);
     emailjs
       .send(
         EMAILJS.serviceID,
@@ -44,17 +64,14 @@ const Contact = () => {
         templateParams,
         EMAILJS.userID
       )
-      .then(
-        function (response) {
-          success = true;
-          console.log(response);
-        },
-        function (err) {
-          success = false;
-          console.log(err);
-        }
-      );
-    // .then(() => this.handleSubmit(success));
+      .then(res => {
+        setIsLoding(false);
+        setIsShowSuccess(true);
+      })
+      .catch(e => {
+        setIsSendError(true);
+        setIsLoding(false);
+      });
 
     setName('');
     setEmail('');
@@ -67,26 +84,34 @@ const Contact = () => {
         placeholder="Name"
         type="text"
         name="name"
-        onChange={e => setName(e.target.value)}
-        onFocus={validateName}
-        onBlur={validateName}
+        onChange={e => {
+          setName(e.target.value);
+          setIsNameTouched(true);
+        }}
         value={name}
         style={{
           borderBottom: isNameError ? '3px solid #c72510' : 'none',
         }}
       />
+      <div className="send-notification error">
+        {isNameError && 'This field is required.'}
+      </div>
       <input
         placeholder="Email"
         type="email"
         name="email"
-        onChange={e => setEmail(e.target.value)}
-        onFocus={validateEmail}
-        onBlur={validateEmail}
+        onChange={e => {
+          setEmail(e.target.value);
+          setIsEmailTouched(true);
+        }}
         value={email}
         style={{
           borderBottom: isEmailError ? '3px solid #c72510' : 'none',
         }}
       />
+      <div className="send-notification error">
+        {isEmailError && 'Type valid email.'}
+      </div>
       <textarea
         placeholder="Message"
         type="text"
@@ -97,10 +122,24 @@ const Contact = () => {
       <input
         type="submit"
         name="submit"
-        value="Send"
+        value={isLoading ? 'Sending...' : 'Send'}
         onClick={sendMessage}
-        disabled={isNameError || isEmailError}
+        disabled={isNameError || isEmailError || isLoading}
       />
+      <div
+        className={
+          isSendError ? 'send-notification error' : 'send-notification'
+        }
+      >
+        {isShowSuccess &&
+          'Your email has been sent. I will replay to you as soon as possible.'}
+        {isSendError &&
+          `Oops... Something went wrong. Try again or write directly to ${(
+            <a href="mailto:wojciech.lasak@outlook.com">
+              wojciech.lasak@outlook.com
+            </a>
+          )}`}
+      </div>
     </form>
   );
 };
