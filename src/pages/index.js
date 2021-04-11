@@ -73,7 +73,7 @@ const IndexPage = () => {
     return () => {
       window.removeEventListener('scroll', checkCurrentSection);
     };
-  }, []);
+  }, [sections]);
 
   const handleScroll = sectionSlug => {
     sections.forEach(section => {
