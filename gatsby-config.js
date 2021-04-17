@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'wojciechlasak',
+    title: 'Wojciech Lasak',
     siteUrl: 'https://wojciechlasak.github.io/',
     description: `Wojciech Lasak web developer`,
   },

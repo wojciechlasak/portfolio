@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Helmet } from 'react-helmet';
 import smoothscroll from 'smoothscroll-polyfill';
+import Seo from '../components/Seo';
 import Container from '../components/Container';
 import Nav from '../components/Nav';
 import Top from '../components/Top';
@@ -9,7 +9,6 @@ import About from '../components/About';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import Favicon from '../media/favicon.png';
 import '../styles/main.scss';
 
 const IndexPage = () => {
@@ -86,12 +85,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Wojciech Lasak</title>
-        <link rel="canonical" href="https://wojciechlasak.github.io/" />
-        <link rel="icon" type="image/png" href={Favicon} sizes="32x32" />
-      </Helmet>
+      <Seo />
       <Nav
         goTo={handleScroll}
         sections={sections}

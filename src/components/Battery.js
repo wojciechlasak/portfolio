@@ -10,8 +10,6 @@ const Battery = ({ skillIcon, skillName, batteryLevel, active }) => {
         return '#c1b051';
       case 3:
         return '#af6057';
-      default:
-        return '#434343';
     }
   };
   const getHeight = batteryLevel => {
@@ -22,8 +20,6 @@ const Battery = ({ skillIcon, skillName, batteryLevel, active }) => {
         return '66.6666%';
       case 3:
         return '33.3333%';
-      default:
-        return '0';
     }
   };
   return (
